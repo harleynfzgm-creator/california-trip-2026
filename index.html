@@ -1,0 +1,2468 @@
+<!doctype html>
+<html lang="en" data-loc="trip">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>California Trip 2026</title>
+<meta name="description" content="California Trip 2026 planning dashboard: itinerary, lodging, costs, and booking tasks for Sep 24 - Oct 6.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#12151A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --paper:#FFFFFF;
+  --paper-soft:#EEF2F6;
+  --surface:#F7F9FB;
+  --ink:#1B1F24;
+  --ink2:#4A5158;
+  --muted:#6B7280;
+  --line:#E2E5E9;
+  --line-strong:#C7CDD4;
+  --accent:#1266BC;
+  --on-accent:#FFFFFF;
+  --leaf:#5A6721;
+  --green:#4C7050;
+  --orange:#A05F00;
+  --orange-bright:#FF9A00;
+  --loc:#5A6721;
+  --loc-soft:#E9EAD3;
+  --content-max:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    color-scheme:dark;
+    --paper:#12151A;
+    --paper-soft:#1B1F26;
+    --surface:#1E222A;
+    --ink:#E7EAEE;
+    --ink2:#AEB6C0;
+    --muted:#8890A0;
+    --line:#2A2F37;
+    --line-strong:#3F4650;
+    --accent:#85B4E8;
+    --on-accent:#0B1520;
+    --leaf:#BCC578;
+    --green:#9CC4A0;
+    --orange:#E5A64E;
+    --orange-bright:#FFAD33;
+    --loc:#BCC578;
+    --loc-soft:#34381B;
+  }
+}
+:root[data-loc="sf"]{--loc:#39678F;--loc-soft:#E2EAF1}:root[data-loc="yosemite"]{--loc:#4C7050;--loc-soft:#E0EBDD}:root[data-loc="sanjose"]{--loc:#8A6A12;--loc-soft:#F1E7C6}:root[data-loc="sandiego"]{--loc:#22767E;--loc-soft:#DBECEA}:root[data-loc="la"]{--loc:#AE5540;--loc-soft:#F4E2DA}:root[data-loc="trip"]{--loc:#5A6721;--loc-soft:#E9EAD3}@media (prefers-color-scheme:dark){:root[data-loc="sf"]{--loc:#9DBFDB;--loc-soft:#28394A}:root[data-loc="yosemite"]{--loc:#9CC4A0;--loc-soft:#273A29}:root[data-loc="sanjose"]{--loc:#D9BC61;--loc-soft:#3E3418}:root[data-loc="sandiego"]{--loc:#79C4CC;--loc-soft:#173B3E}:root[data-loc="la"]{--loc:#EBA18D;--loc-soft:#472A21}:root[data-loc="trip"]{--loc:#BCC578;--loc-soft:#34381B}}
+*,*::before,*::after{box-sizing:border-box}
+svg[hidden]{display:none}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;font:400 14.5px/1.6 var(--sans);color:var(--ink);background:var(--paper)}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:600;letter-spacing:0}
+p{margin:0}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.icon{display:inline-flex;width:16px;height:16px;vertical-align:middle;flex:none}
+.icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* Shared overline label */
+.brand-sub,.section-label,.stat-lbl,.handoff-label,.rs-date,.bridge-label,.part-kicker,.seg-meta,.d-wk,.d-mon,.sp-period,.lodging-stop-label,.cost-summary-tile span,.cot-label,.task-due,.gate-priority{font:600 10.5px/1.35 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+/* Accent crossfade when the current location changes */
+.d-num,.rs-date,.sp-period,.lodging-stop-label,.winner-dot,.mi-icon{transition:color .35s ease}
+.seg-head .seg-dot,.day-card::before{transition:background-color .35s ease,border-color .35s ease}
+/* App bar */
+.app-bar{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
+.app-bar-inner{display:flex;align-items:stretch;justify-content:space-between;gap:24px;max-width:var(--content-max);margin:0 auto;padding:0 24px;height:58px}
+.brand{display:flex;align-items:baseline;gap:12px;align-self:center;flex-shrink:0}
+.brand strong{font:italic 600 19px/1 var(--serif);color:var(--ink);white-space:nowrap}
+.brand-sub{color:var(--muted);white-space:nowrap}
+.app-nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.app-nav::-webkit-scrollbar{display:none}
+.app-nav a{position:relative;display:inline-flex;align-items:center;gap:7px;padding:0 13px;border-bottom:2px solid transparent;margin-bottom:-1px;font:500 13px/1 var(--sans);color:var(--ink2);white-space:nowrap;transition:color .2s ease,border-color .2s ease}
+.app-nav a:hover{color:var(--ink);text-decoration:none}
+.app-nav a.active{color:var(--ink);border-bottom-color:var(--ink)}
+.nav-icon{width:15px;height:15px}
+.nav-count{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;padding:0 5px;margin-left:1px;border-radius:999px;background:var(--accent);color:var(--on-accent);font:700 10.5px/1 var(--sans)}
+/* Main / screens */
+main{max-width:var(--content-max);margin:0 auto;padding:0 24px 48px}
+.screen{display:none}
+.screen.active{display:block}
+/* Badges */
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--line-strong);border-radius:999px;font:600 9.5px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);white-space:nowrap;flex:none}
+.badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--muted)}
+.badge-fixed,.badge-booked,.badge-selected{color:var(--green);border-color:color-mix(in srgb,var(--green) 45%,var(--line))}
+.badge-fixed::before,.badge-booked::before,.badge-selected::before{background:var(--green)}
+.badge-open{color:var(--orange);border-color:color-mix(in srgb,var(--orange) 45%,var(--line))}
+.badge-open::before{background:var(--orange-bright)}
+.badge-tracked{color:var(--ink2);border-color:var(--line-strong)}
+.badge-tracked::before{background:var(--ink2)}
+.badge-muted{color:var(--muted)}
+/* Masthead */
+.masthead{padding:42px 0 26px;border-bottom:1px solid var(--line-strong);margin-bottom:28px}
+.mast-title{font:600 clamp(38px,5.6vw,56px)/1.05 var(--serif);font-variation-settings:"opsz" 100;letter-spacing:-.01em;color:var(--ink);margin:0 0 8px}
+.mast-dates{font:italic 400 17px/1.45 var(--serif);color:var(--ink2)}
+.mast-stats{display:flex;flex-wrap:wrap;gap:16px 44px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.mast-stat{display:block;color:inherit}
+a.mast-stat:hover{text-decoration:none}
+a.mast-stat:hover .stat-val{color:var(--accent)}
+.stat-val{display:block;font:600 25px/1.15 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums;transition:color .2s ease}
+.stat-lbl{display:block;color:var(--muted);margin-top:4px}
+/* Route strip */
+.route-strip{display:grid;grid-template-columns:minmax(0,1.05fr) 150px minmax(0,1fr);align-items:stretch;margin-bottom:34px}
+.route-part{--part-accent:var(--leaf);min-width:0;padding-right:20px}
+.route-part.south{--part-accent:var(--orange);padding-right:0;padding-left:20px}
+.route-part-head{display:flex;align-items:baseline;gap:9px;padding:9px 0;border-bottom:1px solid var(--line);margin-bottom:14px;white-space:nowrap}
+.route-part-head span{font:600 10.5px/1.35 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--part-accent)}
+.route-part-head strong{font:600 15px/1.2 var(--serif);color:var(--ink)}
+.route-part-head small{margin-left:auto;font:400 11.5px/1.4 var(--sans);color:var(--muted)}
+.route-part-track{display:flex;align-items:stretch}
+.route-stop{flex:1 1 0;min-width:0;display:grid;grid-template-rows:auto 30px auto auto;justify-items:center;align-items:center;gap:4px;padding:2px 4px;text-decoration:none!important}
+.route-stop .rs-date{color:var(--part-accent);white-space:nowrap}
+.rs-icon-wrap{width:30px;height:30px;border-radius:50%;border:1px solid var(--line-strong);background:var(--surface);display:grid;place-items:center;color:var(--part-accent)}
+.route-stop .rs-icon{width:15px;height:15px}
+.route-stop strong{font:600 12.5px/1.25 var(--sans);color:var(--ink);text-align:center}
+.route-stop small{font:400 11px/1.35 var(--sans);color:var(--muted);text-align:center;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.route-stop:hover strong{color:var(--accent)}
+.route-line{align-self:start;margin-top:44px;flex:0 1 18px;min-width:8px;height:0;border-top:1px dashed var(--line-strong)}
+.route-flight-bridge{display:grid;place-items:center;align-content:center;text-align:center;padding:12px 8px;margin:0 20px;border-left:1px dashed var(--line-strong);border-right:1px dashed var(--line-strong);color:var(--ink)}
+.bridge-label{color:var(--muted)}
+.bridge-icon{width:20px;height:20px;color:var(--orange-bright);margin:6px 0 4px}
+.route-flight-bridge strong{font:600 13px/1.3 var(--sans)}
+.route-flight-bridge small{font:400 11px/1.4 var(--sans);color:var(--muted)}
+/* Section label */
+.section-label{color:var(--accent);margin:34px 0 16px;padding-top:12px;border-top:3px double var(--line-strong)}
+/* Key handoffs */
+.handoff-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;margin:0 0 10px}
+.handoff-card{display:block;min-width:0;color:var(--ink);text-decoration:none!important}
+.handoff-icon{width:18px;height:18px;color:var(--accent);margin-bottom:8px}
+.handoff-label{display:block;color:var(--muted);margin-bottom:5px}
+.handoff-card strong{display:block;font:600 13.5px/1.4 var(--sans);color:var(--ink);transition:color .2s ease}
+.handoff-card small{display:block;font:400 12px/1.5 var(--sans);color:var(--muted);margin-top:3px}
+.handoff-card:hover strong{color:var(--accent)}
+/* Part header (itinerary) */
+.part-header{margin:38px 0 10px;padding-top:14px;border-top:3px double var(--line-strong)}
+#screen-itinerary>.part-header:first-child{margin-top:14px}
+.part-kicker{color:var(--accent)}
+.part-title-row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-top:6px}
+.part-title-row h2{font:600 29px/1.12 var(--serif);letter-spacing:-.005em;color:var(--ink)}
+/* Timeline */
+.day-stack{position:relative;padding-left:28px;margin-bottom:10px}
+.day-stack::before{content:"";position:absolute;left:5px;top:14px;bottom:14px;width:1px;background:var(--line-strong)}
+.seg-head{position:sticky;top:58px;z-index:5;display:flex;align-items:baseline;gap:10px;padding:14px 0 8px;background:linear-gradient(var(--paper) 78%,color-mix(in srgb,var(--paper) 55%,transparent))}
+.seg-head .seg-dot{position:absolute;left:-28.5px;top:21px;width:12px;height:12px;border-radius:50%;background:var(--loc);border:2px solid var(--paper)}
+.seg-head strong{font:600 20px/1.2 var(--serif);color:var(--ink)}
+.seg-head .seg-meta{color:var(--muted)}
+.day-card{position:relative;display:grid;grid-template-columns:60px minmax(0,1fr);gap:18px;padding:16px 0 18px;border-bottom:1px solid var(--line)}
+.day-card::before{content:"";position:absolute;left:-27px;top:26px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:1.5px solid var(--loc)}
+.day-date{padding-top:1px}
+.d-wk{display:block;color:var(--muted)}
+.d-num{display:block;font:600 29px/1.05 var(--serif);color:var(--loc);font-variant-numeric:tabular-nums;margin:2px 0 1px}
+.d-mon{display:block;color:var(--muted)}
+.day-main{min-width:0}
+.day-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.day-headline{font:600 17.5px/1.3 var(--serif);color:var(--ink)}
+.day-activity{font:400 13.5px/1.6 var(--sans);color:var(--ink2);margin-top:6px;max-width:68ch}
+.day-move{display:flex;align-items:flex-start;gap:7px;margin-top:8px;font:400 12.5px/1.5 var(--sans);color:var(--muted)}
+.mi-icon{width:14px;height:14px;color:var(--loc);margin-top:2px}
+.mi-text{min-width:0}
+.day-card-details{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+/* Disclosures */
+details.disclosure>summary{display:flex;align-items:center;gap:8px;padding:7px 14px;font:600 12px/1.4 var(--sans);color:var(--ink2);cursor:pointer;list-style:none;user-select:none}
+details.disclosure>summary::-webkit-details-marker{display:none}
+details.disclosure>summary::after{content:"›";font-size:13px;opacity:.65;transition:transform .2s ease;display:inline-block;margin-left:auto}
+details.disclosure[open]>summary::after{transform:rotate(90deg)}
+details.disclosure>summary:hover{color:var(--ink)}
+.disclosure-body{padding:2px 14px 14px}
+.sum-count{font:400 11px/1.4 var(--sans);color:var(--muted)}
+.day-card-details details.disclosure{border:1px solid var(--line-strong);border-radius:999px;background:var(--surface)}
+.day-card-details details.disclosure[open]{flex:1 1 100%;border-radius:10px}
+/* Schedule grid */
+.sched-grid{display:grid;grid-template-columns:96px minmax(0,1fr);font:400 13px/1.55 var(--sans)}
+.sp-label{padding:10px 10px 10px 0;border-top:1px solid var(--line)}
+.sched-grid .sp-label:first-child{border-top:0}
+.sched-grid .sp-label:first-child+.sp-content{border-top:0}
+.sp-period{display:block;color:var(--loc)}
+.sp-time{display:block;font:400 11.5px/1.4 var(--sans);color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.sp-content{padding:10px 0 10px 14px;border-top:1px solid var(--line);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:2px;min-width:0}
+.sp-title{font:600 13.5px/1.4 var(--sans);color:var(--ink)}
+.sp-sum{color:var(--ink2);font:400 12.5px/1.55 var(--sans)}
+.vb-row{font:400 12px/1.5 var(--sans);color:var(--muted)}
+.vb-row b{color:var(--ink2);font-weight:600}
+/* Maps */
+.map-wrap{display:flex;flex-direction:column;gap:10px}
+.map-btns{display:flex;flex-wrap:wrap;gap:6px}
+.map-btn{min-height:30px;padding:0 12px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);font:600 11.5px/1 var(--sans);color:var(--ink2);cursor:pointer}
+.map-btn:hover{border-color:var(--ink);color:var(--ink)}
+.map-btn.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.map-open-link{font:600 12px/1.4 var(--sans);color:var(--accent);display:block;margin-bottom:6px}
+.map-frame{width:100%;height:320px;border:1px solid var(--line);border-radius:8px;display:block;background:var(--paper-soft)}
+/* Day pills */
+.day-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.day-pills a{display:inline-flex;align-items:center;min-height:22px;padding:0 9px;border:1px solid var(--line-strong);border-radius:999px;font:600 10px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.day-pills a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+/* Costs */
+.cost-total-banner{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:26px 0 16px;border-bottom:3px double var(--line-strong);margin-bottom:20px}
+.cot-label{display:block;color:var(--accent)}
+.cot-val{display:block;font:600 36px/1.1 var(--serif);color:var(--ink);margin-top:8px;font-variant-numeric:tabular-nums}
+.cot-note{font:italic 400 13px/1.55 var(--serif);color:var(--muted);text-align:right;max-width:360px}
+.cost-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;margin-bottom:18px}
+.cost-summary-tile{min-width:0}
+.cost-summary-tile span{display:block;color:var(--muted)}
+.cost-summary-tile strong{display:block;font:600 21px/1.25 var(--serif);color:var(--ink);margin-top:4px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.cost-summary-tile small{display:block;font:400 11.5px/1.5 var(--sans);color:var(--muted);margin-top:3px}
+.cost-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin:0 0 6px;font:400 12px/1.5 var(--sans);color:var(--muted)}
+.legend-pair{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.cost-group-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:6px 44px;align-items:start}
+.cost-group{min-width:0;padding-bottom:14px}
+.cost-group-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:16px 0 9px;border-bottom:2px solid var(--ink)}
+.cost-group-head h3{font:600 17px/1.25 var(--serif);color:var(--ink)}
+.cost-group-head small{font:400 11px/1.4 var(--sans);color:var(--muted)}
+.cost-group-total{font:600 14px/1.4 var(--sans);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cost-group-total span{display:block;font:600 10px/1.4 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+.cost-lines{display:grid}
+.cost-line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.cost-line-main{min-width:0}
+.cost-line-top{display:flex;align-items:center;gap:8px;min-width:0;flex-wrap:wrap}
+.cost-line-top strong{font:600 13.5px/1.4 var(--sans);color:var(--ink);min-width:0}
+.cost-line-value{font:600 13.5px/1.4 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.cost-line-note{font:400 12px/1.55 var(--sans);color:var(--muted);margin-top:3px;max-width:64ch}
+.nightly-cost-wrap{overflow-x:auto;margin-top:9px}
+.nightly-cost-table{width:100%;min-width:560px;border-collapse:collapse;font:400 11.5px/1.45 var(--sans);font-variant-numeric:tabular-nums;color:var(--ink2)}
+.nightly-cost-table th,.nightly-cost-table td{padding:6px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.nightly-cost-table th:first-child,.nightly-cost-table td:first-child{text-align:left;padding-left:0}
+.nightly-cost-table th:last-child,.nightly-cost-table td:last-child{padding-right:0}
+.nightly-cost-table thead th{font-weight:600;color:var(--muted)}
+.nightly-cost-table tbody th{font-weight:500;color:var(--ink)}
+.nightly-cost-table tfoot th,.nightly-cost-table tfoot td{border-bottom:0;border-top:1px solid var(--line-strong);font-weight:600;color:var(--ink)}
+.detail-line .cost-line-top strong,.detail-line .cost-line-value{color:var(--ink2);font-weight:500}
+.cost-badge{display:inline-flex;align-items:center;min-height:17px;padding:1px 7px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));font:600 9.5px/1.2 var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);white-space:nowrap;flex:none}
+.cost-badge.paid,.cost-badge.booked,.cost-badge.selected,.cost-badge.included{color:var(--green);border-color:color-mix(in srgb,var(--green) 45%,var(--line))}
+.cost-badge.estimate{color:var(--muted);border-color:var(--line-strong)}
+.cost-badge.optional{color:var(--orange);border-color:color-mix(in srgb,var(--orange) 45%,var(--line))}
+.cost-badge.detail,.cost-badge.note{color:var(--muted);border-color:var(--line-strong);border-style:dashed}
+.cost-basis-detail{margin-top:4px}
+.cost-basis-detail>summary{font:600 11px/1.4 var(--sans);letter-spacing:.03em;color:var(--muted);cursor:pointer;list-style:none;user-select:none}
+.cost-basis-detail>summary::-webkit-details-marker{display:none}
+.cost-basis-detail>summary:hover{color:var(--accent)}
+.cost-basis-detail p{font:400 12px/1.55 var(--sans);color:var(--muted);margin-top:4px;max-width:70ch}
+/* Lodging */
+.lodging-rail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px;margin:14px 0 6px}
+.lodging-stop{display:block;min-width:0;color:var(--ink);text-decoration:none!important;padding:10px 0 12px;border-top:2px solid var(--line-strong);transition:border-color .2s ease}
+.lodging-stop:hover{border-top-color:var(--accent)}
+.lodging-stop-head{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.lodging-stop-label{color:var(--loc)}
+.lodging-stop strong{display:block;font:600 16px/1.3 var(--serif);margin-top:7px;color:var(--ink)}
+.lodging-stop small{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font:400 11.5px/1.5 var(--sans);color:var(--muted);margin-top:4px}
+.lodging-stop-more{display:inline-flex;align-items:center;gap:3px;margin-top:9px;font:600 11px/1.2 var(--sans);color:var(--accent)}
+.lodging-stop-chevron{width:12px;height:12px;transition:transform .2s ease}
+.lodging-stop:hover .lodging-stop-chevron{transform:translateX(2px)}
+.hotel-block{margin-top:30px;padding-top:14px;border-top:3px double var(--line-strong);scroll-margin-top:80px}
+.hotel-block:target h3{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:6px}
+.hotel-block-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,380px);align-items:start;gap:24px;padding-bottom:12px}
+.hotel-block-head h3{font:600 24px/1.15 var(--serif);color:var(--ink)}
+.stay-info{font:400 12.5px/1.55 var(--sans);color:var(--muted);margin-top:4px}
+.hotel-winner-wrap{justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:4px;max-width:380px;text-align:right}
+.hotel-winner{font:italic 400 13.5px/1.55 var(--serif);color:var(--ink2)}
+.hotel-winner-price{font:600 18px/1.2 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}
+.hotel-official-link{font:600 11.5px/1.4 var(--sans);color:var(--accent)}
+.candidate-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,300px);align-items:center;gap:28px;padding:14px 12px;margin:0 -12px;border-top:1px solid var(--line)}
+.candidate-row.is-winner{background:color-mix(in srgb,var(--loc-soft) 50%,transparent);border-radius:10px;border-top-color:transparent}
+.candidate-row.is-winner+.candidate-row{border-top-color:transparent}
+.cand-name{font:600 14px/1.35 var(--sans);color:var(--ink)}
+.winner-dot{color:var(--accent)}
+.cand-role{font:400 12.5px/1.55 var(--sans);color:var(--ink2);margin-top:3px}
+.cand-meta,.cand-fit{font:400 12px/1.5 var(--sans);color:var(--muted);margin-top:3px}
+.cand-cons{opacity:.85}
+.cand-booking{margin-top:8px}
+.cand-booking>summary{font:600 11px/1.4 var(--sans);color:var(--accent);cursor:pointer;list-style:none;user-select:none}
+.cand-booking>summary::-webkit-details-marker{display:none}
+.cand-booking dl{display:grid;gap:5px;margin:8px 0 0}
+.cand-booking dl>div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px}
+.cand-booking dt{font:600 10.5px/1.45 var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.cand-booking dd{margin:0;font:400 11.5px/1.5 var(--sans);color:var(--ink2)}
+.cand-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;text-align:right;min-width:0}
+.cand-price{font:600 16px/1.2 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}
+.cand-delta{font:400 11.5px/1.4 var(--sans);color:var(--muted);font-variant-numeric:tabular-nums}
+.cand-meta a{font:600 11px/1.4 var(--sans);color:var(--accent)}
+.hotel-block details.disclosure{border-top:1px solid var(--line);margin-top:2px}
+.hotel-block details.disclosure>summary{padding:10px 0}
+.hotel-block .disclosure-body{padding:2px 0 14px}
+.source-links{display:flex;flex-wrap:wrap;gap:5px 14px;margin-top:10px}
+.source-links a{font:600 11.5px/1.4 var(--sans);color:var(--accent)}
+.decision-rule{font:italic 400 14px/1.6 var(--serif);color:var(--ink2);max-width:72ch}
+/* Tasks */
+.task-list{list-style:none;padding:0;margin:10px 0 0}
+.task-item{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:start;gap:16px;padding:17px 0;border-bottom:1px solid var(--line)}
+.task-num{font:600 24px/1.1 var(--serif);color:var(--accent);font-variant-numeric:tabular-nums}
+.task-title{font:600 14.5px/1.45 var(--sans);color:var(--ink)}
+.task-detail{font:400 12.5px/1.55 var(--sans);color:var(--muted);margin-top:4px;max-width:74ch}
+.task-side{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.task-due{color:var(--accent);white-space:nowrap}
+/* Decision gates */
+.gate-list{list-style:none;padding:0;margin:0}
+.gate-list li{display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.gate-list li:first-child{border-top:0;padding-top:6px}
+.gate-priority{color:var(--accent);flex-shrink:0;width:52px;white-space:nowrap;padding-top:2px}
+.gate-list strong{font:600 13.5px/1.5 var(--sans);color:var(--ink)}
+.gate-default{font:400 12px/1.55 var(--sans);color:var(--muted);margin-top:3px;max-width:74ch}
+/* Standalone panels (risk notes, sources, gates) */
+details.panel{border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);margin-top:20px;overflow:hidden}
+details.panel>summary{padding:11px 16px}
+details.panel .disclosure-body{padding:2px 16px 14px}
+.risk-list{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.risk-list li{font:400 12.5px/1.55 var(--sans);color:var(--ink2);padding-left:16px;position:relative}
+.risk-list li::before{content:"—";position:absolute;left:0;color:var(--accent)}
+.plan-b-panel{margin:30px 0 8px;padding:22px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:14px;background:color-mix(in srgb,var(--accent) 6%,var(--paper))}
+.plan-b-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.plan-b-kicker{font:600 10.5px/1.35 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.plan-b-head h2{margin-top:4px;font:600 clamp(22px,3vw,30px)/1.2 var(--serif)}
+.plan-b-quote{margin-top:14px;font:600 15px/1.5 var(--sans);color:var(--ink)}
+.plan-b-note{margin-top:7px;max-width:85ch;color:var(--ink2)}
+.plan-b-rules{margin-top:14px}
+.plan-b-schedule{margin-top:16px}
+.plan-b-days{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.plan-b-day{display:grid;grid-template-columns:92px minmax(0,1fr);gap:16px;padding:11px 0;border-top:1px solid var(--line)}
+.plan-b-day:first-child{border-top:0}
+.plan-b-day>span{font:600 11px/1.4 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+.plan-b-day strong{display:block;font:600 13px/1.4 var(--sans)}
+.plan-b-day p{margin-top:2px;color:var(--ink2);font-size:12.5px}
+.plan-b-link{display:inline-flex;margin-top:16px;font-weight:600}
+/* Footer */
+.source-footer{max-width:var(--content-max);margin:0 auto 44px;padding:14px 24px 0;color:var(--muted);font:italic 400 12.5px/1.5 var(--serif);text-align:right}
+.source-footer a{color:var(--accent)}
+/* Print */
+@media print{
+  .app-bar{display:none}
+  .screen{display:block;break-after:page}
+  body{background:#fff}
+  .seg-head{position:static;background:none}
+  .map-frame,.map-btns{display:none}
+  main{max-width:none;padding:0 4px}
+}
+/* Responsive */
+@media(max-width:900px){
+  .route-strip{grid-template-columns:1fr;row-gap:4px}
+  .route-part,.route-part.south{padding:0}
+  .route-flight-bridge{margin:10px 0;padding:12px 8px;border-left:0;border-right:0;border-top:1px dashed var(--line-strong);border-bottom:1px dashed var(--line-strong);grid-auto-flow:column;column-gap:10px;justify-content:center;align-items:center}
+  .bridge-icon{margin:0}
+  .handoff-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .lodging-rail{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 22px}
+  .cost-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+}
+@media(max-width:768px){
+  .app-bar-inner{padding:0 16px;height:52px}
+  .brand-sub{display:none}
+  main{padding:0 16px 48px}
+  .masthead{padding:26px 0 20px}
+  .mast-stats{gap:14px 28px;margin-top:20px}
+  .stat-val{font-size:21px}
+  .seg-head{top:52px}
+  .day-stack{padding-left:24px}
+  .seg-head .seg-dot{left:-24.5px}
+  .day-card{grid-template-columns:46px minmax(0,1fr);gap:12px}
+  .day-card::before{left:-23px}
+  .d-num{font-size:24px}
+  .day-head{flex-wrap:wrap;gap:6px 14px}
+  .day-headline{font-size:16px}
+  .cost-total-banner{flex-direction:column;align-items:flex-start;gap:8px}
+  .cot-note{text-align:left}
+  .cost-line{grid-template-columns:1fr;gap:5px}
+  .cost-line-value{text-align:left}
+  .hotel-block-head{grid-template-columns:1fr;gap:10px}
+  .hotel-winner-wrap{justify-self:start;align-items:flex-start;text-align:left;max-width:100%}
+  .candidate-row{grid-template-columns:1fr;gap:9px;margin:0;padding:14px 10px}
+  .cand-right{flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px;text-align:left}
+  .task-item{grid-template-columns:34px minmax(0,1fr)}
+  .task-num{font-size:19px}
+  .task-side{grid-column:2;flex-direction:row;align-items:center;gap:12px;margin-top:2px}
+}
+@media(max-width:599px){
+  /* backdrop-filter would make .app-bar the containing block for the
+     fixed bottom nav, so the bar goes opaque on small screens */
+  .app-bar{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--paper)}
+  .app-nav{position:fixed;left:0;right:0;bottom:0;z-index:110;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;height:auto;padding:6px max(8px,env(safe-area-inset-left)) calc(6px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-right));background:var(--paper);border-top:1px solid var(--line-strong)}
+  .app-nav a{flex-direction:column;justify-content:center;gap:3px;min-width:0;min-height:52px;padding:4px 2px;margin-bottom:0;border-bottom:0;font:600 10px/1.2 var(--sans);letter-spacing:.02em;text-align:center;white-space:normal;color:var(--muted)}
+  .app-nav a.active{color:var(--ink);border-bottom:0}
+  .app-nav a.active .nav-icon{color:var(--accent)}
+  .nav-icon{width:18px;height:18px}
+  .nav-count{position:absolute;top:0;left:calc(50% + 6px)}
+  main{padding-bottom:104px}
+  .source-footer{padding-bottom:96px}
+}
+@media(max-width:480px){
+  .mast-title{font-size:34px}
+  .route-part-head{white-space:normal;flex-wrap:wrap}
+  .route-part-head small{width:100%;margin-left:0}
+  .route-stop .rs-date{white-space:normal;text-align:center}
+  .handoff-grid,.lodging-rail,.cost-summary-grid{grid-template-columns:1fr}
+  .sched-grid{grid-template-columns:82px minmax(0,1fr)}
+  .day-card-details details.disclosure{flex:1 1 100%;border-radius:10px}
+}
+</style>
+</head>
+<body>
+<svg hidden aria-hidden="true"><symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /></symbol><symbol id="i-plane-landing" viewBox="0 0 24 24"><path d="M2 22h20" /> <path d="M3.77 10.77 2 9l2-4.5 1.1.55c.55.28.9.84.9 1.45s.35 1.17.9 1.45L8 8.5l3-6 1.05.53a2 2 0 0 1 1.09 1.52l.72 5.4a2 2 0 0 0 1.09 1.52l4.4 2.2c.42.22.78.55 1.01.96l.6 1.03c.49.88-.06 1.98-1.06 2.1l-1.18.15c-.47.06-.95-.02-1.37-.24L4.29 11.15a2 2 0 0 1-.52-.38Z" /></symbol><symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3" /> <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /> <circle cx="18" cy="5" r="3" /></symbol><symbol id="i-tree-pine" viewBox="0 0 24 24"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z" /> <path d="M12 22v-3" /></symbol><symbol id="i-luggage" viewBox="0 0 24 24"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" /> <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" /> <path d="M10 20h4" /> <circle cx="16" cy="20" r="2" /> <circle cx="8" cy="20" r="2" /></symbol><symbol id="i-train-front" viewBox="0 0 24 24"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1" /> <path d="m9 15-1-1" /> <path d="m15 15 1-1" /> <path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z" /> <path d="m8 19-2 3" /> <path d="m16 19 2 3" /></symbol><symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z" /></symbol><symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol><symbol id="i-tree-palm" viewBox="0 0 24 24"><path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4" /> <path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3" /> <path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35" /> <path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14" /></symbol><symbol id="i-building-2" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /> <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /> <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /> <path d="M10 6h4" /> <path d="M10 10h4" /> <path d="M10 14h4" /> <path d="M10 18h4" /></symbol><symbol id="i-car-front" viewBox="0 0 24 24"><path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" /> <path d="M7 14h.01" /> <path d="M17 14h.01" /> <rect width="18" height="8" x="3" y="10" rx="2" /> <path d="M5 18v2" /> <path d="M19 18v2" /></symbol><symbol id="i-footprints" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" /> <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" /> <path d="M16 17h4" /> <path d="M4 13h4" /></symbol><symbol id="i-circle-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><path d="M8 2v4" /> <path d="M16 2v4" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <path d="M3 10h18" /> <path d="M8 14h.01" /> <path d="M12 14h.01" /> <path d="M16 14h.01" /> <path d="M8 18h.01" /> <path d="M12 18h.01" /> <path d="M16 18h.01" /></symbol><symbol id="i-wallet-cards" viewBox="0 0 24 24"><rect width="18" height="14" x="3" y="5" rx="2" /> <path d="M3 10h18" /> <path d="M7 15h.01" /> <path d="M11 15h2" /></symbol><symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 6 9 4 3 6v15l6-2 6 2 6-2V4l-6 2-.9 0Z" /> <path d="M9 4v15" /> <path d="M15 6v15" /></symbol><symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16" /> <path d="M2 10h20" /> <path d="M6 10V7a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3" /> <path d="M13 10V8a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2" /> <path d="M22 10v10" /> <path d="M2 18h20" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol></svg>
+<header class="app-bar">
+  <div class="app-bar-inner">
+    <div class="brand">
+      <strong>California 2026</strong>
+      <span class="brand-sub">Sep 24 – Oct 6 · 13 days</span>
+    </div>
+    <nav class="app-nav" aria-label="Primary">
+      <a href="#overview" data-screen="overview"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-map" /></svg></span><span>Overview</span></a>
+      <a href="#itinerary" data-screen="itinerary"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-calendar-days" /></svg></span><span>Itinerary</span></a>
+      <a href="#lodging" data-screen="lodging"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-bed" /></svg></span><span>Lodging</span></a>
+      <a href="#costs" data-screen="costs"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-wallet-cards" /></svg></span><span>Costs</span></a>
+      <a href="#tasks" data-screen="tasks"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-circle-alert" /></svg></span><span>Tasks</span><span class="nav-count">8</span></a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<!-- ── Overview ── -->
+<section class="screen" id="screen-overview" aria-label="Overview">
+  <div class="masthead">
+    <h1 class="mast-title">California Trip 2026</h1>
+    <p class="mast-dates">September 24 – October 6 · thirteen days, north to south</p>
+    <div class="mast-stats">
+      <a class="mast-stat" href="#itinerary"><span class="stat-val">13</span><span class="stat-lbl">Days</span></a>
+      <a class="mast-stat" href="#costs"><span class="stat-val">$7,632–$8,327</span><span class="stat-lbl">Estimated total</span></a>
+      <a class="mast-stat" href="#tasks"><span class="stat-val">8</span><span class="stat-lbl">Open tasks</span></a>
+    </div>
+  </div>
+  <div class="route-strip"><section class="route-part north" aria-label="Part 1: Northern California">
+      <div class="route-part-head">
+        <span>Part 1</span>
+        <strong>Northern California</strong>
+        <small>Sep 24-Sep 30</small>
+      </div>
+      <div class="route-part-track"><a class="route-stop north" data-loc="sf" href="#day-2026-09-24" aria-label="SFO Sep 24 10:40 arrival">
+          <span class="rs-date">Sep 24</span>
+          <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span></span>
+          <strong>SFO</strong>
+          <small>10:40 arrival</small>
+        </a><span class="route-line north"></span><a class="route-stop north" data-loc="sf" href="#day-2026-09-25" aria-label="Burlingame / SFO Sep 24-27 3 nights">
+          <span class="rs-date">Sep 24-27</span>
+          <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-circle" /></svg></span></span>
+          <strong>Burlingame / SFO</strong>
+          <small>3 nights</small>
+        </a><span class="route-line north"></span><a class="route-stop north" data-loc="yosemite" href="#day-2026-09-27" aria-label="Yosemite Sep 27-29 2 nights">
+          <span class="rs-date">Sep 27-29</span>
+          <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-mountain" /></svg></span></span>
+          <strong>Yosemite</strong>
+          <small>2 nights</small>
+        </a><span class="route-line north"></span><a class="route-stop north" data-loc="sanjose" href="#day-2026-09-29" aria-label="San Jose base Sep 29-Oct 1 2 nights">
+          <span class="rs-date">Sep 29-Oct 1</span>
+          <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-car-front" /></svg></span></span>
+          <strong>San Jose base</strong>
+          <small>2 nights</small>
+        </a></div>
+    </section><div class="route-flight-bridge" aria-label="SFO to SAN flight">
+    <span class="bridge-label">Flight</span>
+    <span class="icon bridge-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span>
+    <strong>SFO to SAN</strong>
+    <small>Oct 1 - 10:55 -&gt; 12:35</small>
+  </div><section class="route-part south" aria-label="Part 2: Southern California">
+      <div class="route-part-head">
+        <span>Part 2</span>
+        <strong>Southern California</strong>
+        <small>Oct 1-6</small>
+      </div>
+      <div class="route-part-track"><a class="route-stop south" data-loc="sandiego" href="#day-2026-10-01" aria-label="San Diego Oct 1-4 3 nights">
+          <span class="rs-date">Oct 1-4</span>
+          <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-tree-palm" /></svg></span></span>
+          <strong>San Diego</strong>
+          <small>3 nights</small>
+        </a><span class="route-line south"></span><a class="route-stop south" data-loc="trip" href="#day-2026-10-04" aria-label="Train Oct 4 10:01 -&gt; 12:57">
+          <span class="rs-date">Oct 4</span>
+          <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span></span>
+          <strong>Train</strong>
+          <small>10:01 -&gt; 12:57</small>
+        </a><span class="route-line south"></span><a class="route-stop south" data-loc="la" href="#day-2026-10-05" aria-label="Los Angeles Oct 4-6 2 nights">
+          <span class="rs-date">Oct 4-6</span>
+          <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-building-2" /></svg></span></span>
+          <strong>Los Angeles</strong>
+          <small>2 nights</small>
+        </a><span class="route-line south"></span><a class="route-stop south" data-loc="la" href="#day-2026-10-06" aria-label="LAX Oct 6 23:50 departure">
+          <span class="rs-date">Oct 6</span>
+          <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span></span>
+          <strong>LAX</strong>
+          <small>23:50 departure</small>
+        </a></div>
+    </section></div>
+  <p class="section-label">Key Handoffs</p>
+  <div class="handoff-grid"><a class="handoff-card" href="#day-2026-09-24">
+      <span class="icon handoff-icon" aria-hidden="true"><svg><use href="#i-plane-landing" /></svg></span>
+      <span class="handoff-label">SFO arrival</span>
+      <strong>Korean Air KE023 · 10:40 Sep 24</strong>
+      <small>ICN T2 -&gt; SFO International</small>
+    </a><a class="handoff-card" href="#day-2026-10-01">
+      <span class="icon handoff-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span>
+      <span class="handoff-label">Bay Area -&gt; SAN</span>
+      <strong>Southwest WN 1647 · 10:55 -&gt; 12:35</strong>
+      <small>SFO -&gt; SAN; confirm terminals after booking</small>
+    </a><a class="handoff-card" href="#day-2026-10-04">
+      <span class="icon handoff-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span>
+      <span class="handoff-label">San Diego -&gt; LA</span>
+      <strong>Pacific Surfliner 573 · 10:01 -> 12:57</strong>
+      <small>Santa Fe Depot -> Union Station</small>
+    </a><a class="handoff-card" href="#day-2026-10-06">
+      <span class="icon handoff-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span>
+      <span class="handoff-label">LAX departure</span>
+      <strong>Korean Air KE012 · 23:50 Oct 6</strong>
+      <small>LAX Terminal B -&gt; ICN T2</small>
+    </a></div>
+
+</section>
+
+<!-- ── Itinerary ── -->
+<section class="screen" id="screen-itinerary" aria-label="Itinerary">
+  <header class="part-header">
+      <span class="part-kicker">Part 1 · Sep 24-Sep 30</span>
+      <div class="part-title-row">
+        <h2>Northern California</h2>
+        <span class="badge badge-open">Open</span>
+      </div>
+    </header>
+    <div class="day-stack"><div class="seg-head" data-loc="sf">
+      <span class="seg-dot"></span>
+      <strong>Burlingame / SFO</strong>
+      <span class="seg-meta">3 days · Sep 24-26</span>
+    </div><article class="day-card" id="day-2026-09-24" data-loc="sf">
+        <div class="day-date">
+          <span class="d-wk">Thu</span>
+          <span class="d-num">24</span>
+          <span class="d-mon">Sep</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Arrival recovery after 10:40 SFO landing</h3>
+            <span class="badge badge-fixed">Fixed</span>
+          </div>
+          <p class="day-activity">Clear immigration, transfer to the hotel, check in, eat nearby, and keep the day light. Do not add a central San Francisco trip unless arrival and energy are unusually good.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Arrive SFO, use the Hyatt shuttle or a short rideshare, and check in at Hyatt Regency San Francisco Airport in Burlingame.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">4 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">10:40</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Arrive at SFO</span>
+                <span class="sp-sum">Clear immigration and collect bags without a hard lunch reservation.</span>
+                <span class="vb-row"><b>Base:</b> SFO</span>
+                <span class="vb-row"><b>Transport:</b> International arrival</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">Arrival-dependent</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Hyatt transfer</span>
+                <span class="sp-sum">Use the hotel shuttle or a short rideshare from SFO to Hyatt Regency San Francisco Airport.</span>
+                <span class="vb-row"><b>Base:</b> SFO to Burlingame</span>
+                <span class="vb-row"><b>Transport:</b> Hotel shuttle or rideshare</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">Afternoon</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Check-in and bayfront reset</span>
+                <span class="sp-sum">Store bags or check in, walk nearby if convenient, and recover from the flight.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short rideshare</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Dinner and early sleep</span>
+                <span class="sp-sum">Eat near the hotel, buy simple supplies, and protect the Sep 25 city commute.</span>
+                <span class="vb-row"><b>Base:</b> Burlingame</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short rideshare</span>
+
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">1</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="0" aria-pressed="true">Hotel transfer: SFO arrival to Hyatt Regency</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=San%20Francisco%20International%20Airport&amp;destination=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="SFO arrival to Hyatt Regency">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="SFO arrival to Hyatt Regency" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport&amp;daddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article><article class="day-card" id="day-2026-09-25" data-loc="sf">
+        <div class="day-date">
+          <span class="d-wk">Fri</span>
+          <span class="d-num">25</span>
+          <span class="d-mon">Sep</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Flexible San Francisco city day</h3>
+            <span class="badge badge-open">Open</span>
+          </div>
+          <p class="day-activity">Use one low-backtracking San Francisco route. The Model Y is not collected until Sep 27, so use rail or rideshare for dense downtown stops.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Commute from Hyatt Regency San Francisco Airport into central San Francisco by rail or rideshare.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">4 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">Morning</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Commute to the waterfront</span>
+                <span class="sp-sum">Travel from Burlingame to the Ferry Building or Embarcadero and begin a compact city route.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Regency SFO to central San Francisco</span>
+                <span class="vb-row"><b>Transport:</b> Rail or rideshare</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">Lunch</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Ferry Building, North Beach, or Chinatown</span>
+                <span class="sp-sum">Eat near the active neighborhood and avoid a separate cross-town restaurant detour.</span>
+                <span class="vb-row"><b>Base:</b> Central San Francisco</span>
+                <span class="vb-row"><b>Transport:</b> Walk or transit</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">Afternoon</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">One second San Francisco zone</span>
+                <span class="sp-sum">Choose Presidio and Golden Gate viewpoints or Chinatown and North Beach based on the morning route and weather.</span>
+                <span class="vb-row"><b>Base:</b> San Francisco</span>
+                <span class="vb-row"><b>Transport:</b> Transit, walk, or rideshare</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Return to Burlingame</span>
+                <span class="sp-sum">Return to the Hyatt, eat nearby if useful, and confirm the 6:30 AM rideshare, 478 Post Street meeting point, 7:25 AM check-in, and ferry-return selection for Sep 26.</span>
+                <span class="vb-row"><b>Base:</b> San Francisco to Hyatt Regency SFO</span>
+                <span class="vb-row"><b>Transport:</b> Rail or rideshare</span>
+
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">1</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="1" aria-pressed="true">Day commute: Hyatt Regency to central San Francisco</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010&amp;destination=Ferry%20Building%2C%20San%20Francisco%2C%20CA&amp;travelmode=transit" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Regency to central San Francisco">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Hyatt Regency to central San Francisco" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010&amp;daddr=Ferry%20Building%2C%20San%20Francisco%2C%20CA&amp;dirflg=r&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article><article class="day-card" id="day-2026-09-26" data-loc="sf">
+        <div class="day-date">
+          <span class="d-wk">Sat</span>
+          <span class="d-num">26</span>
+          <span class="d-mon">Sep</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Muir Woods + Sausalito return ferry</h3>
+            <span class="badge badge-fixed">Fixed</span>
+          </div>
+          <p class="day-activity">Use rideshare for both hotel handoffs. Leave at 6:30 AM, check in at 478 Post Street by 7:25 AM, depart at 7:40 AM, follow the voucher-assigned ferry back to Pier 41, and rideshare directly to the Hyatt. Target hotel arrival around 13:45-14:30, then keep the rest of the day light and pack for Yosemite.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span><span class="mi-text">Leave Hyatt Regency SFO by rideshare at 6:30 AM, reach 478 Post Street by about 7:20 AM, check in by 7:25 AM, take the 7:40 AM Viator and Gray Line coach to Muir Woods and Sausalito, return by ferry to Pier 41, then rideshare directly back to the Hyatt.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">06:15-07:25</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Hyatt breakfast, 6:30 rideshare, and Union Square check-in</span>
+                <span class="sp-sum">Be ready in the lobby by 6:20 AM, request the ride at 6:30 AM, target 478 Post Street by 7:20 AM, and check in by 7:25 AM. Treat 7:30 AM as the absolute latest arrival, not the target. If the final voucher says 7:30 AM departure rather than 7:40 AM, leave at 6:20 AM and target check-in by 7:15 AM.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport to Gray Line, 478 Post Street</span>
+                <span class="vb-row"><b>Transport:</b> Direct rideshare or prebooked taxi</span>
+                <span class="vb-row"><b>Fallback:</b> If a confirmed ride has not arrived by 6:40 AM, switch immediately to the other rideshare app or a taxi; do not wait for rail.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">07:40-approximately 09:15</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Viator and Gray Line departure plus Golden Gate stop</span>
+                <span class="sp-sum">Depart from 478 Post Street at 7:40 AM, collect the Fisherman's Wharf pickup if scheduled, cross the Golden Gate Bridge, and use the short photo stop before continuing to Muir Woods.</span>
+                <span class="vb-row"><b>Base:</b> 478 Post Street to Golden Gate Bridge and Muir Woods</span>
+                <span class="vb-row"><b>Transport:</b> Gray Line air-conditioned coach</span>
+                <span class="vb-row"><b>Fallback:</b> If the 7:40 AM option becomes unavailable, compare another Muir Woods + Sausalito tour before moving this activity back to a rental-car day.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">Approximately 09:15-10:45; voucher-dependent</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Muir Woods National Monument</span>
+                <span class="sp-sum">Use the guaranteed 90-minute stop for the main redwood walk. Select the Viator option that includes Muir Woods admission and do not rely on this planning time over the final voucher.</span>
+                <span class="vb-row"><b>Base:</b> Muir Woods National Monument</span>
+                <span class="vb-row"><b>Transport:</b> Tour shuttle</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">Approximately 10:45-14:30; ferry-dependent</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Sausalito, ferry to Pier 41, and direct Hyatt return</span>
+                <span class="sp-sum">Use the 60-minute Sausalito stop for waterfront views or a quick bite, take the included ferry to Pier 41, then request a direct rideshare to the Hyatt. Expect roughly 13:45-14:30 at the hotel, but follow the assigned ferry time on the voucher.</span>
+                <span class="vb-row"><b>Base:</b> Sausalito to Pier 41 to Hyatt Regency San Francisco Airport</span>
+                <span class="vb-row"><b>Transport:</b> Tour coach + included ferry + direct rideshare</span>
+                <span class="vb-row"><b>Fallback:</b> If the ferry option is unavailable or canceled, stay on the coach back to 478 Post Street and rideshare from Union Square to the Hyatt.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Pack Yosemite small bag</span>
+                <span class="sp-sum">After returning to Hyatt Regency San Francisco Airport, pack the Yosemite bags and verify the Sep 27 SFO Model Y pickup, Airbnb check-in, and charging plan.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport</span>
+                <span class="vb-row"><b>Transport:</b> At hotel; use the SFO rental shuttle or rideshare after Sep 27 checkout</span>
+
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">3</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="2" aria-pressed="true">Early rideshare: Hyatt Regency to Gray Line Union Square</button><button class="map-btn" type="button" data-route-index="14" aria-pressed="false">Muir Woods + Sausalito half-day tour</button><button class="map-btn" type="button" data-route-index="3" aria-pressed="false">Ferry-return rideshare: Pier 41 to Hyatt Regency</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010&amp;destination=478%20Post%20St%2C%20San%20Francisco%2C%20CA%2094102&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Regency to Gray Line Union Square">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Hyatt Regency to Gray Line Union Square" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010&amp;daddr=478%20Post%20St%2C%20San%20Francisco%2C%20CA%2094102&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article><div class="seg-head" data-loc="yosemite">
+      <span class="seg-dot"></span>
+      <strong>Yosemite</strong>
+      <span class="seg-meta">2 days · Sep 27-28</span>
+    </div><article class="day-card" id="day-2026-09-27" data-loc="yosemite">
+        <div class="day-date">
+          <span class="d-wk">Sun</span>
+          <span class="d-num">27</span>
+          <span class="d-mon">Sep</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Yosemite self-drive outbound</h3>
+            <span class="badge badge-open">Open</span>
+          </div>
+          <p class="day-activity">Check out, collect the Model Y at SFO at 85% or more, and depart toward Midpines. Use Tesla navigation for the charge plan; check in after 15:00 and keep any first Yosemite stop optional.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-car-front" /></svg></span><span class="mi-text">Check out from Hyatt Regency San Francisco Airport, collect the Tesla Model Y at SFO, then drive to the Midpines-area Yosemite Airbnb.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">08:00-09:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Hotel checkout and SFO Model Y pickup</span>
+                <span class="sp-sum">Check out, take the rental shuttle or rideshare to SFO, and accept the Model Y only after recording the charge level and return-state requirement.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport to SFO rental center</span>
+                <span class="vb-row"><b>Transport:</b> Hotel shuttle or rideshare + Tesla Model Y pickup</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">09:00-13:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Depart directly for Yosemite</span>
+                <span class="sp-sum">Start the Yosemite drive with only one simple stop pattern. Use Tesla navigation; do not over-stack Silicon Valley or coast stops into the approach day.</span>
+                <span class="vb-row"><b>Base:</b> SFO to Mariposa / Midpines</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">13:00-14:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Lunch and Supercharger decision</span>
+                <span class="sp-sum">Keep lunch practical. Use the Mariposa Supercharger if the in-car route asks for it or the delivery charge is below the comfortable range buffer.</span>
+                <span class="vb-row"><b>Base:</b> Mariposa / Yosemite approach route</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + Supercharger as needed</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">15:00-16:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Yosemite arrival and check-in</span>
+                <span class="sp-sum">Reach the Yosemite Airbnb, settle in, and only add a short valley or viewpoint stop if entry timing, weather, and battery reserve all cooperate.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite Airbnb and nearby park access</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Yosemite Airbnb night 1</span>
+                <span class="sp-sum">Keep the evening simple: groceries or an easy meal, charge devices, and verify the next day’s Model Y battery reserve and Mariposa Supercharger fallback.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite Airbnb</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short local drive</span>
+
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">1</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="4" aria-pressed="true">Driving + charge: SFO Model Y pickup to Yosemite</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/San+Francisco+International+Airport/Midpines,+CA/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="SFO Model Y pickup to Yosemite">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="SFO Model Y pickup to Yosemite" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport&amp;daddr=Midpines%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article><article class="day-card" id="day-2026-09-28" data-loc="yosemite">
+        <div class="day-date">
+          <span class="d-wk">Mon</span>
+          <span class="d-num">28</span>
+          <span class="d-mon">Sep</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Full Yosemite day</h3>
+            <span class="badge badge-open">Open</span>
+          </div>
+          <p class="day-activity">Protect Sep 28 as the only full park day: start early, park once, shuttle/walk, and leave enough margin for the drive back to Midpines before dark.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-footprints" /></svg></span><span class="mi-text">Yosemite full day</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">4 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">Morning</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Main Yosemite block</span>
+                <span class="sp-sum">Start early for the highest-value valley stops or one clear scenic direction before the lots and roads get worse.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">Lunch</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">In-park lunch</span>
+                <span class="sp-sum">Use a simple in-park meal or packed food and avoid a second long driving detour just for lunch.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short drive</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">Afternoon</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Second Yosemite block</span>
+                <span class="sp-sum">Use the afternoon for the best remaining short walk, valley stop, or scenic drive that still preserves an easy evening.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+                <span class="vb-row"><b>Fallback:</b> If weather, smoke, or fatigue is poor, shorten the day and protect the Sep 29 drive back to the Bay Area.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Yosemite Airbnb night 2</span>
+                <span class="sp-sum">Pack for the Sep 29 drive, charge devices, and charge the Model Y at Mariposa before or at the start of the exit if navigation requires it.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite Airbnb</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short local drive</span>
+
+              </div></div>
+      </div>
+    </details></div>
+        </div>
+    </article><div class="seg-head" data-loc="sanjose">
+      <span class="seg-dot"></span>
+      <strong>San Jose-South Bay</strong>
+      <span class="seg-meta">2 days · Sep 29-30</span>
+    </div><article class="day-card" id="day-2026-09-29" data-loc="sanjose">
+        <div class="day-date">
+          <span class="d-wk">Tue</span>
+          <span class="d-num">29</span>
+          <span class="d-mon">Sep</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Yosemite drive to Airbnb</h3>
+            <span class="badge badge-open">Open</span>
+          </div>
+          <p class="day-activity">Drive from the Midpines-area Yosemite Airbnb to the two-night central San Jose base. Keep the evening light and confirm the single Sep 30 priority plus Thursday flight.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span><span class="mi-text">Drive the Model Y from the Midpines Yosemite Airbnb to the confirmed San Jose-South Bay Airbnb.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">4 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">Morning</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Yosemite checkout and departure</span>
+                <span class="sp-sum">Leave the Airbnb cleanly, top up at Mariposa if navigation asks for it, and start the Bay Area drive without adding extra morning loops.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite Airbnb</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">Lunch</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Direct drive with one food stop</span>
+                <span class="sp-sum">Keep the route practical, use one lunch or Supercharger stop, and avoid rebuilding the day into a sightseeing transfer.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite to South Bay route</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">Afternoon</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Arrive in South Bay</span>
+                <span class="sp-sum">Drive directly to the central San Jose Airbnb area and settle the Model Y, parking, charge reserve, and check-in details for the night.</span>
+                <span class="vb-row"><b>Base:</b> Central San Jose Airbnb</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
+                <span class="vb-row"><b>Fallback:</b> If the Yosemite exit runs late, keep dinner and any errands near the Airbnb and do not rebuild the evening.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Airbnb reset</span>
+                <span class="sp-sum">Laundry if available, repack for the coast day, and keep dinner near the South Bay base.</span>
+                <span class="vb-row"><b>Base:</b> Airbnb</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short local drive</span>
+
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">1</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="6" aria-pressed="true">Driving: Yosemite to San Jose-South Bay</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/Midpines,+CA/San+Jose,+CA/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Yosemite to San Jose-South Bay">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Yosemite to San Jose-South Bay" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Midpines%2C%20CA&amp;daddr=San%20Jose%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article><article class="day-card" id="day-2026-09-30" data-loc="sanjose">
+        <div class="day-date">
+          <span class="d-wk">Wed</span>
+          <span class="d-num">30</span>
+          <span class="d-mon">Sep</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Priority choice: Stanford + one tech stop, or Santa Cruz.</h3>
+            <span class="badge badge-open">Open</span>
+          </div>
+          <p class="day-activity">Start with the highest-priority theme. A workable combined version is Stanford and one nearby tech stop in the morning, then Santa Cruz in the afternoon; skip Half Moon Bay and extra campuses if the day feels rushed.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Use the Model Y for Stanford and one Silicon Valley stop or Santa Cruz; combine both only if traffic, weather, and battery reserve stay healthy.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">08:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Choose the must-do core</span>
+                <span class="sp-sum">Check traffic, coast weather, and energy. Choose Stanford plus one tech stop or Santa Cruz as the non-negotiable theme.</span>
+                <span class="vb-row"><b>Base:</b> San Jose-South Bay lodging</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">09:00-12:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Stanford and one Silicon Valley stop</span>
+                <span class="sp-sum">Use Stanford plus one nearby company visitor center or Computer History Museum only if this is the chosen core or the coast start can remain relaxed.</span>
+                <span class="vb-row"><b>Base:</b> Stanford, Palo Alto, Mountain View, or Cupertino</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">12:00-13:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Lunch on the active route</span>
+                <span class="sp-sum">Eat near Palo Alto or on the Santa Cruz route; do not create a third destination just for lunch.</span>
+                <span class="vb-row"><b>Base:</b> South Bay route</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">14:00-18:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Santa Cruz if the day remains healthy</span>
+                <span class="sp-sum">Use Santa Cruz as the coast add-on or full-day core. Skip Half Moon Bay, Pacifica, and extra campuses first if time is tight.</span>
+                <span class="vb-row"><b>Base:</b> Santa Cruz or South Bay</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+                <span class="vb-row"><b>Fallback:</b> If traffic, fog, or fatigue is poor, stay with the morning theme and return to San Jose early.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Model Y charge and Thursday-flight prep</span>
+                <span class="sp-sum">Keep the Model Y overnight, complete most return charging in South Bay, and confirm the SFO return-state rule plus Southwest check-in.</span>
+                <span class="vb-row"><b>Base:</b> San Jose-South Bay lodging</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y or rideshare</span>
+
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">1</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="5" aria-pressed="true">Driving: Sep 30 compressed South Bay day</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/San+Jose,+CA/Stanford+Visitor+Center,+295+Galvez+St,+Stanford,+CA/Santa+Cruz,+CA/San+Jose,+CA/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Sep 30 compressed South Bay day">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Sep 30 compressed South Bay day" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=San%20Jose%2C%20CA&amp;daddr=Stanford%20Visitor%20Center%2C%20295%20Galvez%20St%2C%20Stanford%2C%20CA+to:Santa%20Cruz%2C%20CA+to:San%20Jose%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article></div><header class="part-header">
+      <span class="part-kicker">Part 2 · Oct 1-Oct 6</span>
+      <div class="part-title-row">
+        <h2>Southern California</h2>
+        <span class="badge badge-fixed">Fixed</span>
+      </div>
+    </header>
+    <div class="day-stack"><div class="seg-head" data-loc="sandiego">
+      <span class="seg-dot"></span>
+      <strong>San Diego</strong>
+      <span class="seg-meta">3 days · Oct 1-3</span>
+    </div><article class="day-card" id="day-2026-10-01" data-loc="sandiego">
+        <div class="day-date">
+          <span class="d-wk">Thu</span>
+          <span class="d-num">1</span>
+          <span class="d-mon">Oct</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">San Diego arrival</h3>
+            <span class="badge badge-open">Open</span>
+          </div>
+          <p class="day-activity">Charge in South Bay on Sep 30, leave San Jose about 06:55-07:25, allow 30-45 minutes for the SFO return and AirTrain, then take Southwest WN 1647 at 10:55 to SAN, arriving at 12:35. Uber to the hotel only if friends cannot handle the airport pickup; friends provide the remaining San Diego transportation.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span><span class="mi-text">Fly to San Diego</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">Leave about 06:55-07:25</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">San Jose checkout and SFO rental return</span>
+                <span class="sp-sum">Leave San Jose 3.5-4 hours before departure, drive to SFO, return the Model Y, and use AirTrain to the Southwest terminal. Avoid a full charging stop this morning by charging on Sep 30.</span>
+                <span class="vb-row"><b>Base:</b> Central San Jose to SFO Rental Car Center</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y return + AirTrain</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">10:55-12:35</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Thursday flight to San Diego</span>
+                <span class="sp-sum">Take Southwest WN 1647 from SFO at 10:55, arriving SAN at 12:35. The Basic quote is $94 per traveler, or $188 for two, with the first checked-bag charge included.</span>
+                <span class="vb-row"><b>Base:</b> SFO to SAN</span>
+                <span class="vb-row"><b>Transport:</b> Southwest nonstop flight</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">Arrival-dependent</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">SAN arrival and hotel transfer</span>
+                <span class="sp-sum">Transfer to Hyatt House San Diego Sorrento Mesa and store bags if the room is not ready.</span>
+                <span class="vb-row"><b>Base:</b> SAN to Sorrento Mesa</span>
+                <span class="vb-row"><b>Transport:</b> Rideshare after baggage claim</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">After hotel arrival</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local-plan buffer</span>
+                <span class="sp-sum">Keep the arrival afternoon reserved for the fixed San Diego local plan with friend-provided transportation.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Friend-provided transportation</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local-plan evening</span>
+                <span class="sp-sum">No sightseeing or dinner itinerary is needed by default.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Fixed local-plan arrangements as needed</span>
+
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">1</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="7" aria-pressed="true">Rideshare: SAN to Sorrento Mesa hotel</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=San%20Diego%20International%20Airport%2C%203225%20N%20Harbor%20Dr%2C%20San%20Diego%2C%20CA%2092101&amp;destination=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="SAN to Sorrento Mesa hotel">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="SAN to Sorrento Mesa hotel" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=San%20Diego%20International%20Airport%2C%203225%20N%20Harbor%20Dr%2C%20San%20Diego%2C%20CA%2092101&amp;daddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article><article class="day-card" id="day-2026-10-02" data-loc="sandiego">
+        <div class="day-date">
+          <span class="d-wk">Fri</span>
+          <span class="d-num">2</span>
+          <span class="d-mon">Oct</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">San Diego local-plan day</h3>
+            <span class="badge badge-fixed">Fixed</span>
+          </div>
+          <p class="day-activity">Oct 2 is fully reserved for the fixed local plan. Confirm the back-to-back reservation linkage before this date; do not add sightseeing, meal, neighborhood, or coast planning unless the local plan changes.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Keep the full day reserved for the fixed local plan from the San Diego hotel.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">Morning</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Room-continuity check and fixed local morning</span>
+                <span class="sp-sum">If the hotel requires it, refresh the room key for the private confirmation on file without checking out or moving rooms, then use hot breakfast only if convenient before the fixed local plan.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt House San Diego Sorrento Mesa</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Keep the fixed local-plan block intact.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">Late morning</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local-plan time</span>
+                <span class="sp-sum">Reserved for the fixed local plan.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Keep the fixed local-plan block intact.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">Lunch</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local lunch</span>
+                <span class="sp-sum">Use the fixed local plan; no separate meal itinerary is needed.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Keep the fixed local-plan block intact.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">Afternoon</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local afternoon</span>
+                <span class="sp-sum">Reserved for the fixed local plan.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Keep the fixed local-plan block intact.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local evening</span>
+                <span class="sp-sum">Reserved for the fixed local plan; keep only Oct 4 train prep in mind.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Pack for the Oct 4 train before sleep if needed.</span>
+              </div></div>
+      </div>
+    </details></div>
+        </div>
+    </article><article class="day-card" id="day-2026-10-03" data-loc="sandiego">
+        <div class="day-date">
+          <span class="d-wk">Sat</span>
+          <span class="d-num">3</span>
+          <span class="d-mon">Oct</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">San Diego local-plan day</h3>
+            <span class="badge badge-fixed">Fixed</span>
+          </div>
+          <p class="day-activity">Oct 3 remains fully reserved for the fixed local plan. Pack for the Oct 4 train before sleep.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Keep the full day reserved for the fixed local plan from the San Diego hotel.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">Morning</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local morning</span>
+                <span class="sp-sum">Use hotel breakfast only if convenient before the fixed local plan.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt House San Diego Sorrento Mesa</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Keep the fixed local-plan block intact.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">Late morning</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local-plan time</span>
+                <span class="sp-sum">Reserved for the fixed local plan.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Keep the fixed local-plan block intact.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">Lunch</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local lunch</span>
+                <span class="sp-sum">Use the fixed local plan; no separate meal itinerary is needed.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Keep the fixed local-plan block intact.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">Afternoon</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local afternoon</span>
+                <span class="sp-sum">Reserved for the fixed local plan.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Keep the fixed local-plan block intact.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">Evening</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Fixed local evening</span>
+                <span class="sp-sum">Reserved for the fixed local plan; keep only Oct 4 train prep in mind.</span>
+                <span class="vb-row"><b>Base:</b> San Diego</span>
+                <span class="vb-row"><b>Transport:</b> Use fixed local-plan arrangements as needed.</span>
+                <span class="vb-row"><b>Fallback:</b> Pack for the Oct 4 train before sleep if needed.</span>
+              </div></div>
+      </div>
+    </details></div>
+        </div>
+    </article><div class="seg-head" data-loc="la">
+      <span class="seg-dot"></span>
+      <strong>Los Angeles</strong>
+      <span class="seg-meta">3 days · Oct 4-6</span>
+    </div><article class="day-card" id="day-2026-10-04" data-loc="la">
+        <div class="day-date">
+          <span class="d-wk">Sun</span>
+          <span class="d-num">4</span>
+          <span class="d-mon">Oct</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Light LA arrival day.</h3>
+            <span class="badge badge-fixed">Fixed</span>
+          </div>
+          <p class="day-activity">Check out after the three-night San Diego stay, then use Pacific Surfliner from San Diego Santa Fe Depot to Los Angeles Union Station. Default target is Train 573, departing Santa Fe Depot at 10:01 and arriving Los Angeles Union Station at 12:57; Train 769 at 8:01 -&gt; 10:57 is the earlier backup if more LA time matters. Transfer by rideshare or transit from Union Station to Hyatt Centric Delfina Santa Monica for the 15:00 check-in. Keep the evening light: Santa Monica sunset and dinner on foot or by short rideshare. Do not rent a car in Los Angeles.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span><span class="mi-text">Train to Los Angeles</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">07:00-09:15</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Breakfast, checkout, and Santa Fe Depot transfer</span>
+                <span class="sp-sum">Eat, check out after the three-night stay at Hyatt House San Diego Sorrento Mesa, and use the friend-provided ride to Santa Fe Depot with a conservative buffer for the 10:01 train.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt House San Diego Sorrento Mesa to San Diego Santa Fe Depot</span>
+                <span class="vb-row"><b>Transport:</b> Friend-provided drop-off; rideshare is emergency fallback only.</span>
+                <span class="vb-row"><b>Fallback:</b> If the friend drop-off changes, use rideshare and leave earlier rather than switching to a tight transit chain with luggage.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">10:01-12:57</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Pacific Surfliner to Los Angeles</span>
+                <span class="sp-sum">Take Pacific Surfliner Train 573 from Santa Fe Depot to Los Angeles Union Station, with the 08:01 train as the early backup.</span>
+                <span class="vb-row"><b>Base:</b> San Diego Santa Fe Depot to Los Angeles Union Station</span>
+                <span class="vb-row"><b>Transport:</b> Train only.</span>
+                <span class="vb-row"><b>Fallback:</b> If Del Mar advisories affect the train, recheck bus bridges or move to an earlier departure.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">12:57-14:15</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Union Station or Little Tokyo lunch</span>
+                <span class="sp-sum">Keep lunch simple after arriving at Union Station: station food, Little Tokyo, or something near the transfer path.</span>
+                <span class="vb-row"><b>Base:</b> Union Station or Little Tokyo</span>
+                <span class="vb-row"><b>Transport:</b> Walk locally, then rideshare or transit to the hotel after lunch.</span>
+                <span class="vb-row"><b>Fallback:</b> If everyone is tired or carrying bags, skip Little Tokyo and go directly to the hotel.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">14:15-17:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">West-side transfer and check-in</span>
+                <span class="sp-sum">Transfer to Hyatt Centric Delfina Santa Monica, check in after 15:00, and reset before the evening coast plan.</span>
+                <span class="vb-row"><b>Base:</b> Union Station to Hyatt Centric Delfina Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> Rideshare is the default with luggage; public transit is a backup only if time and bags make sense.</span>
+                <span class="vb-row"><b>Fallback:</b> If traffic makes rideshare unattractive, use Metro or transit only if luggage and time still make the transfer comfortable.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">17:30-21:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Coast dinner or hotel-area recovery</span>
+                <span class="sp-sum">Use the selected Santa Monica base for a low-transfer sunset and dinner plan; add Venice or Abbot Kinney only if energy and rideshare pricing are reasonable.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica, Santa Monica, and Venice</span>
+                <span class="vb-row"><b>Transport:</b> Walk where practical; use rideshare by segment only if it improves the evening enough to justify the cost.</span>
+                <span class="vb-row"><b>Fallback:</b> If the train or transfer was tiring, eat near the hotel and keep Venice for Oct 5.</span>
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">3</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="8" aria-pressed="true">Friend drop-off: Sorrento Mesa hotel to Santa Fe Depot</button><button class="map-btn" type="button" data-route-index="9" aria-pressed="false">Train: Santa Fe Depot to Union Station</button><button class="map-btn" type="button" data-route-index="10" aria-pressed="false">LA transfer: Union Station to Hyatt Centric Delfina Santa Monica</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121&amp;destination=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Sorrento Mesa hotel to Santa Fe Depot">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Sorrento Mesa hotel to Santa Fe Depot" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121&amp;daddr=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article><article class="day-card" id="day-2026-10-05" data-loc="la">
+        <div class="day-date">
+          <span class="d-wk">Mon</span>
+          <span class="d-num">5</span>
+          <span class="d-mon">Oct</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">One focused LA day.</h3>
+            <span class="badge badge-fixed">Fixed</span>
+          </div>
+          <p class="day-activity">LA day from Hyatt Centric Delfina Santa Monica using walk, transit, and rideshare. Start with Santa Monica, Palisades Park, and Venice, then use one rideshare or Metro bus move for a Monday-compatible Museum Row target such as LACMA and Academy Museum area or one relaxed Westside neighborhood. Do not make Getty Center or Griffith Observatory the default Oct 5 plan because Monday closure makes them fragile. Do not add Joshua Tree unless the Southern California block is redesigned; do not add Death Valley without extra nights.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span><span class="mi-text">Use rideshare or Metro selectively in LA.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">08:00-09:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Breakfast and route choice</span>
+                <span class="sp-sum">Confirm whether breakfast is included on the selected Hyatt Centric rate, then choose the day order based on weather and rideshare pricing: coast first or museum corridor first.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> Walk inside the Santa Monica hotel area, then one planned rideshare or transit move.</span>
+                <span class="vb-row"><b>Fallback:</b> If breakfast is not included or is poor value, use a nearby Santa Monica cafe and keep the morning walkable.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">09:30-12:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Santa Monica and Venice</span>
+                <span class="sp-sum">Default morning is Santa Monica Pier, Palisades Park, and Venice and Abbot Kinney as a west-side local block.</span>
+                <span class="vb-row"><b>Base:</b> Santa Monica and Venice</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short rideshare or transit from Hyatt Centric Delfina; preserve the larger Uber budget for Museum Row or the airport day.</span>
+                <span class="vb-row"><b>Fallback:</b> If marine layer or fatigue makes the coast less appealing, swap this with the afternoon museum block.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">12:30-14:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">West-side or Museum Row lunch</span>
+                <span class="sp-sum">Eat where the morning ends, or transfer once toward Fairfax or Museum Row and eat before the afternoon activity.</span>
+                <span class="vb-row"><b>Base:</b> Santa Monica, Venice, Fairfax, or Museum Row</span>
+                <span class="vb-row"><b>Transport:</b> One rideshare transfer maximum during lunch unless there is a clear reason to pay for more.</span>
+                <span class="vb-row"><b>Fallback:</b> If using public transit, simplify lunch near the destination rather than adding a separate restaurant detour.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">14:00-17:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Museum Row or Westside focus</span>
+                <span class="sp-sum">Use LACMA, Academy Museum, or Museum Row exterior or interior options, or keep the day west-side if that is the better low-transfer route.</span>
+                <span class="vb-row"><b>Base:</b> Museum Row, Fairfax, or Westside</span>
+                <span class="vb-row"><b>Transport:</b> Rideshare or Metro or bus mix; choose fewer hops over more neighborhoods.</span>
+                <span class="vb-row"><b>Fallback:</b> Getty and Griffith are not the default Monday plan; add only after checking hours and accepting the extra transfer cost.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">17:30-22:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Dinner and return to hotel</span>
+                <span class="sp-sum">Dinner can be Santa Monica, Westside, or Koreatown only if the return ride is worth the cost and time.</span>
+                <span class="vb-row"><b>Base:</b> Santa Monica, Westside, or Koreatown</span>
+                <span class="vb-row"><b>Transport:</b> Rideshare return with surge buffer; choose hotel-area dinner if costs are high.</span>
+                <span class="vb-row"><b>Fallback:</b> If the return quote is high, eat near the final afternoon location before heading back.</span>
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">2</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="11" aria-pressed="true">LA local: Hyatt Centric Delfina to Santa Monica Pier</button><button class="map-btn" type="button" data-route-index="12" aria-pressed="false">LA local: Hyatt Centric Delfina to LACMA</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;destination=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA&amp;travelmode=walking" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Centric Delfina to Santa Monica Pier">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Hyatt Centric Delfina to Santa Monica Pier" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;daddr=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA&amp;dirflg=w&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article><article class="day-card" id="day-2026-10-06" data-loc="la">
+        <div class="day-date">
+          <span class="d-wk">Tue</span>
+          <span class="d-num">6</span>
+          <span class="d-mon">Oct</span>
+        </div>
+        <div class="day-main">
+          <div class="day-head">
+            <h3 class="day-headline">Light final day; avoid a fragile late transfer.</h3>
+            <span class="badge badge-fixed">Fixed</span>
+          </div>
+          <p class="day-activity">Final Los Angeles day should stay close to the selected Santa Monica base: 11:00 checkout, confirmed luggage storage or late checkout, Santa Monica, Venice, or one nearby Westside target. If Getty Center or Griffith Observatory is important, move it to this Tuesday only with a clear luggage plan and airport buffer; otherwise do not add a fragile cross-town day before the 23:50 flight. Leave Hyatt Centric Delfina Santa Monica for LAX Terminal B by rideshare around 19:00-19:30 for KE012 at 23:50, then adjust earlier if traffic or Korean Air check-in guidance requires it. Connection continues ICN -&gt; PVG on Oct 8, arriving PVG T1 at 12:25.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span><span class="mi-text">Transfer from Hyatt Centric Delfina Santa Monica to LAX Terminal B for Korean Air KE012, departing 23:50 to ICN.</span></p>
+          <div class="day-card-details"><details class="disclosure">
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
+      <div class="disclosure-body">
+        <div class="sched-grid"><div class="sp-label">
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">08:00-09:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Breakfast, late checkout, and luggage plan</span>
+                <span class="sp-sum">Confirm late checkout or luggage storage before the 11:00 checkout, keep documents accessible, and leave the day intentionally light before the 23:50 KE012 departure.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> Walk inside the hotel area; no long transfer before the luggage plan is confirmed.</span>
+                <span class="vb-row"><b>Fallback:</b> If luggage storage is weak, keep the whole day near the hotel rather than carrying bags around LA.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">09:30-12:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Nearby coast or hotel-area errand</span>
+                <span class="sp-sum">Use Santa Monica, Palisades Park, Venice, or a nearby Westside errand only if luggage storage and energy make it easy; otherwise keep the morning near the hotel.</span>
+                <span class="vb-row"><b>Base:</b> Santa Monica, Venice, or nearby Westside</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short rideshare only; avoid cross-town attractions on departure day.</span>
+                <span class="vb-row"><b>Fallback:</b> If luggage storage is weak, make the morning walkable and save the ride budget for the airport transfer.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Lunch</span>
+                <span class="sp-time">12:30-14:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Coast or hotel-area lunch</span>
+                <span class="sp-sum">Eat near the morning location and do not create a new neighborhood transfer just for lunch.</span>
+                <span class="vb-row"><b>Base:</b> Santa Monica or coast near current location</span>
+                <span class="vb-row"><b>Transport:</b> Walk or one short rideshare.</span>
+                <span class="vb-row"><b>Fallback:</b> If weather or storage is inconvenient, eat near the hotel and use the afternoon for rest.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Afternoon</span>
+                <span class="sp-time">14:00-18:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Rest, packing, shower, and flight prep</span>
+                <span class="sp-sum">Return to the hotel area early, pack carefully, charge devices, and avoid any plan that could threaten the international departure buffer.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica or nearby Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> Walk or short rideshare only; do not rely on an airport hotel shuttle from Santa Monica.</span>
+                <span class="vb-row"><b>Fallback:</b> If late checkout is unavailable, use luggage storage plus a nearby cafe or hotel lobby plan rather than a distant activity.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Evening</span>
+                <span class="sp-time">19:00-19:30 departure from hotel</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">LAX Terminal B transfer</span>
+                <span class="sp-sum">Leave Hyatt Centric Delfina Santa Monica for LAX Terminal B around 19:00-19:30 for KE012 at 23:50, using rideshare with a traffic and check-in buffer.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica to LAX Terminal B</span>
+                <span class="vb-row"><b>Transport:</b> Rideshare default; public transit is backup only if luggage, timing, and service conditions are clearly comfortable.</span>
+                <span class="vb-row"><b>Fallback:</b> If rideshare quotes or traffic look bad, leave earlier rather than compressing international check-in.</span>
+              </div></div>
+      </div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">1</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="13" aria-pressed="true">Departure: Hyatt Centric Delfina to LAX Terminal B</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;destination=LAX%20Terminal%20B%2C%201%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Centric Delfina to LAX Terminal B">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Hyatt Centric Delfina to LAX Terminal B" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;daddr=1%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
+      </div>
+    </details></div>
+        </div>
+    </article></div>
+</section>
+
+<!-- ── Lodging ── -->
+<section class="screen" id="screen-lodging" aria-label="Lodging">
+  <p class="section-label">Stay Timeline</p>
+  <div class="lodging-rail"><a class="lodging-stop open" data-loc="sf" href="#hotel-burlingame-2026-09-24-27">
+      <div class="lodging-stop-head">
+        <span class="lodging-stop-label">Sep 24-27</span>
+        <span class="badge badge-open">Open</span>
+      </div>
+      <strong>Burlingame / SFO</strong>
+      <small>3 nights · Baseline candidate: Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, CA 94010.</small>
+      <span class="lodging-stop-more">Details <span class="icon lodging-stop-chevron" aria-hidden="true"><svg><use href="#i-chevron-right" /></svg></span></span>
+    </a><a class="lodging-stop open" data-loc="yosemite" href="#hotel-yosemite-2026-09-27-29">
+      <div class="lodging-stop-head">
+        <span class="lodging-stop-label">Sep 27-29</span>
+        <span class="badge badge-open">Open</span>
+      </div>
+      <strong>Yosemite</strong>
+      <small>2 nights · Yosemite Airbnb in the Midpines area, with check-in after 15:00 and checkout by 11:00.</small>
+      <span class="lodging-stop-more">Details <span class="icon lodging-stop-chevron" aria-hidden="true"><svg><use href="#i-chevron-right" /></svg></span></span>
+    </a><a class="lodging-stop open" data-loc="sanjose" href="#san-jose-south-bay-airbnb-2026-09-29-10-01">
+      <div class="lodging-stop-head">
+        <span class="lodging-stop-label">Sep 29-1</span>
+        <span class="badge badge-open">Open</span>
+      </div>
+      <strong>San Jose-South Bay</strong>
+      <small>2 nights · Use the same central San Jose listing if its Sep 29-Oct 1 repriced total and cancellation terms remain attractive.</small>
+      <span class="lodging-stop-more">Details <span class="icon lodging-stop-chevron" aria-hidden="true"><svg><use href="#i-chevron-right" /></svg></span></span>
+    </a><a class="lodging-stop selected" data-loc="sandiego" href="#hotel-san-diego-2026-10-01-04">
+      <div class="lodging-stop-head">
+        <span class="lodging-stop-label">Oct 1-4</span>
+        <span class="badge badge-selected">Selected</span>
+      </div>
+      <strong>San Diego</strong>
+      <small>3 nights · Selected property: Hyatt House San Diego Sorrento Mesa, expected $659.78 for Oct 1-4 across two back-to-back reservations.</small>
+      <span class="lodging-stop-more">Details <span class="icon lodging-stop-chevron" aria-hidden="true"><svg><use href="#i-chevron-right" /></svg></span></span>
+    </a><a class="lodging-stop selected" data-loc="la" href="#hotel-la-2026-10-04-06">
+      <div class="lodging-stop-head">
+        <span class="lodging-stop-label">Oct 4-6</span>
+        <span class="badge badge-selected">Selected</span>
+      </div>
+      <strong>Los Angeles</strong>
+      <small>2 nights · Selected: Hyatt Centric Delfina Santa Monica.</small>
+      <span class="lodging-stop-more">Details <span class="icon lodging-stop-chevron" aria-hidden="true"><svg><use href="#i-chevron-right" /></svg></span></span>
+    </a></div>
+  <div class="hotel-block" id="hotel-burlingame-2026-09-24-27" data-loc="sf">
+      <div class="hotel-block-head">
+        <div>
+          <h3>Burlingame / SFO</h3>
+          <div class="stay-info">2026-09-24 to 2026-09-27 · 3 nights</div>
+          <div class="stay-info">Three-night airport-Hyatt baseline before the Yosemite drive.</div>
+          <div class="day-pills"><a href="#day-2026-09-24">Sep 24</a><a href="#day-2026-09-25">Sep 25</a><a href="#day-2026-09-26">Sep 26</a></div>
+        </div>
+        <div class="hotel-winner-wrap">
+          <span class="hotel-winner">Baseline candidate: Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, CA 94010.</span>
+          <span class="hotel-winner-price">$451.38</span>
+          <a class="hotel-official-link" href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">Official hotel page</a>
+        </div>
+      </div>
+      <div class="candidate-row is-winner">
+        <div class="cand-main">
+          <div class="cand-name"><span class="winner-dot">★</span> Hyatt Regency San Francisco Airport</div>
+          <div class="cand-role">Baseline opening stay</div>
+          <div class="cand-fit">Strong for SFO arrival, rental pickup, and Sep 27 Yosemite departure; weaker for central San Francisco sightseeing.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Breakfast</dt><dd>Do not assume included; verify the selected rate.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">$451.38</div>
+
+          <span class="badge badge-selected">Selected</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Central San Francisco hotel</div>
+          <div class="cand-role">Full-route fallback</div>
+          <div class="cand-fit">Best for Sep 25 city time and the Sep 26 early tour; requires a later rental pickup for Yosemite.</div>
+
+
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-muted">Fallback</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-regency/en-US/sfors-hyatt-regency-san-francisco" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div>
+      <details class="disclosure">
+        <summary>Decision rule &amp; sources</summary>
+        <div class="disclosure-body">
+          <p class="decision-rule">Keep the airport-Hyatt baseline only if its after-tax room total plus city commutes and the Sep 27-Oct 1 Model Y plan remains competitive with the central-SF fallback.</p>
+          <div class="source-links"><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/policies" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://world.hyatt.com/content/gp/en/my-account/badges/waived-resort-fees.html" target="_blank" rel="noreferrer">world.hyatt.com</a><a href="https://www.caltrain.com/" target="_blank" rel="noreferrer">caltrain.com</a></div>
+        </div>
+      </details>
+    </div><div class="hotel-block" id="hotel-yosemite-2026-09-27-29" data-loc="yosemite">
+      <div class="hotel-block-head">
+        <div>
+          <h3>Yosemite</h3>
+          <div class="stay-info">2026-09-27 to 2026-09-29 · 2 nights</div>
+          <div class="stay-info">Two-night Yosemite stay tied to the Sep 27-29 self-drive default.</div>
+          <div class="day-pills"><a href="#day-2026-09-27">Sep 27</a><a href="#day-2026-09-28">Sep 28</a></div>
+        </div>
+        <div class="hotel-winner-wrap">
+          <span class="hotel-winner">Yosemite Airbnb in the Midpines area, with check-in after 15:00 and checkout by 11:00.</span>
+
+          <a class="hotel-official-link" href="https://www.airbnb.com/rooms/19059191?unique_share_id=98e401ee-2c77-436c-ba84-9b795231ca87&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noreferrer">Airbnb listing</a>
+        </div>
+      </div>
+      <div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Selected Yosemite Airbnb</div>
+          <div class="cand-role">Selected Yosemite lodging</div>
+          <div class="cand-fit">Midpines-area base for the Yosemite self-drive block on the Highway 140 approach.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Times</dt><dd>Check-in 15:00 · checkout 11:00</dd></div><div><dt>Breakfast</dt><dd>Not assumed; use groceries or simple meals only if listing amenities support it.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">$595.88</div>
+
+          <span class="badge badge-selected">Selected</span>
+          <div class="cand-meta"><a href="https://www.airbnb.com/rooms/19059191?unique_share_id=98e401ee-2c77-436c-ba84-9b795231ca87&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Yosemite Valley lodging fallback</div>
+          <div class="cand-role">Fallback if the Airbnb terms fail but self-drive still works</div>
+          <div class="cand-fit">Best if the priority becomes shorter in-park driving rather than price.</div>
+
+
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-muted">Fallback</span>
+          <div class="cand-meta"><a href="https://www.nps.gov/yose/planyourvisit/lodging.htm" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Small-group-tour-compatible lodging fallback</div>
+          <div class="cand-role">Fallback only if the self-drive default is dropped</div>
+          <div class="cand-fit">Use only if the fallback tour requires a different lodging pattern.</div>
+
+
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-muted">Fallback</span>
+          <div class="cand-meta"><a href="https://www.nps.gov/yose/planyourvisit/lodging.htm" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div>
+      <details class="disclosure">
+        <summary>Decision rule &amp; sources</summary>
+        <div class="disclosure-body">
+          <p class="decision-rule">Keep the selected Airbnb if the Sep 27 drive, Sep 29 exit, parking, and house rules work cleanly. If not, change only the Yosemite layer to the small-group contingency without disturbing the airport-Hyatt baseline or Thursday flight unless necessary.</p>
+          <div class="source-links"><a href="https://www.airbnb.com/rooms/19059191?unique_share_id=98e401ee-2c77-436c-ba84-9b795231ca87&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noreferrer">airbnb.com</a><a href="https://www.nps.gov/yose/planyourvisit/lodging.htm" target="_blank" rel="noreferrer">nps.gov</a><a href="https://www.nps.gov/yose/planyourvisit/conditions.htm" target="_blank" rel="noreferrer">nps.gov</a><a href="https://www.nps.gov/yose/planyourvisit/fees.htm" target="_blank" rel="noreferrer">nps.gov</a></div>
+        </div>
+      </details>
+    </div><div class="hotel-block" id="san-jose-south-bay-airbnb-2026-09-29-10-01" data-loc="sanjose">
+      <div class="hotel-block-head">
+        <div>
+          <h3>San Jose-South Bay</h3>
+          <div class="stay-info">2026-09-29 to 2026-10-01 · 2 nights</div>
+          <div class="stay-info">Two-night San Jose-South Bay base after Yosemite and before the Thursday San Diego flight.</div>
+          <div class="day-pills"><a href="#day-2026-09-29">Sep 29</a><a href="#day-2026-09-30">Sep 30</a></div>
+        </div>
+        <div class="hotel-winner-wrap">
+          <span class="hotel-winner">Use the same central San Jose listing if its Sep 29-Oct 1 repriced total and cancellation terms remain attractive.</span>
+
+          <a class="hotel-official-link" href="https://www.airbnb.com/rooms/27433962?check_in=2026-09-29&amp;check_out=2026-10-01&amp;guests=2&amp;adults=2" target="_blank" rel="noreferrer">Airbnb listing</a>
+        </div>
+      </div>
+      <div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Repriced San Jose-South Bay Airbnb</div>
+          <div class="cand-role">Baseline two-night San Jose lodging</div>
+          <div class="cand-fit">Central San Jose base for Sep 29-Oct 1 with convenient freeway and SJC access.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Times</dt><dd>Check-in 15:00 · checkout 10:00</dd></div><div><dt>Breakfast</dt><dd>Not assumed; use kitchen or simple breakfast only if listing amenities support it.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">$691.16</div>
+
+          <span class="badge badge-open">Needs quote</span>
+          <div class="cand-meta"><a href="https://www.airbnb.com/rooms/27433962?check_in=2026-09-29&amp;check_out=2026-10-01&amp;guests=2&amp;adults=2" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">San Jose, Cupertino, or SJC hotel fallback</div>
+          <div class="cand-role">Fallback if Airbnb terms fail</div>
+          <div class="cand-fit">Best fallback zone if SJC fare and timing are similar to SFO.</div>
+
+
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-muted">Fallback</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-house/en-US/sjcxs-hyatt-house-san-jose-cupertino" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Palo Alto, Mountain View, or SFO/Peninsula fallback</div>
+          <div class="cand-role">Fallback if flight or rental logistics override the Airbnb</div>
+          <div class="cand-fit">Use only if it materially improves the Oct 1 flight handoff or rental-car logistics.</div>
+
+
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-muted">Fallback</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-house/en-US/sfoxs-hyatt-house-belmont-redwood-shores" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div>
+      <details class="disclosure">
+        <summary>Decision rule &amp; sources</summary>
+        <div class="disclosure-body">
+          <p class="decision-rule">Do not treat the former three-night quote as valid for two nights. Reprice the listing, then match the Sep 30 car day and Oct 1 flight to the central San Jose base.</p>
+          <div class="source-links"><a href="https://www.airbnb.com/rooms/27433962?check_in=2026-09-29&amp;check_out=2026-10-01&amp;guests=2&amp;adults=2" target="_blank" rel="noreferrer">airbnb.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/sjcxs-hyatt-house-san-jose-cupertino" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.flysanjose.com/" target="_blank" rel="noreferrer">flysanjose.com</a><a href="https://www.southwest.com/" target="_blank" rel="noreferrer">southwest.com</a><a href="https://www.expedia.com/lp/flights/sjc/san/san-jose-to-san-diego" target="_blank" rel="noreferrer">expedia.com</a></div>
+        </div>
+      </details>
+    </div><div class="hotel-block" id="hotel-san-diego-2026-10-01-04" data-loc="sandiego">
+      <div class="hotel-block-head">
+        <div>
+          <h3>San Diego</h3>
+          <div class="stay-info">2026-10-01 to 2026-10-04 · 3 nights</div>
+          <div class="stay-info">Three-night San Diego local-plan stay after the Thursday Oct 1 flight and before the Oct 4 train.</div>
+          <div class="day-pills"><a href="#day-2026-10-01">Oct 1</a><a href="#day-2026-10-02">Oct 2</a><a href="#day-2026-10-03">Oct 3</a></div>
+        </div>
+        <div class="hotel-winner-wrap">
+          <span class="hotel-winner">Selected property: Hyatt House San Diego Sorrento Mesa, expected $659.78 for Oct 1-4 across two back-to-back reservations.</span>
+          <span class="hotel-winner-price">$659.78</span>
+          <a class="hotel-official-link" href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">Official hotel page</a>
+        </div>
+      </div>
+      <div class="candidate-row is-winner">
+        <div class="cand-main">
+          <div class="cand-name"><span class="winner-dot">★</span> Hyatt House San Diego Sorrento Mesa</div>
+          <div class="cand-role">Selected three-night local-plan base. Oct 1 is separately priced; Oct 2-4 is confirmed.</div>
+          <div class="cand-fit">Strong for the fixed local-plan block; the extra Thursday arrival night creates more buffer.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Confirmation</dt><dd>Private confirmation on file</dd></div><div><dt>Confirmed stay</dt><dd>Oct 2, 2026 at 15:00 to Oct 4, 2026 at 12:00</dd></div><div><dt>Guest</dt><dd>Two adults</dd></div><div><dt>Times</dt><dd>Check-in 15:00 · checkout 12:00</dd></div><div><dt>Room</dt><dd>Acc King Shwr Ns — ADA King room with ADA shower, no sofa bed, Hyatt Grand Bed, Cozy Corner</dd></div><div><dt>Rate</dt><dd>World of Hyatt Member Rate</dd></div><div><dt>Nightly rates</dt><dd>Oct 1: $267.82 all-in; confirmation and room type pending · Oct 2: $171.00 before tax · Oct 3: $170.00 before tax</dd></div><div><dt>Taxes</dt><dd>12.750% occupancy tax + 2.000% city tax + 0.195% California tourism fee</dd></div><div><dt>Breakfast</dt><dd>Hot breakfast is included in the confirmed Oct 2-4 room description; verify that the separate Oct 1 rate matches.</dd></div><div><dt>Preferences</dt><dd>High floor and quiet room requested; non-smoking room confirmed. Preferences remain subject to availability.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">$659.78</div>
+
+          <span class="badge badge-selected">Selected</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">full-service north-side Hyatt alternative</div>
+          <div class="cand-role">Better-positioned Hyatt alternative if the exact local location favors it.</div>
+          <div class="cand-fit">Potentially stronger if it is closer to the exact local-plan area while still not downtown.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Breakfast</dt><dd>Do not assume included.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-open">Needs quote</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-regency/en-US/jolla-hyatt-regency-la-jolla-at-aventine" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">North-side non-Hyatt refundable hotel</div>
+          <div class="cand-role">Potential better-location price anchor.</div>
+          <div class="cand-fit">Good if it is closer to the fixed local plan while preserving manageable depot transfer.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Breakfast</dt><dd>Verify explicitly.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-open">Needs quote</span>
+          <div class="cand-meta">Use refundable direct or OTA quote after the local-plan area is fixed.</div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Downtown San Diego non-Hyatt refundable hotel</div>
+          <div class="cand-role">Train-station convenience alternative.</div>
+          <div class="cand-fit">Strong for Santa Fe Depot and downtown; weak if the fixed local plan is north of the city.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Breakfast</dt><dd>Verify explicitly.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-open">Needs quote</span>
+          <div class="cand-meta">Use refundable direct or OTA quote after exact train and local-plan timing are fixed.</div>
+        </div>
+      </div>
+      <details class="disclosure">
+        <summary>Decision rule &amp; sources</summary>
+        <div class="disclosure-body">
+          <p class="decision-rule">Keep the selected Hyatt House stay. Record the Oct 1 confirmation, link it to the confirmed Oct 2-4 reservation, and ask the hotel to retain the same room so the fixed Oct 2 plan is not disrupted.</p>
+          <div class="source-links"><a href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/jolla-hyatt-regency-la-jolla-at-aventine" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.san.org/before-you-go-travel-tips/public-transportation/" target="_blank" rel="noreferrer">san.org</a><a href="https://www.pacificsurfliner.com/destinations/san-diego-santa-fe-depot/" target="_blank" rel="noreferrer">pacificsurfliner.com</a></div>
+        </div>
+      </details>
+    </div><div class="hotel-block" id="hotel-la-2026-10-04-06" data-loc="la">
+      <div class="hotel-block-head">
+        <div>
+          <h3>Los Angeles</h3>
+          <div class="stay-info">2026-10-04 to 2026-10-06 · 2 nights</div>
+          <div class="stay-info">LA stay using walk, transit, and rideshare, Oct 4 Union Station arrival, west-side sightseeing, and Oct 6 late LAX international departure.</div>
+          <div class="day-pills"><a href="#day-2026-10-04">Oct 4</a><a href="#day-2026-10-05">Oct 5</a></div>
+        </div>
+        <div class="hotel-winner-wrap">
+          <span class="hotel-winner">Selected: Hyatt Centric Delfina Santa Monica.</span>
+          <span class="hotel-winner-price">$587.14</span>
+          <a class="hotel-official-link" href="https://www.hyatt.com/hyatt-centric/en-US/laxcm-hyatt-centric-delfina-santa-monica/" target="_blank" rel="noreferrer">Official hotel page</a>
+        </div>
+      </div>
+      <div class="candidate-row is-winner">
+        <div class="cand-main">
+          <div class="cand-name"><span class="winner-dot">★</span> Hyatt Centric Delfina Santa Monica</div>
+          <div class="cand-role">Selected west-side base.</div>
+          <div class="cand-fit">Better for Santa Monica and Venice; weaker for Union Station arrival and LAX departure timing.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Times</dt><dd>Check-in 15:00 · checkout 11:00</dd></div><div><dt>Breakfast</dt><dd>Do not assume included.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">$587.14</div>
+
+          <span class="badge badge-selected">Selected</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-centric/en-US/laxcm-hyatt-centric-delfina-santa-monica/" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Airport-area suite hotel near Century Blvd</div>
+          <div class="cand-role">Former airport value baseline; fallback only if Santa Monica booking is cancelled.</div>
+          <div class="cand-fit">Strong for final LAX departure and operational simplicity; weaker for Santa Monica, Venice, and Museum Row sightseeing.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Breakfast</dt><dd>Breakfast value expected; confirm rate terms.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">$570</div>
+          <div class="cand-delta">−$17.14 vs. selected</div>
+          <span class="badge badge-muted">Fallback</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-house/en-US/laxxl-hyatt-house-lax-century-blvd" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">full-service hotel LAX</div>
+          <div class="cand-role">Airport convenience alternative without kitchen value.</div>
+          <div class="cand-fit">Strong for departure; less value-oriented than suite-style hotel for a two-night rideshare-based stay.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Breakfast</dt><dd>Do not assume included.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-open">Needs quote</span>
+          <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-regency/en-US/laxla-hyatt-regency-los-angeles-international-airport" target="_blank" rel="noreferrer">source</a></div>
+        </div>
+      </div><div class="candidate-row">
+        <div class="cand-main">
+          <div class="cand-name">Westside or Santa Monica non-Hyatt refundable hotel</div>
+          <div class="cand-role">Potential better-location price anchor.</div>
+          <div class="cand-fit">Can beat Hyatt if walkable to the coast and not too painful for LAX departure.</div>
+
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Breakfast</dt><dd>Must be priced explicitly.</dd></div></dl></details>
+        </div>
+        <div class="cand-right">
+          <div class="cand-price">Estimate</div>
+
+          <span class="badge badge-open">Needs quote</span>
+          <div class="cand-meta">Use refundable direct or OTA quote after exact dates are entered.</div>
+        </div>
+      </div>
+      <details class="disclosure">
+        <summary>Decision rule &amp; sources</summary>
+        <div class="disclosure-body">
+          <p class="decision-rule">Hyatt Centric Delfina Santa Monica is now the selected base because the trip is prioritizing a Santa Monica-Westside walk, transit, and rideshare experience for the final LA stay. The selected total is $587.14 all-in for two nights and should be checked against the former Airport-area suite hotel after-tax benchmark, destination and amenity fees, cancellation terms, breakfast cost, and the Oct 6 LAX rideshare buffer.</p>
+          <div class="source-links"><a href="https://www.hyatt.com/hyatt-house/en-US/laxxl-hyatt-house-lax-century-blvd" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/laxla-hyatt-regency-los-angeles-international-airport" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-centric/en-US/laxcm-hyatt-centric-delfina-santa-monica/" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.flylax.com/lax-traffic-and-ground-transportation" target="_blank" rel="noreferrer">flylax.com</a><a href="https://www.metro.net/riding/trip-planner/" target="_blank" rel="noreferrer">metro.net</a></div>
+        </div>
+      </details>
+    </div>
+</section>
+
+<!-- ── Costs ── -->
+<section class="screen" id="screen-costs" aria-label="Costs">
+  <div class="cost-total-banner">
+      <div><span class="cot-label">Trip total</span><span class="cot-val">$7,632.18-$8,327.18</span></div>
+      <span class="cot-note">baseline for two travelers, including estimated lodging, Uber, food, and Yosemite nonresident fees; excludes optional add-ons</span>
+    </div>
+    <div class="cost-summary-grid">
+      <div class="cost-summary-tile">
+      <span>Committed so far</span>
+      <strong>$3,543.02</strong>
+      <small>Booked flights + selected lodging, exact amounts</small>
+    </div>
+      <div class="cost-summary-tile">
+      <span>Optional add-ons</span>
+      <strong>$110-$420</strong>
+      <small>Tracked separately</small>
+    </div>
+    </div>
+    <p class="cost-legend">
+      <span class="legend-pair"><span class="cost-badge paid">Committed</span>booked or selected</span>
+      <span class="legend-pair"><span class="cost-badge">Quoted</span>priced, not booked</span>
+      <span class="legend-pair"><span class="cost-badge estimate">Estimate</span>planning range</span>
+    </p>
+    <div class="cost-group-grid"><article class="cost-group">
+      <div class="cost-group-head">
+        <div>
+          <h3>Flights</h3>
+          <small>2 lines</small>
+        </div>
+        <div class="cost-group-total">$2,548</div>
+      </div>
+      <div class="cost-lines"><div class="cost-line status-included">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge included">Booked</span><strong>International flight allowance</strong></div>
+        <div class="cost-line-note">Booked long-haul allowance for two travelers. Fixed booked flight allowance for the international open-jaw routing.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Booked long-haul Korean Air routing PVG -&gt; ICN -&gt; SFO and LAX -&gt; ICN -&gt; PVG. This amount is included in the default trip total as the fixed international-flight cost allowance.</p></details>
+      </div>
+      <div class="cost-line-value">$2,360</div>
+    </div><div class="cost-line status-quote">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge quote">Quoted</span><strong>Bay Area -&gt; SAN flight</strong></div>
+        <div class="cost-line-note">Two Southwest Basic fares at $94 each; first checked bag included in the provided price. Leave San Jose about 06:55-07:25, return the Model Y, take AirTrain, and protect at least 90 minutes at the terminal before the 10:55 departure.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Selected Oct 1 Southwest WN 1647 quote: SFO 10:55 -&gt; SAN 12:35 at $94 per traveler, or $188 for two. Basic includes one carry-on and the provided total already includes the $45 first checked-bag charge. Seat selection and extra-legroom seats cost extra; the fare is nonrefundable and does not permit changes.</p></details>
+      </div>
+      <div class="cost-line-value">$188</div>
+    </div></div>
+    </article><article class="cost-group">
+      <div class="cost-group-head">
+        <div>
+          <h3>Lodging</h3>
+          <small>5 lines</small>
+        </div>
+        <div class="cost-group-total">$2,754.18-$2,894.18</div>
+      </div>
+      <div class="cost-lines"><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Estimated</span><strong>Opening Hyatt Regency SFO Sep 24-27</strong></div>
+        <div class="cost-line-note">Three nights: one Free Night Award plus two paid nights; parking excluded.</div>
+        <div class="nightly-cost-wrap"><table class="nightly-cost-table">
+      <thead><tr><th>Date</th><th>Room</th><th>Room tax</th><th>Destination fee + tax</th><th>Total</th></tr></thead>
+      <tbody><tr>
+      <th scope="row">Sep 24</th>
+      <td>$0</td>
+      <td>$0</td>
+      <td>$0 expected</td>
+      <td><strong>$0</strong></td>
+    </tr><tr>
+      <th scope="row">Sep 25</th>
+      <td>$174.00</td>
+      <td>$23.83</td>
+      <td>$28.43</td>
+      <td><strong>$226.26</strong></td>
+    </tr><tr>
+      <th scope="row">Sep 26</th>
+      <td>$173.00</td>
+      <td>$23.69</td>
+      <td>$28.43</td>
+      <td><strong>$225.12</strong></td>
+    </tr></tbody>
+      <tfoot><tr><th colspan="4">Three-night estimate</th><td><strong>$451.38</strong></td></tr></tfoot>
+    </table></div>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>User-provided estimate: Sep 24 Free Night Award $0; Sep 25 room $174.00 + room tax $23.83 + destination fee and tax $28.43 = $226.26; Sep 26 room $173.00 + room tax $23.69 + destination fee and tax $28.43 = $225.12. Hyatt publishes a $25 daily destination fee for this hotel and waives resort fees on Free Night Awards for World of Hyatt members. Because the property labels the charge a destination fee, verify the award-night waiver on the reservation and final folio.</p></details>
+      </div>
+      <div class="cost-line-value">$451.38</div>
+    </div><div class="cost-line status-selected">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge selected">Selected</span><strong>Yosemite Airbnb Sep 27-29</strong></div>
+        <div class="cost-line-note">Two travelers, converted from ¥4,052 CNY.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>User-provided Yosemite Airbnb quote for Sep 27-29. Keep parking, cancellation, exact location fit, and card-settlement FX under review until booking is final.</p></details>
+      </div>
+      <div class="cost-line-value">$595.88</div>
+    </div><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Allowance</span><strong>San Jose-South Bay lodging Sep 29-Oct 1</strong></div>
+        <div class="cost-line-note">Sep 29-Oct 1, two-night planning range. Replace with the exact quote when booked.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Planning allowance only. The former three-night quote was $691.16 but cannot be prorated into a new two-night quote; use $460-$600 until the exact Sep 29-Oct 1 total is obtained.</p></details>
+      </div>
+      <div class="cost-line-value">$460-$600</div>
+    </div><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Partial</span><strong>San Diego lodging Oct 1-4</strong></div>
+        <div class="cost-line-note">Oct 1 separately priced at $267.82; Oct 2-4 confirmed at $391.96.</div>
+        <div class="nightly-cost-wrap"><table class="nightly-cost-table">
+      <thead><tr><th>Stay segment</th><th>Room rate</th><th>Taxes and fees</th><th>Status</th><th>Total</th></tr></thead>
+      <tbody><tr>
+      <th scope="row">Oct 1</th>
+      <td>Not itemized</td>
+      <td>Included</td>
+      <td>Confirmation pending</td>
+      <td><strong>$267.82</strong></td>
+    </tr><tr>
+      <th scope="row">Oct 2-4</th>
+      <td>$341.00</td>
+      <td>$50.96</td>
+      <td>Confirmed · private reference on file</td>
+      <td><strong>$391.96</strong></td>
+    </tr></tbody>
+      <tfoot><tr><th colspan="4">Three-night estimate</th><td><strong>$659.78</strong></td></tr></tfoot>
+    </table></div>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>User-provided Hyatt House San Diego Sorrento Mesa details. Oct 1 is an all-in $267.82 price with confirmation and room type still to be recorded. Oct 2-4 is confirmed under a private confirmation on file: $171 on Oct 2 plus $170 on Oct 3, with 12.750% occupancy tax, 2.000% city tax, and 0.195% California tourism fee. The two-night room subtotal is $341.00, calculated tax and fees are $50.96, and the expected two-night total is $391.96.</p></details>
+      </div>
+      <div class="cost-line-value">$659.78</div>
+    </div><div class="cost-line status-selected">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge selected">Selected</span><strong>Los Angeles lodging Oct 4-6</strong></div>
+        <div class="cost-line-note">Oct 4-6, two nights.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Selected Oct 4-6 stay total. The room cost remains within the former Airport-area suite hotel benchmark, so the location-first Santa Monica choice is cost-acceptable if any destination and amenity fee is truly included or immaterial. Budget the larger Oct 4 Union Station transfer and Oct 6 LAX rideshare separately.</p></details>
+      </div>
+      <div class="cost-line-value">$587.14</div>
+    </div></div>
+    </article><article class="cost-group">
+      <div class="cost-group-head">
+        <div>
+          <h3>Ground + Transit</h3>
+          <small>4 lines</small>
+        </div>
+        <div class="cost-group-total">$1,245-$1,600<span>Optional $110-$170</span></div>
+      </div>
+      <div class="cost-lines"><div class="cost-line status-quote">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge quote">Quoted</span><strong>Northern California Tesla Model Y</strong></div>
+        <div class="cost-line-note">Charge in South Bay on Sep 30, then follow the rental agreement's return-state rule after the Oct 1 drive to SFO.</div>
+        <div class="nightly-cost-wrap"><table class="nightly-cost-table">
+      <thead><tr><th>Component</th><th>Estimate</th><th>Basis</th><th>Status</th><th>Included</th></tr></thead>
+      <tbody><tr>
+      <th scope="row">Model Y SFO round trip</th>
+      <td>$750</td>
+      <td>Sep 27-Oct 1</td>
+      <td>User-provided price; verify taxes and mandatory fees</td>
+      <td><strong>$750</strong></td>
+    </tr><tr>
+      <th scope="row">Tesla Supercharging</th>
+      <td>$70-$110</td>
+      <td>About 170-210 kWh</td>
+      <td>Dynamic in-car price</td>
+      <td><strong>$70-$110</strong></td>
+    </tr><tr>
+      <th scope="row">Tolls, parking, and return buffer</th>
+      <td>$35-$65</td>
+      <td>No one-way fee</td>
+      <td>Allowance</td>
+      <td><strong>$35-$65</strong></td>
+    </tr></tbody>
+      <tfoot><tr><th colspan="4">Model Y mobility budget</th><td><strong>$855-$925</strong></td></tr></tfoot>
+    </table></div>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Refined allowance for a Sep 27-Oct 1 SFO-to-SFO Tesla Model Y rental: the user-provided rental price is $750, with $70-$110 for Supercharging and $35-$65 for tolls, parking, and return-state buffer. The same-airport return removes the one-way fee; confirm whether the $750 price already includes all rental taxes and mandatory fees.</p></details>
+      </div>
+      <div class="cost-line-value">$855-$925</div>
+    </div><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Estimate</span><strong>San Diego -&gt; Los Angeles Pacific Surfliner</strong></div>
+        <div class="cost-line-note">Coach baseline for two; business class is optional.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Use coach as the cost baseline at about $35 per traveler. A business-class upgrade is a comfort option and is excluded from the baseline total unless selected.</p></details>
+      </div>
+      <div class="cost-line-value">$70</div>
+    </div><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Uber plan</span><strong>Local transfers, rideshare, and transit</strong></div>
+        <div class="cost-line-note">Historical Uber route averages are not binding; recheck live prices before every ride.</div>
+        <div class="nightly-cost-wrap"><table class="nightly-cost-table">
+      <thead><tr><th>Date</th><th>Uber or rideshare segment</th><th>Estimate basis</th><th>Treatment</th><th>Estimate</th></tr></thead>
+      <tbody><tr>
+      <th scope="row">Sep 24</th>
+      <td>SFO to airport Hyatt</td>
+      <td>Rental pickup or hotel shuttle</td>
+      <td>Uber fallback not included</td>
+      <td><strong>$0 baseline; $20-$35 fallback</strong></td>
+    </tr><tr>
+      <th scope="row">Sep 26</th>
+      <td>Hyatt to 478 Post Street</td>
+      <td>Early ride; SFO-to-Union-Square average is about $40-$51</td>
+      <td>Included</td>
+      <td><strong>$50-$75</strong></td>
+    </tr><tr>
+      <th scope="row">Sep 26</th>
+      <td>Pier 41 to Hyatt</td>
+      <td>Longer return ride with traffic buffer</td>
+      <td>Included</td>
+      <td><strong>$55-$85</strong></td>
+    </tr><tr>
+      <th scope="row">Oct 1</th>
+      <td>SAN to Hyatt House Sorrento Mesa</td>
+      <td>Uber historical average about $48</td>
+      <td>Included</td>
+      <td><strong>$40-$65</strong></td>
+    </tr><tr>
+      <th scope="row">Oct 1-3</th>
+      <td>San Diego local rides</td>
+      <td>Friends provide transportation</td>
+      <td>Not budgeted</td>
+      <td><strong>$0</strong></td>
+    </tr><tr>
+      <th scope="row">Oct 4</th>
+      <td>Hyatt House to Santa Fe Depot</td>
+      <td>Friend-provided station drop-off</td>
+      <td>Not budgeted</td>
+      <td><strong>$0</strong></td>
+    </tr><tr>
+      <th scope="row">Oct 4</th>
+      <td>Union Station to Santa Monica hotel</td>
+      <td>Cross-city ride with luggage</td>
+      <td>Included</td>
+      <td><strong>$50-$85</strong></td>
+    </tr><tr>
+      <th scope="row">Oct 4-5</th>
+      <td>Los Angeles local rides</td>
+      <td>Coast and Museum Row plan</td>
+      <td>Allowance</td>
+      <td><strong>$60-$140</strong></td>
+    </tr><tr>
+      <th scope="row">Oct 6</th>
+      <td>Short Santa Monica local ride</td>
+      <td>Walk first</td>
+      <td>Allowance</td>
+      <td><strong>$0-$25</strong></td>
+    </tr><tr>
+      <th scope="row">Oct 6</th>
+      <td>Santa Monica hotel to LAX</td>
+      <td>Uber historical average about $45-$48</td>
+      <td>Included</td>
+      <td><strong>$40-$70</strong></td>
+    </tr><tr>
+      <th scope="row">Trip-wide</th>
+      <td>Rideshare tips</td>
+      <td>About 10%-15% on paid rides</td>
+      <td>Included allowance</td>
+      <td><strong>$25-$60</strong></td>
+    </tr></tbody>
+      <tfoot><tr><th colspan="4">Included rideshare budget</th><td><strong>$320-$605</strong></td></tr></tfoot>
+    </table></div>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Route-by-route rideshare allowance for the baseline. It includes the two Sep 26 transfers, a possible SAN-to-Sorrento Mesa Uber, Los Angeles transfers and local rides, the LAX transfer, and tips. Friends provide San Diego local transport and the Oct 4 hotel-to-station ride, so those lines are $0. Sep 25 all-Uber commuting remains optional and excluded.</p></details>
+      </div>
+      <div class="cost-line-value">$320-$605</div>
+    </div><div class="cost-line status-optional">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge optional">Optional</span><strong>Optional Sep 25 all-Uber commute</strong></div>
+        <div class="cost-line-note">Use only if the time savings justify replacing the cheaper rail or already-paid rental-car option.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Optional Hyatt Regency SFO-to-central-San-Francisco round trip by Uber for two travelers. The baseline can instead use the rental car with planned parking or rail, so this is not included in the base total.</p></details>
+      </div>
+      <div class="cost-line-value">$110-$170</div>
+    </div></div>
+    </article><article class="cost-group">
+      <div class="cost-group-head">
+        <div>
+          <h3>Activities + Parks</h3>
+          <small>3 lines</small>
+        </div>
+        <div class="cost-group-total">$435<span>Optional $0-$250</span></div>
+      </div>
+      <div class="cost-lines"><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Estimate</span><strong>Yosemite entry fees</strong></div>
+        <div class="cost-line-note">$35 vehicle entry + $100 per non-US adult for two travelers. Self-drive baseline: $35 private vehicle entry plus $100 per non-US adult for two travelers. The separate Yosemite tour contingency carries its own nonresident fee.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Current 2026 NPS fee structure for two non-US residents arriving in one private vehicle: $35 vehicle entry plus two $100 nonresident adult fees.</p></details>
+      </div>
+      <div class="cost-line-value">$235</div>
+    </div><div class="cost-line status-quote">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge quote">Quoted</span><strong>Muir Woods + Sausalito half-day tour</strong></div>
+        <div class="cost-line-note">Two travelers. Leave Hyatt Regency SFO at 6:30 AM, reach 478 Post Street by 7:20 AM, check in by 7:25 AM, and use the assigned ferry to Pier 41 before a direct rideshare back to the Hyatt. Verify the voucher and cancellation deadline before payment.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>User-provided two-person quote for Viator product 2660SFOMUI1 on Sep 26: 7:40 AM Gray Line departure from 478 Post Street with Muir Woods admission and return ferry selected.</p></details>
+      </div>
+      <div class="cost-line-value">$200</div>
+    </div><div class="cost-line status-optional">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge optional">Optional</span><strong>Optional attractions and gratuities</strong></div>
+
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Contingency for museum admission, optional add-ons, and tour gratuity not otherwise itemized. Keep at $0 if no paid add-ons are chosen.</p></details>
+      </div>
+      <div class="cost-line-value">$0-$250</div>
+    </div></div>
+    </article><article class="cost-group">
+      <div class="cost-group-head">
+        <div>
+          <h3>Food + Daily</h3>
+          <small>1 line</small>
+        </div>
+        <div class="cost-group-total">$650-$850</div>
+      </div>
+      <div class="cost-lines"><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Budget</span><strong>Food and daily spending</strong></div>
+        <div class="cost-line-note">Refined from the previous $750-$1,400 band using a self-catering and simple-meal pattern.</div>
+        <div class="nightly-cost-wrap"><table class="nightly-cost-table">
+      <thead><tr><th>Meal component</th><th>Planning range</th><th>How it is used</th><th>Assumption</th><th>Included</th></tr></thead>
+      <tbody><tr>
+      <th scope="row">Airbnb groceries</th>
+      <td>$170-$230</td>
+      <td>Yosemite + San Jose kitchens</td>
+      <td>Breakfast, vegetables, packed food, simple dinners</td>
+      <td><strong>$170-$230</strong></td>
+    </tr><tr>
+      <th scope="row">Simple breakfasts</th>
+      <td>$80-$110</td>
+      <td>Hotel days without included breakfast</td>
+      <td>Coffee, yogurt, fruit, eggs, or bakery items</td>
+      <td><strong>$80-$110</strong></td>
+    </tr><tr>
+      <th scope="row">Casual meals and takeout</th>
+      <td>$330-$390</td>
+      <td>Travel, San Francisco, and Los Angeles days</td>
+      <td>Simple meals with tax and normal tips</td>
+      <td><strong>$330-$390</strong></td>
+    </tr><tr>
+      <th scope="row">Water, coffee, and snacks</th>
+      <td>$70-$120</td>
+      <td>Trip-wide</td>
+      <td>No alcohol allowance</td>
+      <td><strong>$70-$120</strong></td>
+    </tr></tbody>
+      <tfoot><tr><th colspan="4">Simple-meal budget</th><td><strong>$650-$850</strong></td></tr></tfoot>
+    </table></div>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Two travelers prefer simple, clean meals with vegetables. Use the Yosemite and San Jose Airbnb kitchens for groceries, breakfast, packed food, and several dinners; use included Hyatt House breakfast in San Diego; and reserve restaurant spending for simple meals on transit and hotel days. The estimate includes tax and normal tips but excludes fine dining and alcohol.</p></details>
+      </div>
+      <div class="cost-line-value">$650-$850</div>
+    </div></div>
+    </article></div>
+  <details class="disclosure panel">
+    <summary>Assumptions &amp; risk notes</summary>
+    <div class="disclosure-body"><ul class="risk-list"><li>Treat the airport-Hyatt baseline as provisional until the $451.38 lodging estimate, Sep 27 Model Y quote, and city-commute cost are combined.</li><li>Do not compare a suburban room rate with a central-SF hotel without adding city-commute cost and time; this baseline does not include Hyatt parking.</li><li>Do not prorate the former three-night San Jose total; the changed dates require a new quote.</li><li>Treat the $659.78 San Diego total as expected until the Oct 1 confirmation is recorded and both reservations are linked for room continuity.</li><li>The $320-$605 baseline rideshare budget assumes friends cover San Diego local transport and the Oct 4 station drop-off; only SAN-to-hotel may require Uber.</li><li>The Yosemite self-drive entry estimate is $235 for two non-US adults under the current 2026 fee structure, not only the $35 vehicle fee.</li><li>Southwest WN 1647 is quoted but not yet booked: $94 per traveler, SFO 10:55 to SAN 12:35. The Basic fare is nonrefundable and cannot be changed; paid seat selection remains optional.</li><li>The Yosemite Airbnb and Los Angeles hotel remain the unchanged selected lodging anchors.</li><li>The Yosemite small-group tour is an emergency layer only and should not be confused with the complete prior-route fallback.</li></ul></div>
+  </details>
+  <details class="disclosure panel">
+    <summary>Sources</summary>
+    <div class="disclosure-body"><div class="source-links"><a href="https://wise.com/us/currency-converter/usd-to-cny-rate/history" target="_blank" rel="noreferrer">wise.com</a><a href="https://www.airbnb.com/rooms/19059191?unique_share_id=98e401ee-2c77-436c-ba84-9b795231ca87&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noreferrer">airbnb.com</a><a href="https://www.airbnb.com/rooms/27433962?check_in=2026-09-29&amp;check_out=2026-10-02&amp;search_mode=regular_search&amp;amenities%5B0%5D=9&amp;source_impression_id=p3_1783321652_P31HPlfsHooOQGEh&amp;previous_page_section_name=1000&amp;federated_search_id=f39e758b-1d0c-4faa-9deb-989f9275f362&amp;guests=2&amp;adults=2" target="_blank" rel="noreferrer">airbnb.com</a><a href="https://finance.yahoo.com/quote/CNY%3DX/history/" target="_blank" rel="noreferrer">finance.yahoo.com</a><a href="https://sftreasurer.org/business/taxes-fees/transient-occupancy-tax-tot" target="_blank" rel="noreferrer">sftreasurer.org</a><a href="https://finance.lacity.gov/transient-occupancy-tax-requirements" target="_blank" rel="noreferrer">finance.lacity.gov</a><a href="https://www.sandiego.gov/treasurer/taxesfees/tot" target="_blank" rel="noreferrer">sandiego.gov</a><a href="https://www.southwest.com/en/flights/flights-from-san-francisco-to-san-diego" target="_blank" rel="noreferrer">southwest.com</a><a href="https://www.southwest.com/html/customer-service/travel-fees.html" target="_blank" rel="noreferrer">southwest.com</a><a href="https://www.fns.usda.gov/research/cnpp/usda-food-plans/cost-food-monthly-reports" target="_blank" rel="noreferrer">fns.usda.gov</a><a href="https://www.expedia.com/lp/flights/sfo/san/san-francisco-to-san-diego" target="_blank" rel="noreferrer">expedia.com</a><a href="https://www.nps.gov/yose/planyourvisit/fees.htm" target="_blank" rel="noreferrer">nps.gov</a><a href="https://gomuirwoods.com/" target="_blank" rel="noreferrer">gomuirwoods.com</a><a href="https://www.nps.gov/muwo/planyourvisit/fees.htm" target="_blank" rel="noreferrer">nps.gov</a><a href="https://www.wanderu.com/en-us/train/us-ca/san-diego/us-ca/los-angeles/" target="_blank" rel="noreferrer">wanderu.com</a><a href="https://www.pacificsurfliner.com/onboard/business-class/" target="_blank" rel="noreferrer">pacificsurfliner.com</a><a href="https://gasprices.aaa.com/?state=CA" target="_blank" rel="noreferrer">gasprices.aaa.com</a><a href="https://www.kayak.com/San-Francisco-Airport-Car-Rentals.SFO.cap.ksp" target="_blank" rel="noreferrer">kayak.com</a><a href="https://www.hertz.com/us/en/location/unitedstates/california/sanfrancisco/sfot15" target="_blank" rel="noreferrer">hertz.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/oakxe-hyatt-house-emeryville-san-francisco-bay-area" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/sfoxs-hyatt-house-belmont-redwood-shores" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/sjcxs-hyatt-house-san-jose-cupertino" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/laxxl-hyatt-house-lax-century-blvd" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/grand-hyatt/en-US/sanrs-manchester-grand-hyatt-san-diego/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-centric/en-US/laxcm-hyatt-centric-delfina-santa-monica/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/policies" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://world.hyatt.com/content/gp/en/my-account/badges/waived-resort-fees.html" target="_blank" rel="noreferrer">world.hyatt.com</a><a href="https://www.tesla.com/support/charging/supercharging" target="_blank" rel="noreferrer">tesla.com</a><a href="https://www.tesla.com/findus/location/supercharger/26792" target="_blank" rel="noreferrer">tesla.com</a><a href="https://www.uber.com/global/en/r/routes/sfo-to-union-square-san-francisco-ca-us/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/san-to-sorrento-valley-san-diego-ca-us/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/santa-monica-ca-to-los-angeles-ca/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/pico-santa-monica-ca-us-to-lax/" target="_blank" rel="noreferrer">uber.com</a></div></div>
+  </details>
+</section>
+
+<!-- ── Tasks ── -->
+<section class="screen" id="screen-tasks" aria-label="Booking tasks">
+  <ul class="task-list"><li class="task-item" id="action-1">
+      <span class="task-num">1</span>
+      <div>
+        <div class="task-title">Confirm Hyatt Regency SFO estimate</div>
+        <div class="task-detail">Use $451.38 as the Sep 24-27 lodging estimate: Sep 24 Free Night Award at $0 expected, then $226.26 and $225.12 for the paid nights. Confirm the award-night fee waiver and cancellation terms, add city commutes and the Sep 27 Model Y handoff, then compare that combined cost and time with the central-SF fallback.</div>
+        <div class="day-pills"><a href="#day-2026-09-24">Sep 24</a><a href="#day-2026-09-27">Sep 27</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+        <span class="task-due">Due Jul 27</span>
+      </div>
+    </li><li class="task-item" id="action-2">
+      <span class="task-num">2</span>
+      <div>
+        <div class="task-title">Confirm the Sep 27-Oct 1 Tesla Model Y rental terms</div>
+        <div class="task-detail">Use the provided $750 SFO pickup-and-return price and confirm whether it includes rental taxes and mandatory fees. Also verify Supercharging billing, required return state of charge, tolls, parking, and that no one-way fee appears.</div>
+        <div class="day-pills"><a href="#day-2026-09-27">Sep 27</a><a href="#day-2026-10-01">Oct 1</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+        <span class="task-due">Due Jul 27</span>
+      </div>
+    </li><li class="task-item" id="action-3">
+      <span class="task-num">3</span>
+      <div>
+        <div class="task-title">Confirm the Sep 27-29 Yosemite self-drive block</div>
+        <div class="task-detail">Keep the selected Airbnb and verify parking, entry handling, road conditions, the Sep 27 SFO Model Y pickup, Mariposa Supercharger fallback, and Midpines arrival buffer.</div>
+        <div class="day-pills"><a href="#day-2026-09-27">Sep 27</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+        <span class="task-due">Due Jul 27</span>
+      </div>
+    </li><li class="task-item" id="action-4">
+      <span class="task-num">4</span>
+      <div>
+        <div class="task-title">Reprice San Jose lodging for Sep 29-Oct 1</div>
+        <div class="task-detail">The former three-night Airbnb total belongs to the fallback. Get the exact two-night total and recheck cancellation, parking, and minimum-stay terms.</div>
+        <div class="day-pills"><a href="#day-2026-09-29">Sep 29</a><a href="#day-2026-10-01">Oct 1</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+
+      </div>
+    </li><li class="task-item" id="action-5">
+      <span class="task-num">5</span>
+      <div>
+        <div class="task-title">Book Southwest WN 1647 for Oct 1</div>
+        <div class="task-detail">Book the quoted Southwest Basic itinerary through Southwest: WN 1647, SFO 10:55 -&gt; SAN 12:35, at $94 per traveler or $188 for two. The first checked-bag charge is included; seat selection costs extra, and the fare is nonrefundable with no changes.</div>
+        <div class="day-pills"><a href="#day-2026-10-01">Oct 1</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+
+      </div>
+    </li><li class="task-item" id="action-6">
+      <span class="task-num">6</span>
+      <div>
+        <div class="task-title">Link the San Diego back-to-back reservations</div>
+        <div class="task-detail">Record the Oct 1 confirmation and room type for the $267.82 stay, then ask Hyatt House to link it with the private Oct 2-4 confirmation on file. Request the same ADA King room, verify breakfast on Oct 2, and confirm whether a key refresh is required.</div>
+        <div class="day-pills"><a href="#day-2026-10-01">Oct 1</a><a href="#day-2026-10-02">Oct 2</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+
+      </div>
+    </li><li class="task-item" id="action-7">
+      <span class="task-num">7</span>
+      <div>
+        <div class="task-title">Book the Sep 26 Viator Muir Woods tour and rideshare handoffs</div>
+        <div class="task-detail">Book product 2660SFOMUI1 for the 7:40 AM departure from 478 Post Street with Muir Woods admission and return ferry selected. Confirm Sep 26 inventory and the 7:25 AM check-in time, then schedule a 6:30 AM Hyatt pickup and keep Pier 41-to-Hyatt rideshare as the return plan.</div>
+        <div class="day-pills"><a href="#day-2026-09-26">Sep 26</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+        <span class="task-due">Due Aug 3</span>
+      </div>
+    </li><li class="task-item" id="action-8">
+      <span class="task-num">8</span>
+      <div>
+        <div class="task-title">Choose the Sep 30 core plan</div>
+        <div class="task-detail">Choose Stanford plus one Silicon Valley stop or Santa Cruz as the core. Treat a combined day as optional and drop extra campuses or Half Moon Bay first.</div>
+        <div class="day-pills"><a href="#day-2026-09-30">Sep 30</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-tracked">Tracked</span>
+
+      </div>
+    </li></ul>
+  <details class="disclosure panel">
+    <summary>Decision gates</summary>
+    <div class="disclosure-body"><ul class="gate-list"><li>
+    <span class="gate-priority">Jul 27</span>
+    <div><strong>Compare the full airport-Hyatt baseline against the former central-SF fallback.</strong><p class="gate-default">The comparison must include city-commute time and cost, the Sep 27 SFO Model Y pickup, and the Thursday flight—not a non-existent Hyatt-parking or seven-day-rental cost.</p></div>
+  </li><li>
+    <span class="gate-priority">Sep 26</span>
+    <div><strong>Confirm the Sep 27 direct Hyatt Regency SFO-to-Midpines departure and Yosemite check-in.</strong><p class="gate-default">The morning needs a Model Y pickup at SFO, a charge-level check, and a direct Midpines drive while still protecting the after-15:00 Airbnb check-in.</p></div>
+  </li><li>
+    <span class="gate-priority">Sep 29</span>
+    <div><strong>Confirm the two-night San Jose lodging terms and the Sep 30 priority.</strong><p class="gate-default">Only one full South Bay day remains before the Thursday flight.</p></div>
+  </li><li>
+    <span class="gate-priority">Sep 30</span>
+    <div><strong>Lock the Oct 1 SFO flight time and rental-return buffer.</strong><p class="gate-default">The Model Y is an SFO-to-SFO rental and WN 1647 is the selected 10:55 departure, so the remaining gate is booking the quoted Basic fare and confirming its terms.</p></div>
+  </li></ul></div>
+  </details>
+</section>
+
+</main>
+<footer class="source-footer">
+  Last updated 2026-07-22
+</footer>
+<script>
+(function() {
+  var SCREENS = ["overview","itinerary","lodging","costs","tasks"];
+  var navLinks = document.querySelectorAll(".app-nav a[data-screen]");
+
+  function showScreen(id) {
+    SCREENS.forEach(function(s) {
+      var el = document.getElementById("screen-" + s);
+      if (el) el.classList.toggle("active", s === id);
+    });
+    navLinks.forEach(function(a) {
+      var active = a.dataset.screen === id;
+      a.classList.toggle("active", active);
+      if (active) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+  }
+
+  function routeFromHash() {
+    var h = location.hash.replace(/^#/, "");
+    if (SCREENS.includes(h)) {
+      showScreen(h);
+      window.scrollTo({ top: 0, behavior: "auto" });
+      return;
+    }
+    // deep-link into a day card
+    var dayEl = h ? document.getElementById("day-" + h) || document.getElementById(h) : null;
+    if (dayEl) {
+      var screen = dayEl.closest(".screen");
+      if (screen) showScreen(screen.id.replace("screen-",""));
+      setTimeout(function() { dayEl.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
+      return;
+    }
+    showScreen("overview");
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  navLinks.forEach(function(a) {
+    a.addEventListener("click", function(e) {
+      e.preventDefault();
+      history.pushState(null, "", "#" + a.dataset.screen);
+      showScreen(a.dataset.screen);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+
+  window.addEventListener("popstate", routeFromHash);
+
+  // Lazy iframe for maps
+  document.querySelectorAll("[data-map-group]").forEach(function(group) {
+    group.addEventListener("toggle", function() {
+      var iframe = group.querySelector("[data-day-map-iframe]");
+      if (group.open && iframe && !iframe.src) iframe.src = iframe.dataset.src;
+    });
+    group.querySelectorAll("[data-route-index]").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var idx = Number(btn.dataset.routeIndex);
+        var routes = [{"title":"SFO arrival to Hyatt Regency","kind":"Hotel transfer","subtitle":"Arrival handoff from SFO to Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, by hotel shuttle or short rideshare.","embedUrl":"https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport\u0026daddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Francisco%20International%20Airport\u0026destination=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026travelmode=driving"},{"title":"Hyatt Regency to central San Francisco","kind":"Day commute","subtitle":"Reference commute from the Burlingame hotel to the Ferry Building. Compare rail and rideshare before each city day.","embedUrl":"https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026daddr=Ferry%20Building%2C%20San%20Francisco%2C%20CA\u0026dirflg=r\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026destination=Ferry%20Building%2C%20San%20Francisco%2C%20CA\u0026travelmode=transit"},{"title":"Hyatt Regency to Gray Line Union Square","kind":"Early rideshare","subtitle":"Sep 26 transfer from the Burlingame hotel to the 7:40 AM Viator and Gray Line departure at 478 Post Street. Leave at 6:30 AM and target arrival by 7:20 AM.","embedUrl":"https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026daddr=478%20Post%20St%2C%20San%20Francisco%2C%20CA%2094102\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026destination=478%20Post%20St%2C%20San%20Francisco%2C%20CA%2094102\u0026travelmode=driving"},{"title":"Pier 41 to Hyatt Regency","kind":"Ferry-return rideshare","subtitle":"Direct return to the Burlingame hotel after the included Sausalito ferry reaches Pier 41. Confirm the assigned ferry on the voucher before travel.","embedUrl":"https://maps.google.com/maps?saddr=Pier%2041%2C%20San%20Francisco%2C%20CA%2094133\u0026daddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Pier%2041%2C%20San%20Francisco%2C%20CA%2094133\u0026destination=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026travelmode=driving"},{"title":"SFO Model Y pickup to Yosemite","kind":"Driving + charge","subtitle":"Sep 27 self-drive reference after the SFO Model Y pickup, ending at the selected Midpines-area Yosemite Airbnb. Use Tesla navigation for the Mariposa Supercharger decision.","embedUrl":"https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport\u0026daddr=Midpines%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/San+Francisco+International+Airport/Midpines,+CA/"},{"title":"Sep 30 compressed South Bay day","kind":"Driving","subtitle":"One-day baseline from San Jose: Stanford and one Silicon Valley stop first, with Santa Cruz only if the day remains comfortable.","embedUrl":"https://maps.google.com/maps?saddr=San%20Jose%2C%20CA\u0026daddr=Stanford%20Visitor%20Center%2C%20295%20Galvez%20St%2C%20Stanford%2C%20CA+to:Santa%20Cruz%2C%20CA+to:San%20Jose%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/San+Jose,+CA/Stanford+Visitor+Center,+295+Galvez+St,+Stanford,+CA/Santa+Cruz,+CA/San+Jose,+CA/"},{"title":"Yosemite to San Jose-South Bay","kind":"Driving","subtitle":"Reference map for the Sep 29 self-drive return from the Midpines-area Airbnb to the central San Jose Airbnb base.","embedUrl":"https://maps.google.com/maps?saddr=Midpines%2C%20CA\u0026daddr=San%20Jose%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/Midpines,+CA/San+Jose,+CA/"},{"title":"SAN to Sorrento Mesa hotel","kind":"Rideshare","subtitle":"Airport arrival transfer to Hyatt House San Diego Sorrento Mesa.","embedUrl":"https://maps.google.com/maps?saddr=San%20Diego%20International%20Airport%2C%203225%20N%20Harbor%20Dr%2C%20San%20Diego%2C%20CA%2092101\u0026daddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Diego%20International%20Airport%2C%203225%20N%20Harbor%20Dr%2C%20San%20Diego%2C%20CA%2092101\u0026destination=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026travelmode=driving"},{"title":"Sorrento Mesa hotel to Santa Fe Depot","kind":"Friend drop-off","subtitle":"Sunday friend-provided train handoff from Sorrento Mesa to Santa Fe Depot; keep rideshare only as an emergency fallback.","embedUrl":"https://maps.google.com/maps?saddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026daddr=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026destination=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026travelmode=driving"},{"title":"Santa Fe Depot to Union Station","kind":"Train","subtitle":"Pacific Surfliner route reference from San Diego to Los Angeles.","embedUrl":"https://maps.google.com/maps?saddr=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026daddr=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026destination=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026travelmode=transit"},{"title":"Union Station to Hyatt Centric Delfina Santa Monica","kind":"LA transfer","subtitle":"Transfer reference after arriving at Los Angeles Union Station.","embedUrl":"https://maps.google.com/maps?saddr=800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026daddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026destination=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026travelmode=driving"},{"title":"Hyatt Centric Delfina to Santa Monica Pier","kind":"LA local","subtitle":"Walkable coast reference from the confirmed Santa Monica hotel base.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA\u0026dirflg=w\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA\u0026travelmode=walking"},{"title":"Hyatt Centric Delfina to LACMA","kind":"LA local","subtitle":"Monday-compatible Museum Row reference from the confirmed Santa Monica hotel base.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=5905%20Wilshire%20Blvd%2C%20Los%20Angeles%2C%20CA%2090036\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=Los%20Angeles%20County%20Museum%20of%20Art%2C%205905%20Wilshire%20Blvd%2C%20Los%20Angeles%2C%20CA%2090036\u0026travelmode=transit"},{"title":"Hyatt Centric Delfina to LAX Terminal B","kind":"Departure","subtitle":"Final rideshare and hotel-area transfer to the international terminal.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=1%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=LAX%20Terminal%20B%2C%201%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045\u0026travelmode=driving"},{"title":"Muir Woods + Sausalito half-day tour","subtitle":"Viator product 2660SFOMUI1: depart Gray Line at 478 Post Street at 7:40 AM, visit Muir Woods and Sausalito, then use the selected ferry return to Pier 41.","embedUrl":"https://www.google.com/maps/dir/478+Post+St,+San+Francisco,+CA/Muir+Woods+National+Monument/Sausalito,+CA/Pier+41,+San+Francisco,+CA/","url":"https://www.google.com/maps/dir/478+Post+St,+San+Francisco,+CA/Muir+Woods+National+Monument/Sausalito,+CA/Pier+41,+San+Francisco,+CA/"}];
+        var route = routes[idx];
+        if (!route) return;
+        var iframe = group.querySelector("[data-day-map-iframe]");
+        var title = group.querySelector("[data-day-map-title]");
+        var openLink = group.querySelector("[data-day-map-open]");
+        if (title) title.textContent = route.title;
+        if (iframe) { iframe.title = route.title; iframe.dataset.src = route.embedUrl; if (group.open) iframe.src = route.embedUrl; }
+        if (openLink) openLink.href = route.url;
+        group.querySelectorAll("[data-route-index]").forEach(function(b) {
+          b.classList.toggle("active", Number(b.dataset.routeIndex) === idx);
+          b.setAttribute("aria-pressed", String(Number(b.dataset.routeIndex) === idx));
+        });
+      });
+    });
+  });
+
+  // One accent at a time: clicking a place or scrolling into its section
+  // recolors the whole page via <html data-loc="...">
+  function setLoc(key) {
+    document.documentElement.setAttribute("data-loc", key || "trip");
+  }
+  document.querySelectorAll("[data-loc]").forEach(function(el) {
+    if (el === document.documentElement) return;
+    el.addEventListener("click", function() { setLoc(el.dataset.loc); });
+  });
+  navLinks.forEach(function(a) {
+    a.addEventListener("click", function() { setLoc("trip"); });
+  });
+  if ("IntersectionObserver" in window) {
+    var locObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) setLoc(entry.target.dataset.loc);
+      });
+    }, { rootMargin: "-15% 0px -65% 0px" });
+    document.querySelectorAll(".seg-head[data-loc],.hotel-block[data-loc]").forEach(function(el) { locObserver.observe(el); });
+  }
+
+  requestAnimationFrame(routeFromHash);
+})();
+</script>
+</body>
+</html>
