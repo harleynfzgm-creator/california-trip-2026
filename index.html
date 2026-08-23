@@ -194,6 +194,13 @@ details.disclosure>summary:hover{color:var(--ink)}
 .sp-sum{color:var(--ink2);font:400 12.5px/1.55 var(--sans)}
 .vb-row{font:400 12px/1.5 var(--sans);color:var(--muted)}
 .vb-row b{color:var(--ink2);font-weight:600}
+/* Daily dry run */
+.dry-grid{display:grid;grid-template-columns:116px minmax(0,1fr);font:400 12.5px/1.55 var(--sans)}
+.dry-label{padding:10px 10px 10px 0;border-top:1px solid var(--line);font-weight:600;color:var(--loc)}
+.dry-content{padding:10px 0 10px 14px;border-top:1px solid var(--line);border-left:1px solid var(--line);color:var(--ink2)}
+.dry-grid .dry-label:first-child,.dry-grid .dry-label:first-child+.dry-content{border-top:0}
+.dry-content ul{margin:0;padding-left:17px}
+.dry-content li+li{margin-top:3px}
 /* Maps */
 .map-wrap{display:flex;flex-direction:column;gap:10px}
 .map-btns{display:flex;flex-wrap:wrap;gap:6px}
@@ -404,6 +411,9 @@ details.panel .disclosure-body{padding:2px 16px 14px}
   .route-stop .rs-date{white-space:normal;text-align:center}
   .handoff-grid,.lodging-rail,.cost-summary-grid{grid-template-columns:1fr}
   .sched-grid{grid-template-columns:82px minmax(0,1fr)}
+  .dry-grid{grid-template-columns:1fr}
+  .dry-label{padding:10px 0 4px}
+  .dry-content{padding:0 0 10px;border-top:0;border-left:0}
   .day-card-details details.disclosure{flex:1 1 100%;border-radius:10px}
 }
 </style>
@@ -426,7 +436,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         <a href="#itinerary" data-screen="itinerary"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-calendar-days" /></svg></span><span>Itinerary</span></a>
         <a href="#lodging" data-screen="lodging"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-bed" /></svg></span><span>Lodging</span></a>
         <a href="#costs" data-screen="costs"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-wallet-cards" /></svg></span><span>Costs</span></a>
-        <a href="#tasks" data-screen="tasks"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-circle-alert" /></svg></span><span>Tasks</span><span class="nav-count">3</span></a>
+        <a href="#tasks" data-screen="tasks"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-circle-alert" /></svg></span><span>Tasks</span><span class="nav-count">7</span></a>
       </nav>
     </div>
   </div>
@@ -440,8 +450,8 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     <p class="mast-dates">September 24 – October 6 · thirteen days, north to south</p>
     <div class="mast-stats">
       <a class="mast-stat" href="#itinerary"><span class="stat-val">13</span><span class="stat-lbl">Days</span></a>
-      <a class="mast-stat" href="#costs"><span class="stat-val">$6,416.57–$6,916.57</span><span class="stat-lbl">Estimated total</span></a>
-      <a class="mast-stat" href="#tasks"><span class="stat-val">3</span><span class="stat-lbl">Active tasks</span></a>
+      <a class="mast-stat" href="#costs"><span class="stat-val">$6,682.57–$7,272.57</span><span class="stat-lbl">Estimated total</span></a>
+      <a class="mast-stat" href="#tasks"><span class="stat-val">7</span><span class="stat-lbl">Active tasks</span></a>
     </div>
   </div>
   <div class="route-strip"><section class="route-part north" aria-label="Part 1: Northern California">
@@ -487,11 +497,11 @@ details.panel .disclosure-body{padding:2px 16px 14px}
           <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-tree-palm" /></svg></span></span>
           <strong>San Diego</strong>
           <small>3 nights</small>
-        </a><span class="route-line south"></span><a class="route-stop south" data-loc="trip" href="#day-2026-10-04" aria-label="Train Oct 4 10:01 -&gt; 12:57">
+        </a><span class="route-line south"></span><a class="route-stop south" data-loc="trip" href="#day-2026-10-04" aria-label="Train Oct 4 12:01 -&gt; 14:57">
           <span class="rs-date">Oct 4</span>
           <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span></span>
           <strong>Train</strong>
-          <small>10:01 -&gt; 12:57</small>
+          <small>12:01 -&gt; 14:57</small>
         </a><span class="route-line south"></span><a class="route-stop south" data-loc="la" href="#day-2026-10-05" aria-label="Los Angeles Oct 4-6 2 nights">
           <span class="rs-date">Oct 4-6</span>
           <span class="rs-icon-wrap"><span class="icon rs-icon" aria-hidden="true"><svg><use href="#i-building-2" /></svg></span></span>
@@ -518,7 +528,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     </a><a class="handoff-card" href="#day-2026-10-04">
       <span class="icon handoff-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span>
       <span class="handoff-label">San Diego -&gt; LA</span>
-      <strong>Pacific Surfliner 573 · 10:01 -> 12:57</strong>
+      <strong>Pacific Surfliner 573 · 12:01 -> 14:57</strong>
       <small>Santa Fe Depot -> Union Station</small>
     </a><a class="handoff-card" href="#day-2026-10-06">
       <span class="icon handoff-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span>
@@ -550,56 +560,75 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         </div>
         <div class="day-main">
           <div class="day-head">
-            <h3 class="day-headline">Arrival recovery after 10:40 SFO landing</h3>
+            <h3 class="day-headline">PVG to ICN to SFO travel day</h3>
             <span class="badge badge-fixed">Fixed</span>
           </div>
-          <p class="day-activity">Clear immigration, transfer to the hotel, check in, eat nearby, and keep the day light. Do not add a central San Francisco trip unless arrival and energy are unusually good.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Arrive SFO, use the Hyatt shuttle or a short rideshare, and check in at Hyatt Regency San Francisco Airport in Burlingame.</span></p>
+          <p class="day-activity">Treat this as a full international travel day, not a free morning in California. Leave for PVG about three hours before KE892, use the 4 hour 5 minute ICN connection for food and a gate check, then keep the SFO arrival afternoon deliberately light.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span><span class="mi-text">PVG to ICN to SFO, then hotel shuttle</span></p>
           <div class="day-card-details"><details class="disclosure">
-      <summary>Schedule <span class="sum-count">4 periods</span></summary>
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Early Morning</span>
-                <span class="sp-time">10:40</span>
+                <span class="sp-time">05:50-08:50 China time</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Arrive at SFO</span>
-                <span class="sp-sum">Clear immigration and collect bags without a hard lunch reservation.</span>
-                <span class="vb-row"><b>Base:</b> SFO</span>
-                <span class="vb-row"><b>Transport:</b> International arrival</span>
+                <span class="sp-title">PVG check-in and boarding</span>
+                <span class="sp-sum">Reach PVG Terminal 1 about three hours early, confirm both checked suitcases are tagged to SFO, and board Korean Air KE892.</span>
+                <span class="vb-row"><b>Base:</b> Shanghai PVG Terminal 1</span>
+                <span class="vb-row"><b>Transport:</b> Airport transfer + Korean Air check-in</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">08:50-11:55 China/Korea time</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">KE892 to Seoul</span>
+                <span class="sp-sum">Fly PVG to ICN Terminal 2. Keep the next gate visible in the Korean Air app after landing.</span>
+                <span class="vb-row"><b>Base:</b> PVG to ICN</span>
+                <span class="vb-row"><b>Transport:</b> Korean Air KE892</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">Arrival-dependent</span>
+                <span class="sp-time">11:55-16:00 Korea time</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Hyatt transfer</span>
-                <span class="sp-sum">Use the hotel shuttle or a short rideshare from SFO to Hyatt Regency San Francisco Airport.</span>
-                <span class="vb-row"><b>Base:</b> SFO to Burlingame</span>
-                <span class="vb-row"><b>Transport:</b> Hotel shuttle or rideshare</span>
+                <span class="sp-title">ICN airside connection</span>
+                <span class="sp-sum">Stay in Terminal 2, eat, refill water, and be near the KE023 gate before boarding. The checked suitcases should transfer through.</span>
+                <span class="vb-row"><b>Base:</b> Seoul ICN Terminal 2</span>
+                <span class="vb-row"><b>Transport:</b> Airside walk</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">Afternoon</span>
+                <span class="sp-time">16:00 Korea time-10:40 Pacific time</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Check-in and bayfront reset</span>
-                <span class="sp-sum">Store bags or check in, walk nearby if convenient, and recover from the flight.</span>
-                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport</span>
-                <span class="vb-row"><b>Transport:</b> Walk or short rideshare</span>
+                <span class="sp-title">KE023 to San Francisco</span>
+                <span class="sp-sum">Fly ICN to SFO, cross the date line, clear immigration, and collect both checked suitcases.</span>
+                <span class="vb-row"><b>Base:</b> ICN to SFO</span>
+                <span class="vb-row"><b>Transport:</b> Korean Air KE023</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
-                <span class="sp-time">Evening</span>
+                <span class="sp-time">10:40-19:30 Pacific time</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Dinner and early sleep</span>
-                <span class="sp-sum">Eat near the hotel, buy simple supplies, and protect the Sep 25 city commute.</span>
-                <span class="vb-row"><b>Base:</b> Burlingame</span>
-                <span class="vb-row"><b>Transport:</b> Walk or short rideshare</span>
+                <span class="sp-title">Hyatt transfer, check-in, and early sleep</span>
+                <span class="sp-sum">Use the complimentary hotel shuttle, store the bags until the room is ready if needed, eat nearby, and keep the rest of the day light.</span>
+                <span class="vb-row"><b>Base:</b> SFO to Hyatt Regency San Francisco Airport</span>
+                <span class="vb-row"><b>Transport:</b> Hotel shuttle or large rideshare fallback</span>
 
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Keep passports, entry documents, medication, chargers, and one change of clothes in the two cabin bags.</li><li>At PVG bag drop, confirm both large suitcases are tagged through to SFO and photograph the baggage receipts.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>The two checked suitcases should transfer at ICN on the current ticket. Confirm this at PVG. At SFO, collect all four bags before leaving customs and use the hotel shuttle or a large rideshare only if needed.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Eat during the ICN layover and carry water and a simple snack for the SFO arrival. Dinner should stay near the hotel.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Be at PVG Terminal 1 around 05:50 for the 08:50 departure. After reaching the Hyatt, do not add a San Francisco trip unless the room, energy, and daylight all cooperate.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If the SFO immigration or baggage wait is long, take the next Hyatt shuttle, store the bags if the room is not ready, eat at or near the hotel, and sleep early.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>All three Hyatt award nights and the final zero-cash lodging folio.</li><li>Hyatt shuttle pickup instructions and the exact Korean Air seat numbers.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">1</span></summary>
       <div class="disclosure-body map-wrap">
@@ -619,56 +648,65 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         </div>
         <div class="day-main">
           <div class="day-head">
-            <h3 class="day-headline">Flexible San Francisco city day</h3>
+            <h3 class="day-headline">San Francisco waterfront and Presidio route</h3>
             <span class="badge badge-open">Open</span>
           </div>
-          <p class="day-activity">Use one low-backtracking San Francisco route. The Model Y is not collected until Sep 27, so use rail or rideshare for dense downtown stops.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Commute from Hyatt Regency San Francisco Airport into central San Francisco by rail or rideshare.</span></p>
+          <p class="day-activity">Use one low-backtracking San Francisco route: hotel shuttle to SFO, BART to Embarcadero, Ferry Building, Chinatown and North Beach, then one rideshare to Crissy Field and the Golden Gate viewpoints. Return by BART and the hotel shuttle rather than choosing the route on the fly.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span><span class="mi-text">Commute from Hyatt Regency San Francisco Airport into central San Francisco by rail or rideshare.</span></p>
           <div class="day-card-details"><details class="disclosure">
       <summary>Schedule <span class="sum-count">4 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Morning</span>
-                <span class="sp-time">Morning</span>
+                <span class="sp-time">08:30-10:15</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Commute to the waterfront</span>
-                <span class="sp-sum">Travel from Burlingame to the Ferry Building or Embarcadero and begin a compact city route.</span>
+                <span class="sp-title">Shuttle, BART, and the waterfront</span>
+                <span class="sp-sum">Take the Hyatt shuttle to SFO, ride BART to Embarcadero, and walk to the Ferry Building.</span>
                 <span class="vb-row"><b>Base:</b> Hyatt Regency SFO to central San Francisco</span>
                 <span class="vb-row"><b>Transport:</b> Rail or rideshare</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">Lunch</span>
+                <span class="sp-time">10:15-13:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Ferry Building, North Beach, or Chinatown</span>
-                <span class="sp-sum">Eat near the active neighborhood and avoid a separate cross-town restaurant detour.</span>
+                <span class="sp-title">Ferry Building, Chinatown, and North Beach</span>
+                <span class="sp-sum">Walk the waterfront and continue through Chinatown to North Beach, with lunch where the route naturally pauses.</span>
                 <span class="vb-row"><b>Base:</b> Central San Francisco</span>
                 <span class="vb-row"><b>Transport:</b> Walk or transit</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">Afternoon</span>
+                <span class="sp-time">13:30-16:45</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">One second San Francisco zone</span>
-                <span class="sp-sum">Choose Presidio and Golden Gate viewpoints or Chinatown and North Beach based on the morning route and weather.</span>
-                <span class="vb-row"><b>Base:</b> San Francisco</span>
-                <span class="vb-row"><b>Transport:</b> Transit, walk, or rideshare</span>
+                <span class="sp-title">Crissy Field and Golden Gate viewpoints</span>
+                <span class="sp-sum">Use one rideshare to Crissy Field or a nearby Presidio viewpoint, walk only as far as the weather and energy support, then start the return.</span>
+                <span class="vb-row"><b>Base:</b> Presidio and Crissy Field</span>
+                <span class="vb-row"><b>Transport:</b> One rideshare + walk</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
-                <span class="sp-time">Evening</span>
+                <span class="sp-time">16:45-20:30</span>
               </div>
               <div class="sp-content">
                 <span class="sp-title">Return to Burlingame</span>
-                <span class="sp-sum">Return to the Hyatt, eat nearby if useful, and confirm the 6:30 AM rideshare, 478 Post Street meeting point, 7:25 AM check-in, and ferry-return selection for Sep 26.</span>
+                <span class="sp-sum">Return by BART and the Hyatt shuttle, eat nearby, and confirm the 09:00 Model Y pickup, rental return rules, and overnight parking for Sep 26.</span>
                 <span class="vb-row"><b>Base:</b> San Francisco to Hyatt Regency SFO</span>
                 <span class="vb-row"><b>Transport:</b> Rail or rideshare</span>
 
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Check BART service in the official trip planner, save the hotel shuttle instructions, and carry a charged phone and power bank.</li><li>Wear layers for the waterfront and keep the Sep 26 rental documents ready at the hotel.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Leave all four bags in the locked hotel room. Carry only a small day bag and keep valuables on your person.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Use the Ferry Building, Chinatown, or North Beach for lunch without a separate restaurant detour. Return to Burlingame for an easy dinner.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Start the return from San Francisco by about 17:00 so the evening still includes a relaxed dinner and Sep 26 car-pickup preparation.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If weather is poor, drop Crissy Field and spend the afternoon in Chinatown and North Beach. If BART service is disrupted, use one rideshare only for the affected direction.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Sep 25 BART service and the hotel shuttle pickup point at SFO.</li><li>Sep 26 Model Y pickup instructions and Hyatt overnight parking.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">1</span></summary>
       <div class="disclosure-body map-wrap">
@@ -688,73 +726,82 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         </div>
         <div class="day-main">
           <div class="day-head">
-            <h3 class="day-headline">Flexible San Francisco day + Yosemite prep</h3>
+            <h3 class="day-headline">09:00 Model Y pickup + San Jose driving day</h3>
             <span class="badge badge-open">Open</span>
           </div>
-          <p class="day-activity">Keep Sep 26 flexible, avoid timed attractions, and return to the Hyatt by early evening. Pack the Yosemite bags, verify the Model Y pickup, and keep the definite Mariposa Supercharger stop in the Sep 27 route.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Use rail or rideshare from Hyatt Regency SFO to one chosen San Francisco area, keep the day low-backtracking, and return to the hotel early enough to pack for Yosemite.</span></p>
+          <p class="day-activity">Use the 09:00 SFO pickup as the day’s fixed start. Keep the San Jose route compact, return to the Hyatt by about 18:30, confirm overnight parking, and pack for the Redwood City lunch and Yosemite drive.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-car-front" /></svg></span><span class="mi-text">Pick up the confirmed Tesla Model Y at SFO at 09:00, drive a compact San Jose loop, then return to the Hyatt and park overnight.</span></p>
           <div class="day-card-details"><details class="disclosure">
       <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Early Morning</span>
-                <span class="sp-time">08:00-09:30</span>
+                <span class="sp-time">07:30-09:45</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Breakfast and choose one city zone</span>
-                <span class="sp-sum">Start slowly at the Hyatt, check weather and transit, and choose either Golden Gate Park or the Presidio as the main block. Do not add a timed tour.</span>
-                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport</span>
-                <span class="vb-row"><b>Transport:</b> Hotel start; rail or rideshare after breakfast</span>
-                <span class="vb-row"><b>Fallback:</b> If weather is poor, keep the day indoors and close to a direct return route.</span>
+                <span class="sp-title">Breakfast and confirmed Model Y pickup</span>
+                <span class="sp-sum">Eat at the Hyatt, take the hotel shuttle or a short rideshare to the SFO Rental Car Center, and collect the Model Y at 09:00. Photograph the car and record its charge level.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport to SFO Rental Car Center</span>
+                <span class="vb-row"><b>Transport:</b> Hotel shuttle or rideshare + Tesla Model Y pickup</span>
+                <span class="vb-row"><b>Fallback:</b> If pickup runs late, skip the rose garden and drive directly to Santana Row.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Morning</span>
-                <span class="sp-time">09:30-12:30</span>
+                <span class="sp-time">10:15-11:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Golden Gate Park or Presidio</span>
-                <span class="sp-sum">Use one compact outdoor area and walk at an easy pace. Let weather, energy, and the previous day's route decide between Golden Gate Park and the Presidio.</span>
-                <span class="vb-row"><b>Base:</b> Golden Gate Park or the Presidio</span>
-                <span class="vb-row"><b>Transport:</b> BART or Muni, rideshare, and walking</span>
-                <span class="vb-row"><b>Fallback:</b> If wind or rain makes the outdoor block weak, use one museum or indoor neighborhood stop instead.</span>
+                <span class="sp-title">Municipal Rose Garden</span>
+                <span class="sp-sum">Begin with an easy outdoor walk at the Municipal Rose Garden. Keep it short if the rental pickup or traffic runs late.</span>
+                <span class="vb-row"><b>Base:</b> Municipal Rose Garden, San Jose</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+                <span class="vb-row"><b>Fallback:</b> In poor weather, start at Santana Row and use an indoor Winchester Mystery House tour if tickets are available.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">12:30-14:00</span>
+                <span class="sp-time">11:45-13:15</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Lunch near the selected area</span>
-                <span class="sp-sum">Eat near the morning stop and avoid crossing the city only for a restaurant.</span>
-                <span class="vb-row"><b>Base:</b> Near Golden Gate Park or the Presidio</span>
-                <span class="vb-row"><b>Transport:</b> Walk or short local transit</span>
+                <span class="sp-title">Santana Row lunch</span>
+                <span class="sp-sum">Have lunch and take a short walk at Santana Row. Keep the meal on time so the afternoon remains flexible.</span>
+                <span class="vb-row"><b>Base:</b> Santana Row, San Jose</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">14:00-17:00</span>
+                <span class="sp-time">13:15-17:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">One nearby neighborhood or waterfront block</span>
-                <span class="sp-sum">Add only one low-backtracking stop, or return early if the morning was enough. Keep the evening free for Yosemite preparation.</span>
-                <span class="vb-row"><b>Base:</b> San Francisco, chosen near the morning route</span>
-                <span class="vb-row"><b>Transport:</b> Muni, rideshare, and walking</span>
-                <span class="vb-row"><b>Fallback:</b> Skip the extra stop and return directly to the Hyatt if transit or energy makes the day fragile.</span>
+                <span class="sp-title">San Pedro Square and downtown San Jose</span>
+                <span class="sp-sum">Use San Pedro Square and the nearby downtown core as the default afternoon. Replace it with a timed Winchester Mystery House tour only if tickets are booked by the night before.</span>
+                <span class="vb-row"><b>Base:</b> San Pedro Square and downtown San Jose</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+                <span class="vb-row"><b>Fallback:</b> Return to the Hyatt early if traffic builds. A booked Winchester tour can replace this block, but do not try to add both.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
                 <span class="sp-time">17:00-20:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Return to Hyatt and pack for Yosemite</span>
-                <span class="sp-sum">Pack the Yosemite bags and verify the Sep 27 SFO Model Y pickup, Airbnb check-in, and definite drive-up Mariposa Supercharger stop. The Airbnb parking and very slow onsite charger are confirmed.</span>
-                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport</span>
-                <span class="vb-row"><b>Transport:</b> At hotel; use the SFO rental shuttle or rideshare after Sep 27 checkout</span>
+                <span class="sp-title">Return, park, and pack for Yosemite</span>
+                <span class="sp-sum">Return to the Hyatt by about 18:30, park the Model Y, pack the Yosemite bags, and confirm the Redwood City lunch time and Mariposa Supercharger stop.</span>
+                <span class="vb-row"><b>Base:</b> San Jose to Hyatt Regency San Francisco Airport</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
 
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Carry the driver license, payment card, rental confirmation, and the cable or adapter supplied with the car.</li><li>At pickup, photograph every side of the Model Y, the wheels, interior, odometer, and charge level. Confirm toll billing, Supercharging billing, roadside support, and required return charge.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Leave the two large and two small bags in the locked hotel room. The car stays empty during the San Jose loop.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Use Santana Row for lunch and San Pedro Square for a flexible afternoon snack or early meal. Buy any missing road snacks after returning to the Hyatt.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Leave downtown San Jose by about 16:30 and target the Hyatt by 18:30. The overnight packing and next-day departure matter more than adding another stop.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If pickup runs late, skip the rose garden. If traffic builds, use Santana Row only and return early. Winchester Mystery House replaces San Pedro Square only with a timed ticket booked in advance.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Rental return charge requirement, toll policy, and whether a J1772 adapter is in the car.</li><li>Hyatt overnight self-parking at the current $54 rate.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">1</span></summary>
       <div class="disclosure-body map-wrap">
-        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="1" aria-pressed="true">Day commute: Hyatt Regency to central San Francisco</button></div>
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="2" aria-pressed="true">Driving day: Hyatt Regency to San Jose loop</button></div>
         <div class="map-frame-wrap">
-          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010&amp;destination=Ferry%20Building%2C%20San%20Francisco%2C%20CA&amp;travelmode=transit" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Regency to central San Francisco">Open in Google Maps</a>
-          <iframe data-day-map-iframe title="Hyatt Regency to central San Francisco" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010&amp;daddr=Ferry%20Building%2C%20San%20Francisco%2C%20CA&amp;dirflg=r&amp;output=embed" class="map-frame"></iframe>
+          <a data-day-map-open href="https://www.google.com/maps/dir/Hyatt+Regency+San+Francisco+Airport,+1333+Bayshore+Highway,+Burlingame,+CA+94010/Municipal+Rose+Garden,+Naglee+Avenue,+San+Jose,+CA/Santana+Row,+San+Jose,+CA/San+Pedro+Square,+North+San+Pedro+Street,+San+Jose,+CA/Hyatt+Regency+San+Francisco+Airport,+1333+Bayshore+Highway,+Burlingame,+CA+94010/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Regency to San Jose loop">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Hyatt Regency to San Jose loop" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%20Burlingame%2C%20CA&amp;daddr=Municipal%20Rose%20Garden%2C%20San%20Jose%2C%20CA+to:Santana%20Row%2C%20San%20Jose%2C%20CA+to:San%20Pedro%20Square%2C%20San%20Jose%2C%20CA+to:Hyatt%20Regency%20San%20Francisco%20Airport%2C%20Burlingame%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
         </div>
       </div>
     </details></div>
@@ -774,50 +821,50 @@ details.panel .disclosure-body{padding:2px 16px 14px}
             <h3 class="day-headline">Yosemite self-drive outbound</h3>
             <span class="badge badge-open">Open</span>
           </div>
-          <p class="day-activity">Check out, collect the Model Y at SFO, record its delivery charge, and depart toward Midpines. Make the definite Mariposa Supercharger stop at Pioneer Market; check in after 15:00 and keep any first Yosemite stop optional.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-car-front" /></svg></span><span class="mi-text">Check out from Hyatt Regency San Francisco Airport, collect the Tesla Model Y at SFO, then drive to the Midpines-area Yosemite Airbnb.</span></p>
+          <p class="day-activity">Check out, drive to Redwood City, and eat with friends. Leave by about 13:15, charge at Mariposa, and continue to Midpines with enough daylight for an easy check-in.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-car-front" /></svg></span><span class="mi-text">Check out from the Hyatt, drive the Model Y to Redwood City for lunch with friends, then continue to the Midpines-area Yosemite Airbnb.</span></p>
           <div class="day-card-details"><details class="disclosure">
       <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Early Morning</span>
-                <span class="sp-time">08:00-09:00</span>
+                <span class="sp-time">08:00-09:45</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Hotel checkout and SFO Model Y pickup</span>
-                <span class="sp-sum">Check out, take the rental shuttle or rideshare to SFO, and accept the Model Y only after recording the charge level and return-state requirement.</span>
-                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport to SFO rental center</span>
-                <span class="vb-row"><b>Transport:</b> Hotel shuttle or rideshare + Tesla Model Y pickup</span>
+                <span class="sp-title">Breakfast and Hyatt checkout</span>
+                <span class="sp-sum">Eat, finish packing, check out, load the Model Y, and leave the Hyatt without another SFO rental-center stop.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Regency San Francisco Airport</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Morning</span>
-                <span class="sp-time">09:00-13:00</span>
+                <span class="sp-time">09:45-11:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Depart directly for Yosemite</span>
-                <span class="sp-sum">Start the Yosemite drive with only one simple stop pattern. Use Tesla navigation; do not over-stack Silicon Valley or coast stops into the approach day.</span>
-                <span class="vb-row"><b>Base:</b> SFO to Mariposa / Midpines</span>
+                <span class="sp-title">Drive to Redwood City</span>
+                <span class="sp-sum">Drive to Redwood City and keep any pre-lunch stop short. The friend lunch and the Yosemite departure time are the priorities.</span>
+                <span class="vb-row"><b>Base:</b> Burlingame to Redwood City</span>
                 <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">13:00-14:00</span>
+                <span class="sp-time">11:30-13:15</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Lunch and Supercharger decision</span>
-                <span class="sp-sum">Keep lunch practical and use the planned Mariposa Supercharger at Pioneer Market, 5034 Coakley Circle. Drive up without a parking reservation, use the Tesla screen or app for live stall availability, and move the car promptly after charging.</span>
-                <span class="vb-row"><b>Base:</b> Mariposa / Yosemite approach route</span>
-                <span class="vb-row"><b>Transport:</b> Tesla Model Y + planned Mariposa Supercharger stop</span>
+                <span class="sp-title">Lunch with Redwood City friends</span>
+                <span class="sp-sum">Eat with friends and keep 13:15 as the target departure. Avoid adding another Peninsula stop after lunch.</span>
+                <span class="vb-row"><b>Base:</b> Redwood City</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">15:00-16:30</span>
+                <span class="sp-time">13:15-18:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Yosemite arrival and check-in</span>
-                <span class="sp-sum">Reach the Yosemite Airbnb, settle in, and only add a short valley or viewpoint stop if entry timing, weather, and battery reserve all cooperate.</span>
-                <span class="vb-row"><b>Base:</b> Yosemite Airbnb and nearby park access</span>
-                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+                <span class="sp-title">Drive to Midpines and charge at Mariposa</span>
+                <span class="sp-sum">Use Tesla navigation and the planned Mariposa Supercharger at Pioneer Market, 5034 Coakley Circle. Charge, buy groceries in the same stop, continue to the Airbnb, and do not add a park visit.</span>
+                <span class="vb-row"><b>Base:</b> Redwood City to Mariposa and Midpines</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + planned Mariposa Supercharger stop</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
@@ -825,19 +872,28 @@ details.panel .disclosure-body{padding:2px 16px 14px}
               </div>
               <div class="sp-content">
                 <span class="sp-title">Yosemite Airbnb night 1</span>
-                <span class="sp-sum">Keep the evening simple: groceries or an easy meal, charge devices, and verify the next day’s Model Y battery reserve. The Airbnb's very slow charger is backup only after the planned Mariposa stop.</span>
+                <span class="sp-sum">Settle in after the drive, use groceries or an easy meal, charge devices, and verify the next day’s Model Y battery reserve. The Airbnb's very slow charger is backup only.</span>
                 <span class="vb-row"><b>Base:</b> Yosemite Airbnb</span>
                 <span class="vb-row"><b>Transport:</b> Walk or short local drive</span>
 
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Finish checkout, load the Model Y, set the Airbnb and Mariposa Supercharger as saved destinations, and download the Yosemite area for offline use.</li><li>Confirm the friend lunch address and a private driveway, garage, or other secure place for the fully loaded car.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>The car contains two large and two small suitcases during lunch. Keep everything below the cargo cover, do not open the trunk after parking, and use the friend's private parking if available.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Lunch is fixed with friends. Buy Yosemite groceries at Pioneer Market while the Model Y charges in Mariposa, then use the Airbnb kitchen for dinner.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Leave Redwood City by 13:15. A later departure turns the charge stop and Midpines check-in into an evening drive.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If lunch runs late, skip every other Peninsula stop and follow Tesla navigation directly to the required charger. If secure lunch parking is unavailable, move the meal to a place where the car can remain observed.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Friend lunch address, start time, and secure parking arrangement.</li><li>Airbnb check-in instructions, house access, and the final Mariposa charge recommendation in Tesla navigation.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">1</span></summary>
       <div class="disclosure-body map-wrap">
-        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="2" aria-pressed="true">Driving + charge: SFO Model Y pickup to Yosemite</button></div>
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="3" aria-pressed="true">Driving + charge: Redwood City lunch to Yosemite</button></div>
         <div class="map-frame-wrap">
-          <a data-day-map-open href="https://www.google.com/maps/dir/San+Francisco+International+Airport/Midpines,+CA/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="SFO Model Y pickup to Yosemite">Open in Google Maps</a>
-          <iframe data-day-map-iframe title="SFO Model Y pickup to Yosemite" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport&amp;daddr=Midpines%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+          <a data-day-map-open href="https://www.google.com/maps/dir/San+Francisco+International+Airport/Redwood+City,+CA/Tesla+Supercharger,+5034+Coakley+Circle,+Mariposa,+CA/Midpines,+CA/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Redwood City lunch to Yosemite">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Redwood City lunch to Yosemite" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport&amp;daddr=Redwood%20City%2C%20CA+to:Tesla%20Supercharger%2C%205034%20Coakley%20Circle%2C%20Mariposa%2C%20CA+to:Midpines%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
         </div>
       </div>
     </details></div>
@@ -856,49 +912,77 @@ details.panel .disclosure-body{padding:2px 16px 14px}
           <p class="day-activity">Protect Sep 28 as the only full park day: start early, park once, shuttle/walk, and leave enough margin for the drive back to Midpines before dark.</p>
           <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-footprints" /></svg></span><span class="mi-text">Yosemite full day</span></p>
           <div class="day-card-details"><details class="disclosure">
-      <summary>Schedule <span class="sum-count">4 periods</span></summary>
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
-                <span class="sp-period">Morning</span>
-                <span class="sp-time">Morning</span>
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">06:15-08:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Main Yosemite block</span>
-                <span class="sp-sum">Start early for the highest-value valley stops or one clear scenic direction before the lots and roads get worse.</span>
-                <span class="vb-row"><b>Base:</b> Yosemite</span>
-                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+                <span class="sp-title">Midpines to one Valley parking space</span>
+                <span class="sp-sum">Drive Highway 140 early and park once at Yosemite Village, Curry Village, or Yosemite Falls before the lots fill.</span>
+                <span class="vb-row"><b>Base:</b> Midpines to Yosemite Valley</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
+
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">08:00-12:00</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Cook's Meadow and Lower Yosemite Fall</span>
+                <span class="sp-sum">Walk Cook's Meadow, continue to Lower Yosemite Fall and Yosemite Village, and use the free shuttle rather than moving the car.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite Valley</span>
+                <span class="vb-row"><b>Transport:</b> Walk + free Valley shuttle</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">Lunch</span>
+                <span class="sp-time">12:00-13:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">In-park lunch</span>
-                <span class="sp-sum">Use a simple in-park meal or packed food and avoid a second long driving detour just for lunch.</span>
-                <span class="vb-row"><b>Base:</b> Yosemite</span>
-                <span class="vb-row"><b>Transport:</b> Walk or short drive</span>
+                <span class="sp-title">Picnic lunch without moving the car</span>
+                <span class="sp-sum">Eat the packed lunch near the current Valley stop and refill water. Do not drive to a separate restaurant.</span>
+                <span class="vb-row"><b>Base:</b> Yosemite Valley</span>
+                <span class="vb-row"><b>Transport:</b> Walk</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">Afternoon</span>
+                <span class="sp-time">13:00-17:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Second Yosemite block</span>
-                <span class="sp-sum">Use the afternoon for the best remaining short walk, valley stop, or scenic drive that still preserves an easy evening.</span>
-                <span class="vb-row"><b>Base:</b> Yosemite</span>
-                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
-                <span class="vb-row"><b>Fallback:</b> If weather, smoke, or fatigue is poor, shorten the day and protect the Sep 29 drive back to the Bay Area.</span>
+                <span class="sp-title">Happy Isles and one ability-matched walk</span>
+                <span class="sp-sum">Take the shuttle to Happy Isles. Continue toward the Vernal Fall Footbridge only if both travelers are comfortable; otherwise use a flat Valley walk and one viewpoint on the way out.</span>
+                <span class="vb-row"><b>Base:</b> Happy Isles and Yosemite Valley</span>
+                <span class="vb-row"><b>Transport:</b> Free Valley shuttle + walk</span>
+                <span class="vb-row"><b>Fallback:</b> Use Happy Isles, Valley View, or El Capitan Meadow instead of the Footbridge route if conditions or energy are poor.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
-                <span class="sp-time">Evening</span>
+                <span class="sp-time">17:00-20:00</span>
               </div>
               <div class="sp-content">
                 <span class="sp-title">Yosemite Airbnb night 2</span>
-                <span class="sp-sum">Pack for the Sep 29 drive, charge devices, and charge the Model Y at Mariposa before or at the start of the exit if navigation requires it.</span>
+                <span class="sp-sum">Return to Midpines before dark, eat at the Airbnb, arrange the host's luggage hold for Sep 29, and pack everything before sleep.</span>
                 <span class="vb-row"><b>Base:</b> Yosemite Airbnb</span>
                 <span class="vb-row"><b>Transport:</b> Walk or short local drive</span>
 
               </div></div>
+      </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Pack lunch, water, layers, sun protection, a small first-aid kit, and offline NPS and Google Maps content the night before.</li><li>Start with enough charge to reach the Valley, return to Midpines, and retain a reserve. Do not plan around the limited chargers inside the park.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Leave both large suitcases and any unneeded cabin bags at the Airbnb. Carry passports, wallets, phones, water, food, and weather layers in day bags.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Eat before the 06:15 departure, carry a picnic lunch, and keep one snack for the drive back. Dinner is at the Airbnb after the park.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Leave Midpines around 06:15, park before 08:00, and start the return by about 17:00. Park once in Yosemite Valley and use the shuttle or walk for the rest of the day.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If the Vernal Fall Footbridge route is too strenuous, use Happy Isles, Valley View, or El Capitan Meadow instead. If smoke, weather, or fatigue is poor, shorten the afternoon and return early.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>NPS road, smoke, fire, and trail conditions on Sep 27 and again before departure.</li><li>The Valley parking target and the charge reserve shown by Tesla navigation.</li></ul></div></div></div>
+    </details><details class="disclosure" data-map-group>
+      <summary>Maps <span class="sum-count">1</span></summary>
+      <div class="disclosure-body map-wrap">
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="4" aria-pressed="true">Park approach: Yosemite Valley from Midpines</button></div>
+        <div class="map-frame-wrap">
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Midpines%2C%20CA&amp;destination=Yosemite%20Village%2C%20CA&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Yosemite Valley from Midpines">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Yosemite Valley from Midpines" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Midpines%2C%20CA&amp;daddr=Yosemite%20Village%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+        </div>
       </div>
     </details></div>
         </div>
@@ -917,34 +1001,44 @@ details.panel .disclosure-body{padding:2px 16px 14px}
             <h3 class="day-headline">Yosemite drive to Monterey Bay</h3>
             <span class="badge badge-open">Open</span>
           </div>
-          <p class="day-activity">Leave the Yosemite Airbnb cleanly, use Tesla navigation and one practical charging or meal stop, then check in at the booked Seaside hotel.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-car-front" /></svg></span><span class="mi-text">Drive the Model Y from the Midpines Yosemite Airbnb to Holiday Inn Express at Monterey Bay in Seaside.</span></p>
+          <p class="day-activity">Pack and settle the room before leaving Midpines at 05:45, with all four bags held by the host. Park once in Yosemite Valley, leave the park around 08:30, then return to collect the bags at the agreed time. The 11:00 room checkout is not a race because luggage storage is available.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-car-front" /></svg></span><span class="mi-text">Short Yosemite revisit, then drive to Monterey Bay</span></p>
           <div class="day-card-details"><details class="disclosure">
-      <summary>Schedule <span class="sum-count">4 periods</span></summary>
+      <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
-                <span class="sp-period">Morning</span>
-                <span class="sp-time">Morning</span>
+                <span class="sp-period">Early Morning</span>
+                <span class="sp-time">05:45-09:45</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Yosemite checkout and departure</span>
-                <span class="sp-sum">Leave the Airbnb cleanly, top up at Mariposa if navigation asks for it, and start the Bay Area drive without adding extra morning loops.</span>
+                <span class="sp-title">Short Yosemite Valley return</span>
+                <span class="sp-sum">Leave Midpines at 05:45, park once before the main traffic builds, use Cook's Meadow or one short viewpoint, and leave Yosemite Valley around 08:30.</span>
+                <span class="vb-row"><b>Base:</b> Midpines to Yosemite Valley and back</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
+                <span class="vb-row"><b>Fallback:</b> If departure slips past 06:00 or Yosemite traffic is already building, skip the revisit and collect the stored bags at the agreed time.</span>
+              </div><div class="sp-label">
+                <span class="sp-period">Morning</span>
+                <span class="sp-time">09:45-11:30</span>
+              </div>
+              <div class="sp-content">
+                <span class="sp-title">Collect the host-held luggage</span>
+                <span class="sp-sum">Return to Midpines, collect all four packed bags from the host, load the Model Y, and leave calmly. Room checkout was already settled before the early park visit.</span>
                 <span class="vb-row"><b>Base:</b> Yosemite Airbnb</span>
                 <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">Lunch</span>
+                <span class="sp-time">11:30-15:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Direct drive with one food stop</span>
-                <span class="sp-sum">Keep the route practical, use one lunch or Supercharger stop, and avoid rebuilding the day into a sightseeing transfer.</span>
+                <span class="sp-title">Drive toward Monterey Bay</span>
+                <span class="sp-sum">Use Tesla navigation and one practical lunch or Supercharger stop. Do not add another sightseeing detour.</span>
                 <span class="vb-row"><b>Base:</b> Yosemite to Monterey Bay route</span>
                 <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">Afternoon</span>
+                <span class="sp-time">15:30-17:00</span>
               </div>
               <div class="sp-content">
                 <span class="sp-title">Arrive at Monterey Bay</span>
@@ -964,10 +1058,19 @@ details.panel .disclosure-body{padding:2px 16px 14px}
 
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Pack and complete the required room cleanup on Sep 28, then settle checkout and the luggage hold before the 05:45 departure.</li><li>Carry passports, wallets, phones, medication, water, and warm layers. Leave only the packed suitcases with the host.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>The host can hold both large and both small suitcases after room checkout. Confirm where they will be stored, how to regain access, and the latest pickup time.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Carry a cold breakfast and coffee for the early drive. Eat an early lunch during the Yosemite-to-Seaside drive and combine it with any charging stop requested by Tesla navigation.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Leave Yosemite Valley around 08:30. The important clock is the park exit, not the 11:00 room checkout. Retrieve the bags at the agreed time and continue to Seaside without adding sightseeing.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If departure slips past 06:00, road conditions are poor, or Valley traffic is already building, skip the revisit and collect the stored bags at the agreed time.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Host luggage-hold location, access method, and latest collection time.</li><li>Tesla navigation's charge recommendation for the roughly three-hour Midpines-to-Seaside drive.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">1</span></summary>
       <div class="disclosure-body map-wrap">
-        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="3" aria-pressed="true">Driving: Yosemite to Monterey Bay</button></div>
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="5" aria-pressed="true">Driving: Yosemite to Monterey Bay</button></div>
         <div class="map-frame-wrap">
           <a data-day-map-open href="https://www.google.com/maps/dir/Midpines,+CA/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Yosemite to Monterey Bay">Open in Google Maps</a>
           <iframe data-day-map-iframe title="Yosemite to Monterey Bay" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Midpines%2C%20CA&amp;daddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
@@ -983,73 +1086,82 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         </div>
         <div class="day-main">
           <div class="day-head">
-            <h3 class="day-headline">Choose one coherent Monterey Peninsula route based on weather and reservations.</h3>
+            <h3 class="day-headline">Point Lobos and Carmel coast day</h3>
             <span class="badge badge-open">Open</span>
           </div>
-          <p class="day-activity">Choose Monterey and the aquarium, Carmel and Point Lobos, or 17-Mile Drive as the core. Avoid forcing every peninsula attraction into one day.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-car-front" /></svg></span><span class="mi-text">Use the Model Y from the booked Seaside hotel for Monterey, Carmel-by-the-Sea, Point Lobos, or 17-Mile Drive.</span></p>
+          <p class="day-activity">Reach Point Lobos at its 08:00 opening, walk Cypress Grove and Sea Lion Point at an easy pace, then continue to Carmel for lunch, Ocean Avenue, Carmel Beach, and Scenic Road. Skip 17-Mile Drive by default. If a proper aquarium visit matters more than the late coast block, replace the afternoon with the aquarium rather than adding it on top.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-footprints" /></svg></span><span class="mi-text">Use the Model Y from Seaside for an early Point Lobos visit, then Carmel-by-the-Sea, Carmel Beach, and Scenic Road.</span></p>
           <div class="day-card-details"><details class="disclosure">
       <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Early Morning</span>
-                <span class="sp-time">08:00</span>
+                <span class="sp-time">07:15-08:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Choose the peninsula focus</span>
-                <span class="sp-sum">Check Highway 1 conditions, weather, aquarium tickets, and Point Lobos access before choosing the core route.</span>
+                <span class="sp-title">Breakfast and early departure</span>
+                <span class="sp-sum">Use hotel breakfast, check weather and Point Lobos access, and leave early enough to arrive near the 08:00 opening.</span>
                 <span class="vb-row"><b>Base:</b> Holiday Inn Express at Monterey Bay</span>
                 <span class="vb-row"><b>Transport:</b> Tesla Model Y</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Morning</span>
-                <span class="sp-time">09:00-12:00</span>
+                <span class="sp-time">08:00-10:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Monterey or Carmel morning</span>
-                <span class="sp-sum">Use the morning for Monterey and the aquarium if ticketed, or for Carmel and Point Lobos if outdoor conditions are better.</span>
-                <span class="vb-row"><b>Base:</b> Monterey Peninsula</span>
+                <span class="sp-title">Point Lobos morning</span>
+                <span class="sp-sum">Park once, walk Cypress Grove and Sea Lion Point, and use the accessible alternatives if either trail or energy is limited. Leave before the visit crowds out Carmel.</span>
+                <span class="vb-row"><b>Base:</b> Point Lobos State Natural Reserve</span>
                 <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">12:00-13:30</span>
+                <span class="sp-time">10:45-13:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Lunch on the active route</span>
-                <span class="sp-sum">Eat near the selected peninsula stops and avoid creating a separate destination for lunch.</span>
-                <span class="vb-row"><b>Base:</b> Monterey or Carmel</span>
+                <span class="sp-title">Carmel town and lunch</span>
+                <span class="sp-sum">Walk Ocean Avenue and the compact Carmel-by-the-Sea center, then have lunch nearby.</span>
+                <span class="vb-row"><b>Base:</b> Carmel-by-the-Sea</span>
                 <span class="vb-row"><b>Transport:</b> Walk or short drive</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">14:00-18:00</span>
+                <span class="sp-time">13:00-16:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Complete one scenic layer</span>
-                <span class="sp-sum">Add Point Lobos, Carmel, or 17-Mile Drive only if the morning route, parking, and energy stay comfortable.</span>
-                <span class="vb-row"><b>Base:</b> Monterey Peninsula</span>
+                <span class="sp-title">Carmel Beach and Scenic Road</span>
+                <span class="sp-sum">Continue to Carmel Beach and Scenic Road for an easy coast block. Skip 17-Mile Drive so the charge, packing, and flight checks stay calm.</span>
+                <span class="vb-row"><b>Base:</b> Carmel Beach and Scenic Road</span>
                 <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
-                <span class="vb-row"><b>Fallback:</b> If weather or traffic is poor, stay near Monterey and return to the hotel early.</span>
+                <span class="vb-row"><b>Fallback:</b> If Oct 1’s short aquarium window feels poor value, replace this afternoon with a 14:00-17:00 aquarium visit and keep the coast morning unchanged.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
                 <span class="sp-time">Evening</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Model Y charge and flight prep</span>
-                <span class="sp-sum">Complete most return charging, check in for WN3787, and pack before sleep.</span>
-                <span class="vb-row"><b>Base:</b> Holiday Inn Express at Monterey Bay</span>
-                <span class="vb-row"><b>Transport:</b> Tesla Model Y or walk</span>
+                <span class="sp-title">Seaside Supercharger and flight prep</span>
+                <span class="sp-sum">Use the 24/7 Seaside Supercharger at 1901 Del Monte Boulevard for the main return charge, then check in for WN3787 and pack before dinner.</span>
+                <span class="vb-row"><b>Base:</b> Seaside and Holiday Inn Express at Monterey Bay</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
 
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Check Point Lobos conditions and weather, carry water and layers, and leave the hotel around 07:20 after breakfast.</li><li>Set Point Lobos, Carmel, and the Seaside Supercharger as saved stops before driving.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Leave all four bags in the locked hotel room. There is no reason to expose luggage in the car on this loop.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Use the complimentary hotel breakfast, lunch in Carmel, and an easy dinner near Seaside. Keep water and a snack in the car.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Leave Point Lobos by about 10:30 and finish the coast block by about 16:30. Charge and pack before dinner rather than pushing errands into Oct 1 morning.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>In poor weather, shorten Point Lobos and use Carmel town. If a real aquarium visit is the priority, book a roughly 14:00 to 17:00 visit and drop Carmel Beach and Scenic Road.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Point Lobos access and trail status, plus the aquarium's exact Oct 1 opening hours.</li><li>Southwest fare type, assigned seat numbers, checked-bag fees, and the Model Y return charge rule.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">1</span></summary>
       <div class="disclosure-body map-wrap">
-        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="4" aria-pressed="true">Driving: Monterey Bay driving loop</button></div>
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="6" aria-pressed="true">Driving: Monterey Bay driving loop</button></div>
         <div class="map-frame-wrap">
-          <a data-day-map-open href="https://www.google.com/maps/dir/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/Carmel-by-the-Sea,+CA/Point+Lobos+State+Natural+Reserve,+CA/Monterey,+CA/Holiday+Inn+Express+At+Monterey+Bay,+Seaside,+CA/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Monterey Bay driving loop">Open in Google Maps</a>
-          <iframe data-day-map-iframe title="Monterey Bay driving loop" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955&amp;daddr=Carmel-by-the-Sea%2C%20CA+to:Point%20Lobos%20State%20Natural%20Reserve%2C%20CA+to:Monterey%2C%20CA+to:Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+          <a data-day-map-open href="https://www.google.com/maps/dir/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/Point+Lobos+State+Natural+Reserve,+CA/Carmel-by-the-Sea,+CA/Carmel+Beach,+Carmel-By-The-Sea,+CA/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Monterey Bay driving loop">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Monterey Bay driving loop" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA&amp;daddr=Point%20Lobos%20State%20Natural%20Reserve%2C%20CA+to:Carmel-by-the-Sea%2C%20CA+to:Carmel%20Beach%2C%20CA+to:Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
         </div>
       </div>
     </details></div>
@@ -1076,48 +1188,48 @@ details.panel .disclosure-body{padding:2px 16px 14px}
             <h3 class="day-headline">San Diego arrival</h3>
             <span class="badge badge-open">Open</span>
           </div>
-          <p class="day-activity">Leave the hotel around 10:30-11:00, target SFO by 13:30-14:00, return the Model Y, and fly WN3787 at 16:00, arriving SAN at 17:35.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span><span class="mi-text">Fly to San Diego</span></p>
+          <p class="day-activity">Pack by 09:00 and leave all four bags locked in the hotel room. Enter the aquarium at 10:00, leave by 10:45, return to the hotel around 11:00, check out, load the bags, and leave Seaside by 11:15. Target the SFO Rental Car Center around 13:15 to 13:30, then use AirTrain and the airport buffer for WN3787 at 16:00.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span><span class="mi-text">Return the Model Y, then fly to San Diego</span></p>
           <div class="day-card-details"><details class="disclosure">
       <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Early Morning</span>
-                <span class="sp-time">08:00-10:00</span>
+                <span class="sp-time">07:30-09:20</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Breakfast and checkout prep</span>
-                <span class="sp-sum">Use hotel breakfast, finish packing, confirm traffic and flight status, and be ready to leave without adding sightseeing.</span>
+                <span class="sp-title">Breakfast, full packing, and traffic check</span>
+                <span class="sp-sum">Use hotel breakfast, finish packing, leave all four bags locked in the room, and confirm road traffic, rental return requirements, and flight status.</span>
                 <span class="vb-row"><b>Base:</b> Holiday Inn Express at Monterey Bay</span>
-                <span class="vb-row"><b>Transport:</b> Walk</span>
+                <span class="vb-row"><b>Transport:</b> Walk + Tesla Model Y</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Morning</span>
-                <span class="sp-time">Leave about 10:30-11:00</span>
+                <span class="sp-time">09:20-11:15</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Drive to SFO and return the Model Y</span>
-                <span class="sp-sum">Drive directly to SFO, target the Rental Car Center by about 13:30-14:00, return the Model Y, and use AirTrain to the terminal.</span>
-                <span class="vb-row"><b>Base:</b> Monterey Bay to SFO Rental Car Center</span>
-                <span class="vb-row"><b>Transport:</b> Tesla Model Y return + AirTrain</span>
+                <span class="sp-title">Short aquarium visit, checkout, and loading</span>
+                <span class="sp-sum">Drive to a public garage, enter the aquarium at 10:00, and leave by 10:45. Return to the hotel around 11:00, collect all four bags from the room, check out, and leave Seaside by 11:15.</span>
+                <span class="vb-row"><b>Base:</b> Seaside hotel to Monterey Bay Aquarium and back</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y + walk</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">13:30-15:15</span>
+                <span class="sp-time">11:15-14:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Airport buffer and light meal</span>
-                <span class="sp-sum">Complete baggage and security, confirm the gate, and use the protected buffer for a simple meal.</span>
-                <span class="vb-row"><b>Base:</b> SFO</span>
-                <span class="vb-row"><b>Transport:</b> Walk</span>
+                <span class="sp-title">Drive to SFO and return the Model Y</span>
+                <span class="sp-sum">Drive directly to SFO, target the Rental Car Center around 13:15-13:30, return the Model Y, and use AirTrain to the terminal.</span>
+                <span class="vb-row"><b>Base:</b> Seaside to SFO Rental Car Center</span>
+                <span class="vb-row"><b>Transport:</b> Tesla Model Y return + AirTrain</span>
 
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">16:00-17:35</span>
+                <span class="sp-time">14:00-17:35</span>
               </div>
               <div class="sp-content">
                 <span class="sp-title">Booked flight to San Diego</span>
-                <span class="sp-sum">Take Southwest WN3787 from SFO at 16:00 and arrive SAN at 17:35. Booked total: ¥1,876 CNY.</span>
+                <span class="sp-sum">Check the two large bags, clear security, get a light meal, then take Southwest WN3787 from SFO at 16:00 and arrive SAN at 17:35. Record the assigned seats and fare type in the trip record. Booked total: ¥1,876 CNY.</span>
                 <span class="vb-row"><b>Base:</b> SFO to SAN</span>
                 <span class="vb-row"><b>Transport:</b> Southwest nonstop flight</span>
 
@@ -1127,19 +1239,28 @@ details.panel .disclosure-body{padding:2px 16px 14px}
               </div>
               <div class="sp-content">
                 <span class="sp-title">SAN arrival and hotel transfer</span>
-                <span class="sp-sum">Collect bags and transfer to Hyatt House San Diego Sorrento Mesa; keep the evening light.</span>
+                <span class="sp-sum">Collect all four bags, use the friend pickup or a large rideshare to Hyatt House San Diego Sorrento Mesa, check in after 18:00, and keep dinner simple.</span>
                 <span class="vb-row"><b>Base:</b> SAN to Sorrento Mesa</span>
                 <span class="vb-row"><b>Transport:</b> Rideshare or friend-provided transportation</span>
 
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Pack completely, check road traffic and WN3787 status, and keep the hotel key active until the bags are collected.</li><li>Leave for the aquarium around 09:20 with only day bags. Use a public garage because the aquarium has no public onsite parking.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Keep the two large and two small bags locked in the hotel room during the aquarium visit. Return, load once, and check out before the hotel's noon checkout time.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Use hotel breakfast, carry a simple lunch or buy food after security at SFO, and eat at Hyatt House or H Bar after SAN arrival if needed.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Leave the aquarium by 10:45 and Seaside by 11:15. Target the Rental Car Center by 13:30 and the terminal by about 14:15. Southwest's domestic checked-bag cutoff is 45 minutes, but this plan keeps far more margin.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If the aquarium does not open on time, parking takes too long, traffic worsens, or the Model Y shows an unexpected return issue, skip the visit and drive directly to SFO.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Aquarium hours and tickets, WN3787 terminal, exact assigned seat numbers, and Southwest fare type.</li><li>Whether the two checked bags are free or cost up to $90 total for one checked bag per traveler under the booked fare.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">2</span></summary>
       <div class="disclosure-body map-wrap">
-        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="5" aria-pressed="true">Airport transfer: Monterey Bay hotel to SFO</button><button class="map-btn" type="button" data-route-index="6" aria-pressed="false">Rideshare: SAN to Sorrento Mesa hotel</button></div>
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="7" aria-pressed="true">Airport transfer: Monterey Bay hotel to SFO</button><button class="map-btn" type="button" data-route-index="8" aria-pressed="false">Rideshare: SAN to Sorrento Mesa hotel</button></div>
         <div class="map-frame-wrap">
-          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955&amp;destination=San%20Francisco%20International%20Airport%2C%20San%20Francisco%2C%20CA%2094128&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Monterey Bay hotel to SFO">Open in Google Maps</a>
-          <iframe data-day-map-iframe title="Monterey Bay hotel to SFO" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955&amp;daddr=San%20Francisco%20International%20Airport%2C%20San%20Francisco%2C%20CA%2094128&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+          <a data-day-map-open href="https://www.google.com/maps/dir/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/Monterey+Bay+Aquarium,+Cannery+Row,+Monterey,+CA/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/SFO+Rental+Car+Center,+North+McDonnell+Road,+San+Francisco,+CA/" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Monterey Bay hotel to SFO">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Monterey Bay hotel to SFO" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA&amp;daddr=Monterey%20Bay%20Aquarium%2C%20Monterey%2C%20CA+to:Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA+to:SFO%20Rental%20Car%20Center%2C%20San%20Francisco%2C%20CA&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
         </div>
       </div>
     </details></div>
@@ -1212,6 +1333,15 @@ details.panel .disclosure-body{padding:2px 16px 14px}
                 <span class="vb-row"><b>Fallback:</b> Pack for the Oct 4 train before sleep if needed.</span>
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 1 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Ask the front desk to confirm that the two award reservations are linked and that the room does not need to change. Refresh the key in the morning only if requested.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Keep all four bags in the room. If a room move is unavoidable, ask the hotel to transfer or hold the bags while the fixed local plan continues.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Weekday breakfast is expected around 06:30 to 09:00. Use it only if it fits the fixed local plan; otherwise use the local arrangement.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>There is no added sightseeing clock. Protect the fixed local plan and resolve any room-key issue before leaving the hotel.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If the reservations are not linked, let the front desk handle checkout and re-registration while keeping the day otherwise unchanged.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Reservation linkage, same-room continuity, and whether a key refresh is required.</li></ul></div></div></div>
     </details></div>
         </div>
     </article><article class="day-card" id="day-2026-10-03" data-loc="sandiego">
@@ -1282,6 +1412,15 @@ details.panel .disclosure-body{padding:2px 16px 14px}
                 <span class="vb-row"><b>Fallback:</b> Pack for the Oct 4 train before sleep if needed.</span>
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 1 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Recheck Train 573 and any Del Mar advisory, confirm the friend's Oct 4 pickup time, and save both station addresses.</li><li>Measure and weigh both large suitcases against the current 28 x 22 x 11 inch and 50 pound carry-on limit.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Pacific Surfliner currently says checked baggage is suspended. Each traveler may bring one personal item and two carry-ons, but each large suitcase must fit the current carry-on size and weight limit and be liftable.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Weekend breakfast is expected around 07:30 to 10:00. Keep an easy breakfast and pack food for the next day's train if useful.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Finish train packing before sleep. Do not wait until the Oct 4 station transfer to discover that a suitcase is oversized.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If either large suitcase exceeds the current limit, resolve it before travel by repacking into a compliant bag or confirming a current staffed-station solution directly with Pacific Surfliner.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Both suitcase dimensions and weights, current checked-baggage status, train schedule, advisory status, and friend pickup time.</li></ul></div></div></div>
     </details></div>
         </div>
     </article><div class="seg-head" data-loc="la">
@@ -1296,70 +1435,79 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         </div>
         <div class="day-main">
           <div class="day-head">
-            <h3 class="day-headline">Light LA arrival day.</h3>
+            <h3 class="day-headline">Pacific Surfliner to Santa Monica</h3>
             <span class="badge badge-fixed">Fixed</span>
           </div>
-          <p class="day-activity">Check out after the three-night San Diego stay, then use Pacific Surfliner from San Diego Santa Fe Depot to Los Angeles Union Station. Default target is Train 573, departing Santa Fe Depot at 10:01 and arriving Los Angeles Union Station at 12:57; Train 769 at 8:01 -&gt; 10:57 is the earlier backup if more LA time matters. Transfer by rideshare or transit from Union Station to Hyatt Centric Delfina Santa Monica for the 15:00 check-in. Keep the evening light: Santa Monica sunset and dinner on foot or by short rideshare. Do not rent a car in Los Angeles.</p>
+          <p class="day-activity">Check out after the three-night San Diego stay, then use booked Pacific Surfliner Train 573 from San Diego Santa Fe Depot at 12:01 to Los Angeles Union Station at 14:57. The total for two travelers is $102. Transfer by rideshare from Union Station to Hyatt Centric Delfina Santa Monica for check-in with the four suitcases. Keep the evening light: Santa Monica sunset and dinner on foot or by short rideshare. Do not rent a car in Los Angeles.</p>
           <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span><span class="mi-text">Train to Los Angeles</span></p>
           <div class="day-card-details"><details class="disclosure">
       <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Early Morning</span>
-                <span class="sp-time">07:00-09:15</span>
+                <span class="sp-time">07:30-11:15</span>
               </div>
               <div class="sp-content">
                 <span class="sp-title">Breakfast, checkout, and Santa Fe Depot transfer</span>
-                <span class="sp-sum">Eat, check out after the three-night stay at Hyatt House San Diego Sorrento Mesa, and use the friend-provided ride to Santa Fe Depot with a conservative buffer for the 10:01 train.</span>
+                <span class="sp-sum">Use weekend breakfast, check out, load all four bags into the friend's vehicle, and reach Santa Fe Depot by about 11:15 for the 12:01 train.</span>
                 <span class="vb-row"><b>Base:</b> Hyatt House San Diego Sorrento Mesa to San Diego Santa Fe Depot</span>
                 <span class="vb-row"><b>Transport:</b> Friend-provided drop-off; rideshare is emergency fallback only.</span>
                 <span class="vb-row"><b>Fallback:</b> If the friend drop-off changes, use rideshare and leave earlier rather than switching to a tight transit chain with luggage.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Morning</span>
-                <span class="sp-time">10:01-12:57</span>
+                <span class="sp-time">12:01-14:57</span>
               </div>
               <div class="sp-content">
                 <span class="sp-title">Pacific Surfliner to Los Angeles</span>
-                <span class="sp-sum">Take Pacific Surfliner Train 573 from Santa Fe Depot to Los Angeles Union Station, with the 08:01 train as the early backup.</span>
+                <span class="sp-sum">Take booked Pacific Surfliner Train 573 from Santa Fe Depot to Los Angeles Union Station. Coach seats are unassigned, checked baggage is currently suspended, and the total for two travelers is $102.</span>
                 <span class="vb-row"><b>Base:</b> San Diego Santa Fe Depot to Los Angeles Union Station</span>
                 <span class="vb-row"><b>Transport:</b> Train only.</span>
                 <span class="vb-row"><b>Fallback:</b> If Del Mar advisories affect the train, recheck bus bridges or move to an earlier departure.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">12:57-14:15</span>
+                <span class="sp-time">14:57-16:15</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Union Station or Little Tokyo lunch</span>
-                <span class="sp-sum">Keep lunch simple after arriving at Union Station: station food, Little Tokyo, or something near the transfer path.</span>
-                <span class="vb-row"><b>Base:</b> Union Station or Little Tokyo</span>
-                <span class="vb-row"><b>Transport:</b> Walk locally, then rideshare or transit to the hotel after lunch.</span>
-                <span class="vb-row"><b>Fallback:</b> If everyone is tired or carrying bags, skip Little Tokyo and go directly to the hotel.</span>
+                <span class="sp-title">Direct transfer to hotel check-in</span>
+                <span class="sp-sum">After arriving at Union Station, use an app-matched ride directly to Hyatt Centric Delfina Santa Monica and check in.</span>
+                <span class="vb-row"><b>Base:</b> Union Station to Hyatt Centric Delfina Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> Use a large rideshare vehicle for the two travelers and four suitcases.</span>
+                <span class="vb-row"><b>Fallback:</b> If the train is delayed, keep the same direct hotel transfer and move food to the hotel area.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">14:15-17:30</span>
+                <span class="sp-time">16:15-17:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">West-side transfer and check-in</span>
-                <span class="sp-sum">Transfer to Hyatt Centric Delfina Santa Monica, check in after 15:00, and reset before the evening coast plan.</span>
-                <span class="vb-row"><b>Base:</b> Union Station to Hyatt Centric Delfina Santa Monica</span>
-                <span class="vb-row"><b>Transport:</b> Rideshare is the default with luggage; public transit is a backup only if time and bags make sense.</span>
+                <span class="sp-title">Hotel check-in and reset</span>
+                <span class="sp-sum">Settle into Hyatt Centric Delfina Santa Monica and reset before the evening coast plan.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> Walk in the hotel area after check-in.</span>
                 <span class="vb-row"><b>Fallback:</b> If traffic makes rideshare unattractive, use Metro or transit only if luggage and time still make the transfer comfortable.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
                 <span class="sp-time">17:30-21:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Coast dinner or hotel-area recovery</span>
-                <span class="sp-sum">Use the selected Santa Monica base for a low-transfer sunset and dinner plan; add Venice or Abbot Kinney only if energy and rideshare pricing are reasonable.</span>
-                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica, Santa Monica, and Venice</span>
-                <span class="vb-row"><b>Transport:</b> Walk where practical; use rideshare by segment only if it improves the evening enough to justify the cost.</span>
+                <span class="sp-title">Santa Monica sunset and dinner</span>
+                <span class="sp-sum">Walk toward Palisades Park or the pier for sunset, then eat near the hotel. Keep Venice and Abbot Kinney for Oct 5.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica and Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> Walk, with a short rideshare only if needed.</span>
                 <span class="vb-row"><b>Fallback:</b> If the train or transfer was tiring, eat near the hotel and keep Venice for Oct 5.</span>
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Confirm Train 573 is operating normally, use the friend-provided ride, and reach Santa Fe Depot around 11:15.</li><li>Have tickets open on both phones, keep chargers accessible, and ask for free Red Cap help if handling all four bags is awkward.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Coach seating is unassigned and checked baggage is currently suspended. Each traveler may carry one personal item and two carry-ons, with each larger item currently limited to 28 x 22 x 11 inches and 50 pounds. Board early enough to use the luggage racks.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Eat the included weekend breakfast, bring lunch or buy from the Market Cafe, and keep dinner within walking distance of the Santa Monica hotel.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Arrive at Santa Fe Depot around 11:15 for the 12:01 departure. At Union Station, request a large rideshare because a standard sedan may not fit two travelers and four bags.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If a Del Mar advisory changes the service, follow the official bus-bridge or alternate-train instruction. If the train is delayed, keep the Union Station-to-hotel ride and drop the sunset walk.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Both large suitcases fit the current limits, checked-baggage service is still suspended, and Train 573 has no schedule change.</li><li>Friend pickup time and the exact large-rideshare meeting point at Union Station.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">3</span></summary>
       <div class="disclosure-body map-wrap">
-        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="7" aria-pressed="true">Friend drop-off: Sorrento Mesa hotel to Santa Fe Depot</button><button class="map-btn" type="button" data-route-index="8" aria-pressed="false">Train: Santa Fe Depot to Union Station</button><button class="map-btn" type="button" data-route-index="9" aria-pressed="false">LA transfer: Union Station to Hyatt Centric Delfina Santa Monica</button></div>
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="9" aria-pressed="true">Friend drop-off: Sorrento Mesa hotel to Santa Fe Depot</button><button class="map-btn" type="button" data-route-index="10" aria-pressed="false">Train: Santa Fe Depot to Union Station</button><button class="map-btn" type="button" data-route-index="11" aria-pressed="false">LA transfer: Union Station to Hyatt Centric Delfina Santa Monica</button></div>
         <div class="map-frame-wrap">
           <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121&amp;destination=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Sorrento Mesa hotel to Santa Fe Depot">Open in Google Maps</a>
           <iframe data-day-map-iframe title="Sorrento Mesa hotel to Santa Fe Depot" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121&amp;daddr=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
@@ -1375,31 +1523,31 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         </div>
         <div class="day-main">
           <div class="day-head">
-            <h3 class="day-headline">One focused LA day.</h3>
+            <h3 class="day-headline">Santa Monica, Venice, and Academy Museum</h3>
             <span class="badge badge-fixed">Fixed</span>
           </div>
-          <p class="day-activity">LA day from Hyatt Centric Delfina Santa Monica using walk, transit, and rideshare. Start with Santa Monica, Palisades Park, and Venice, then use one rideshare or Metro bus move for a Monday-compatible Museum Row target such as LACMA and Academy Museum area or one relaxed Westside neighborhood. Do not make Getty Center or Griffith Observatory the default Oct 5 plan because Monday closure makes them fragile. Do not add Joshua Tree unless the Southern California block is redesigned; do not add Death Valley without extra nights.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-train-front" /></svg></span><span class="mi-text">Use rideshare or Metro selectively in LA.</span></p>
+          <p class="day-activity">Use one west-to-east Los Angeles route: Palisades Park and Santa Monica Pier, Venice and Abbot Kinney, then one rideshare to the Academy Museum for a 14:00 to 17:30 visit. Return to Santa Monica for dinner. Getty Center is closed Monday and moves to Oct 6.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Use rideshare or Metro selectively in LA.</span></p>
           <div class="day-card-details"><details class="disclosure">
       <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Early Morning</span>
-                <span class="sp-time">08:00-09:30</span>
+                <span class="sp-time">08:00-09:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Breakfast and route choice</span>
-                <span class="sp-sum">Confirm whether breakfast is included on the selected Hyatt Centric rate, then choose the day order based on weather and rideshare pricing: coast first or museum corridor first.</span>
+                <span class="sp-title">Breakfast near the hotel</span>
+                <span class="sp-sum">Use the hotel's morning coffee and a nearby cafe unless breakfast is included on the booked rate. Confirm the Academy Museum tickets before leaving.</span>
                 <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica</span>
                 <span class="vb-row"><b>Transport:</b> Walk inside the Santa Monica hotel area, then one planned rideshare or transit move.</span>
                 <span class="vb-row"><b>Fallback:</b> If breakfast is not included or is poor value, use a nearby Santa Monica cafe and keep the morning walkable.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Morning</span>
-                <span class="sp-time">09:30-12:30</span>
+                <span class="sp-time">09:00-12:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Santa Monica and Venice</span>
-                <span class="sp-sum">Default morning is Santa Monica Pier, Palisades Park, and Venice and Abbot Kinney as a west-side local block.</span>
+                <span class="sp-title">Palisades Park, the pier, and Venice</span>
+                <span class="sp-sum">Walk Palisades Park and Santa Monica Pier, then continue to Venice by walk, bike only if both travelers are comfortable, or a short rideshare.</span>
                 <span class="vb-row"><b>Base:</b> Santa Monica and Venice</span>
                 <span class="vb-row"><b>Transport:</b> Walk or short rideshare or transit from Hyatt Centric Delfina; preserve the larger Uber budget for Museum Row or the airport day.</span>
                 <span class="vb-row"><b>Fallback:</b> If marine layer or fatigue makes the coast less appealing, swap this with the afternoon museum block.</span>
@@ -1408,37 +1556,46 @@ details.panel .disclosure-body{padding:2px 16px 14px}
                 <span class="sp-time">12:30-14:00</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">West-side or Museum Row lunch</span>
-                <span class="sp-sum">Eat where the morning ends, or transfer once toward Fairfax or Museum Row and eat before the afternoon activity.</span>
-                <span class="vb-row"><b>Base:</b> Santa Monica, Venice, Fairfax, or Museum Row</span>
-                <span class="vb-row"><b>Transport:</b> One rideshare transfer maximum during lunch unless there is a clear reason to pay for more.</span>
+                <span class="sp-title">Abbot Kinney lunch and Museum Row transfer</span>
+                <span class="sp-sum">Eat near Abbot Kinney, then use one rideshare to the Academy Museum's Roddenberry Lane drop-off.</span>
+                <span class="vb-row"><b>Base:</b> Venice to the Academy Museum</span>
+                <span class="vb-row"><b>Transport:</b> Walk + one rideshare</span>
                 <span class="vb-row"><b>Fallback:</b> If using public transit, simplify lunch near the destination rather than adding a separate restaurant detour.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
                 <span class="sp-time">14:00-17:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Museum Row or Westside focus</span>
-                <span class="sp-sum">Use LACMA, Academy Museum, or Museum Row exterior or interior options, or keep the day west-side if that is the better low-transfer route.</span>
-                <span class="vb-row"><b>Base:</b> Museum Row, Fairfax, or Westside</span>
-                <span class="vb-row"><b>Transport:</b> Rideshare or Metro or bus mix; choose fewer hops over more neighborhoods.</span>
-                <span class="vb-row"><b>Fallback:</b> Getty and Griffith are not the default Monday plan; add only after checking hours and accepting the extra transfer cost.</span>
+                <span class="sp-title">Academy Museum</span>
+                <span class="sp-sum">Use the booked general-admission window for the main galleries and terrace. The museum is open Monday and currently closes at 18:00.</span>
+                <span class="vb-row"><b>Base:</b> Academy Museum of Motion Pictures</span>
+                <span class="vb-row"><b>Transport:</b> Walk inside the museum</span>
+                <span class="vb-row"><b>Fallback:</b> If advance tickets are unavailable, use the free Level 1 areas and Museum Row exterior, then return to Santa Monica early.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
-                <span class="sp-time">17:30-22:00</span>
+                <span class="sp-time">17:30-21:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Dinner and return to hotel</span>
-                <span class="sp-sum">Dinner can be Santa Monica, Westside, or Koreatown only if the return ride is worth the cost and time.</span>
-                <span class="vb-row"><b>Base:</b> Santa Monica, Westside, or Koreatown</span>
-                <span class="vb-row"><b>Transport:</b> Rideshare return with surge buffer; choose hotel-area dinner if costs are high.</span>
+                <span class="sp-title">Return to Santa Monica and dinner</span>
+                <span class="sp-sum">Use one rideshare back to Santa Monica and eat near the hotel. Do not add Koreatown or another neighborhood after the museum.</span>
+                <span class="vb-row"><b>Base:</b> Academy Museum to Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> One rideshare + walk</span>
                 <span class="vb-row"><b>Fallback:</b> If the return quote is high, eat near the final afternoon location before heading back.</span>
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Reserve two Academy Museum tickets, check any Oct 5 gallery closure, and save the Roddenberry Lane rideshare drop-off.</li><li>Carry only day bags, layers, water, and a power bank. Leave airport luggage in the room.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Leave all four bags in the locked hotel room. The day uses walking and one main rideshare, so do not carry travel luggage.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Breakfast is not included unless the booked rate says otherwise. Use a nearby cafe, eat lunch around Abbot Kinney, and return to Santa Monica for dinner.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Leave Venice around 13:15 for the Academy Museum. Leave the museum around 17:30 so the return does not turn into a late cross-city dinner plan.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If the coast weather is poor, go to the Academy Museum near opening and use Santa Monica after the visit. If tickets are unavailable, use the free Level 1 areas and the Museum Row exterior, then return west early.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Two Academy Museum general-admission tickets at the current $25 adult price.</li><li>Oct 5 gallery closures and the live rideshare price from Venice or Santa Monica.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
       <summary>Maps <span class="sum-count">2</span></summary>
       <div class="disclosure-body map-wrap">
-        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="10" aria-pressed="true">LA local: Hyatt Centric Delfina to Santa Monica Pier</button><button class="map-btn" type="button" data-route-index="11" aria-pressed="false">LA local: Hyatt Centric Delfina to LACMA</button></div>
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="12" aria-pressed="true">LA local: Hyatt Centric Delfina to Santa Monica Pier</button><button class="map-btn" type="button" data-route-index="13" aria-pressed="false">LA local: Hyatt Centric Delfina to Academy Museum</button></div>
         <div class="map-frame-wrap">
           <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;destination=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA&amp;travelmode=walking" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Centric Delfina to Santa Monica Pier">Open in Google Maps</a>
           <iframe data-day-map-iframe title="Hyatt Centric Delfina to Santa Monica Pier" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;daddr=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA&amp;dirflg=w&amp;output=embed" class="map-frame"></iframe>
@@ -1454,73 +1611,82 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         </div>
         <div class="day-main">
           <div class="day-head">
-            <h3 class="day-headline">Light final day; avoid a fragile late transfer.</h3>
+            <h3 class="day-headline">Getty Center, then LAX departure</h3>
             <span class="badge badge-fixed">Fixed</span>
           </div>
-          <p class="day-activity">Final Los Angeles day should stay close to the selected Santa Monica base: 11:00 checkout, confirmed luggage storage or late checkout, Santa Monica, Venice, or one nearby Westside target. If Getty Center or Griffith Observatory is important, move it to this Tuesday only with a clear luggage plan and airport buffer; otherwise do not add a fragile cross-town day before the 23:50 flight. Leave Hyatt Centric Delfina Santa Monica for LAX Terminal B by rideshare around 19:00-19:30 for KE012 at 23:50, then adjust earlier if traffic or Korean Air check-in guidance requires it. Connection continues ICN -&gt; PVG on Oct 8, arriving PVG T1 at 12:25.</p>
-          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-plane" /></svg></span><span class="mi-text">Transfer from Hyatt Centric Delfina Santa Monica to LAX Terminal B for Korean Air KE012, departing 23:50 to ICN.</span></p>
+          <p class="day-activity">Check out early and use the hotel's free departure-day luggage storage for all four bags. Take a 10:00 timed-entry visit to the Getty Center, return to Santa Monica around 15:00, rest and eat early near the hotel, collect the bags at 18:30, and leave for LAX Terminal B at 19:00 for KE012 at 23:50.</p>
+          <p class="day-move"><span class="icon mi-icon" aria-hidden="true"><svg><use href="#i-map-pin" /></svg></span><span class="mi-text">Getty Center, then large rideshare to LAX</span></p>
           <div class="day-card-details"><details class="disclosure">
       <summary>Schedule <span class="sum-count">5 periods</span></summary>
       <div class="disclosure-body">
         <div class="sched-grid"><div class="sp-label">
                 <span class="sp-period">Early Morning</span>
-                <span class="sp-time">08:00-09:30</span>
+                <span class="sp-time">07:30-09:15</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Breakfast, late checkout, and luggage plan</span>
-                <span class="sp-sum">Confirm late checkout or luggage storage before the 11:00 checkout, keep documents accessible, and leave the day intentionally light before the 23:50 KE012 departure.</span>
+                <span class="sp-title">Breakfast, checkout, and luggage storage</span>
+                <span class="sp-sum">Check out before 09:00, leave all four bags with the hotel's free departure-day storage, and depart with only day bags for the Getty.</span>
                 <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica</span>
                 <span class="vb-row"><b>Transport:</b> Walk inside the hotel area; no long transfer before the luggage plan is confirmed.</span>
-                <span class="vb-row"><b>Fallback:</b> If luggage storage is weak, keep the whole day near the hotel rather than carrying bags around LA.</span>
+                <span class="vb-row"><b>Fallback:</b> If the storage desk has any unexpected limit, keep the day in Santa Monica and resolve the bags before leaving the hotel area.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Morning</span>
-                <span class="sp-time">09:30-12:30</span>
+                <span class="sp-time">09:15-12:15</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Nearby coast or hotel-area errand</span>
-                <span class="sp-sum">Use Santa Monica, Palisades Park, Venice, or a nearby Westside errand only if luggage storage and energy make it easy; otherwise keep the morning near the hotel.</span>
-                <span class="vb-row"><b>Base:</b> Santa Monica, Venice, or nearby Westside</span>
-                <span class="vb-row"><b>Transport:</b> Walk or short rideshare only; avoid cross-town attractions on departure day.</span>
-                <span class="vb-row"><b>Fallback:</b> If luggage storage is weak, make the morning walkable and save the ride budget for the airport transfer.</span>
+                <span class="sp-title">Getty Center timed entry</span>
+                <span class="sp-sum">Use a rideshare to the Getty for the 10:00 opening, then focus on the Central Garden, architecture, and the open galleries rather than trying to see everything.</span>
+                <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina to Getty Center</span>
+                <span class="vb-row"><b>Transport:</b> Rideshare + Getty tram + walk</span>
+                <span class="vb-row"><b>Fallback:</b> If the timed entry or traffic fails, stay in Santa Monica and preserve the airport transfer.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Lunch</span>
-                <span class="sp-time">12:30-14:00</span>
+                <span class="sp-time">12:15-14:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Coast or hotel-area lunch</span>
-                <span class="sp-sum">Eat near the morning location and do not create a new neighborhood transfer just for lunch.</span>
-                <span class="vb-row"><b>Base:</b> Santa Monica or coast near current location</span>
-                <span class="vb-row"><b>Transport:</b> Walk or one short rideshare.</span>
-                <span class="vb-row"><b>Fallback:</b> If weather or storage is inconvenient, eat near the hotel and use the afternoon for rest.</span>
+                <span class="sp-title">Getty lunch and return</span>
+                <span class="sp-sum">Eat at or near the Getty, leave by about 14:00, and rideshare back to Santa Monica.</span>
+                <span class="vb-row"><b>Base:</b> Getty Center to Santa Monica</span>
+                <span class="vb-row"><b>Transport:</b> Walk + rideshare</span>
+                <span class="vb-row"><b>Fallback:</b> If the Getty visit runs slowly, skip a formal lunch and return west with a snack.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Afternoon</span>
-                <span class="sp-time">14:00-18:30</span>
+                <span class="sp-time">14:30-18:30</span>
               </div>
               <div class="sp-content">
-                <span class="sp-title">Rest, packing, shower, and flight prep</span>
-                <span class="sp-sum">Return to the hotel area early, pack carefully, charge devices, and avoid any plan that could threaten the international departure buffer.</span>
+                <span class="sp-title">Santa Monica rest and early dinner</span>
+                <span class="sp-sum">Return to the hotel area, charge devices, sit down for an early dinner, and recheck KE012 and LAX traffic before collecting the stored bags.</span>
                 <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica or nearby Santa Monica</span>
                 <span class="vb-row"><b>Transport:</b> Walk or short rideshare only; do not rely on an airport hotel shuttle from Santa Monica.</span>
-                <span class="vb-row"><b>Fallback:</b> If late checkout is unavailable, use luggage storage plus a nearby cafe or hotel lobby plan rather than a distant activity.</span>
+                <span class="vb-row"><b>Fallback:</b> If tired, use a nearby cafe or hotel lobby and keep the final hours simple.</span>
               </div><div class="sp-label">
                 <span class="sp-period">Evening</span>
-                <span class="sp-time">19:00-19:30 departure from hotel</span>
+                <span class="sp-time">18:30-23:50</span>
               </div>
               <div class="sp-content">
                 <span class="sp-title">LAX Terminal B transfer</span>
-                <span class="sp-sum">Leave Hyatt Centric Delfina Santa Monica for LAX Terminal B around 19:00-19:30 for KE012 at 23:50, using rideshare with a traffic and check-in buffer.</span>
+                <span class="sp-sum">Collect all four bags at 18:30, order a large rideshare, and leave Hyatt Centric Delfina for LAX Terminal B at 19:00. Target arrival around 20:00 to 20:30 for KE012 at 23:50.</span>
                 <span class="vb-row"><b>Base:</b> Hyatt Centric Delfina Santa Monica to LAX Terminal B</span>
                 <span class="vb-row"><b>Transport:</b> Rideshare default; public transit is backup only if luggage, timing, and service conditions are clearly comfortable.</span>
                 <span class="vb-row"><b>Fallback:</b> If rideshare quotes or traffic look bad, leave earlier rather than compressing international check-in.</span>
               </div></div>
       </div>
+    </details><details class="disclosure dry-run-disclosure">
+      <summary>Dry run <span class="sum-count">6 checks · 2 open</span></summary>
+      <div class="disclosure-body"><div class="dry-grid"><div class="dry-label">Before leaving</div>
+        <div class="dry-content"><ul><li>Check in online for Korean Air when the 24-hour window opens, verify passports and baggage allowance, and reserve the Getty's free 10:00 timed entry when dates open about six weeks ahead.</li><li>Check out before 09:00, store all four bags with the hotel, and carry passports, medication, chargers, a layer, and water in day bags.</li></ul></div><div class="dry-label">Luggage</div>
+        <div class="dry-content"><ul><li>Hyatt Centric Delfina confirms free luggage storage on the day of departure. Leave both large and both small suitcases at the hotel, collect them at 18:30, and order a large rideshare to LAX.</li></ul></div><div class="dry-label">Meals and energy</div>
+        <div class="dry-content"><ul><li>Buy breakfast near the hotel, eat lunch at or near the Getty, and have an early dinner in Santa Monica before collecting the bags.</li></ul></div><div class="dry-label">Hard cutoff</div>
+        <div class="dry-content"><ul><li>Leave the Getty by about 14:00, return to Santa Monica around 15:00, collect luggage at 18:30, and leave for LAX at 19:00. LAX recommends arriving three hours before an international flight, so the target terminal arrival is about 20:00 to 20:30.</li></ul></div><div class="dry-label">Fallback</div>
+        <div class="dry-content"><ul><li>If Getty tickets, traffic, or energy do not cooperate, stay in Santa Monica after checkout. Never replace the airport buffer with a cross-town attraction.</li></ul></div><div class="dry-label">Still to confirm</div>
+        <div class="dry-content"><ul><li>Getty timed entry, current gallery closures, KE012 flight status, Korean Air seats, and checked-bag allowance.</li><li>Live traffic and the large-rideshare quote to LAX before the 19:00 departure.</li></ul></div></div></div>
     </details><details class="disclosure" data-map-group>
-      <summary>Maps <span class="sum-count">1</span></summary>
+      <summary>Maps <span class="sum-count">2</span></summary>
       <div class="disclosure-body map-wrap">
-        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="12" aria-pressed="true">Departure: Hyatt Centric Delfina to LAX Terminal B</button></div>
+        <div class="map-btns"><button class="map-btn active" type="button" data-route-index="14" aria-pressed="true">LA departure-day visit: Hyatt Centric Delfina to Getty Center</button><button class="map-btn" type="button" data-route-index="15" aria-pressed="false">Departure: Hyatt Centric Delfina to LAX Terminal B</button></div>
         <div class="map-frame-wrap">
-          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;destination=LAX%20Terminal%20B%2C%201%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Centric Delfina to LAX Terminal B">Open in Google Maps</a>
-          <iframe data-day-map-iframe title="Hyatt Centric Delfina to LAX Terminal B" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;daddr=1%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
+          <a data-day-map-open href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;destination=Getty%20Center%2C%201200%20Getty%20Center%20Dr%2C%20Los%20Angeles%2C%20CA%2090049&amp;travelmode=driving" target="_blank" rel="noreferrer" class="map-open-link" data-day-map-title="Hyatt Centric Delfina to Getty Center">Open in Google Maps</a>
+          <iframe data-day-map-iframe title="Hyatt Centric Delfina to Getty Center" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405&amp;daddr=1200%20Getty%20Center%20Dr%2C%20Los%20Angeles%2C%20CA%2090049&amp;dirflg=d&amp;output=embed" class="map-frame"></iframe>
         </div>
       </div>
     </details></div>
@@ -1604,7 +1770,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         <div class="cand-main">
           <div class="cand-name">Central San Francisco hotel</div>
           <div class="cand-role">Full-route fallback</div>
-          <div class="cand-fit">Best for both Sep 25 and Sep 26 city time; requires a later rental pickup for Yosemite.</div>
+          <div class="cand-fit">Best for Sep 25 city time, but weaker for the confirmed Sep 26 09:00 SFO rental pickup and San Jose loop.</div>
 
 
         </div>
@@ -1619,7 +1785,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         <summary>Decision rule &amp; sources</summary>
         <div class="disclosure-body">
           <p class="decision-rule">Exclude the points-funded stay from the trip total. Keep its estimated $677.07 cash equivalent visible when comparing redemption value and city-commute cost.</p>
-          <div class="source-links"><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/policies" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://world.hyatt.com/content/gp/en/my-account/badges/waived-resort-fees.html" target="_blank" rel="noreferrer">world.hyatt.com</a><a href="https://www.caltrain.com/" target="_blank" rel="noreferrer">caltrain.com</a></div>
+          <div class="source-links"><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/faqs" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/policies" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://world.hyatt.com/content/gp/en/my-account/badges/waived-resort-fees.html" target="_blank" rel="noreferrer">world.hyatt.com</a><a href="https://www.caltrain.com/" target="_blank" rel="noreferrer">caltrain.com</a></div>
         </div>
       </details>
     </div><div class="hotel-block" id="hotel-yosemite-2026-09-27-29" data-loc="yosemite">
@@ -1884,13 +2050,13 @@ details.panel .disclosure-body{padding:2px 16px 14px}
 <!-- ── Costs ── -->
 <section class="screen" id="screen-costs" aria-label="Costs">
   <div class="cost-total-banner">
-      <div><span class="cot-label">Trip total</span><span class="cot-val">$6,416.57-$6,916.57</span></div>
+      <div><span class="cot-label">Trip total</span><span class="cot-val">$6,682.57-$7,272.57</span></div>
     <span class="cot-note">cash baseline for two travelers; excludes the points-funded SFO-airport and San Diego stays, their cash equivalents, and optional add-ons</span>
     </div>
     <div class="cost-summary-grid">
       <div class="cost-summary-tile">
       <span>Cash committed</span>
-      <strong>$4,256.57</strong>
+      <strong>$4,358.57</strong>
       <small>Booked cash items; points stays are excluded</small>
     </div>
       <div class="cost-summary-tile">
@@ -1909,9 +2075,9 @@ details.panel .disclosure-body{padding:2px 16px 14px}
       <div class="cost-group-head">
         <div>
           <h3>Flights</h3>
-          <small>2 lines</small>
+          <small>3 lines</small>
         </div>
-        <div class="cost-group-total">$2,636.29</div>
+        <div class="cost-group-total">$2,636.29-$2,726.29</div>
       </div>
       <div class="cost-lines"><div class="cost-line status-included">
       <div class="cost-line-main">
@@ -1924,11 +2090,19 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     </div><div class="cost-line status-included">
       <div class="cost-line-main">
         <div class="cost-line-top"><span class="cost-badge included">Booked</span><strong>SFO -&gt; SAN flight</strong></div>
-        <div class="cost-line-note">Booked price for the trip party. Leave the Monterey Bay hotel around 10:30-11:00, target SFO by 13:30-14:00, return the Model Y, and protect the 16:00 departure.</div>
+        <div class="cost-line-note">Booked price for the trip party. Leave the aquarium by 10:45, return to the hotel room for all four bags, leave Seaside by 11:15, target the SFO Rental Car Center around 13:15 to 13:30, and protect the 16:00 departure.</div>
 
         <details class="cost-basis-detail"><summary>Basis</summary><p>Booked Southwest WN3787 for Thu Oct 1, SFO 16:00 -&gt; SAN 17:35. User-confirmed itinerary time controls this record; recheck the Southwest app before departure.</p></details>
       </div>
       <div class="cost-line-value">¥1,876</div>
+    </div><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Fare check</span><strong>Southwest checked-bag allowance</strong></div>
+        <div class="cost-line-note">Two travelers checking one large suitcase each. The two small bags should remain within each traveler's carry-on and personal-item allowance.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>The first checked bag can cost $45 per traveler on fares without an included bag for this travel date. Choice Extra or qualifying status can make the total $0. Record the exact fare type before travel.</p></details>
+      </div>
+      <div class="cost-line-value">$0-$90</div>
     </div></div>
     </article><article class="cost-group">
       <div class="cost-group-head">
@@ -2023,20 +2197,26 @@ details.panel .disclosure-body{padding:2px 16px 14px}
           <h3>Ground + Transit</h3>
           <small>4 lines</small>
         </div>
-        <div class="cost-group-total">$1,275-$1,575<span>Optional $110-$170</span></div>
+        <div class="cost-group-total">$1,361-$1,661<span>Optional $110-$170</span></div>
       </div>
       <div class="cost-lines"><div class="cost-line status-booked">
       <div class="cost-line-main">
         <div class="cost-line-top"><span class="cost-badge booked">Booked rental</span><strong>Northern California Tesla Model Y</strong></div>
-        <div class="cost-line-note">The $885 rental is confirmed. Complete most return charging in Monterey Bay on Sep 30, then follow the rental agreement's return-state rule after the Oct 1 drive to SFO.</div>
+        <div class="cost-line-note">The $885 rental and $54 Hyatt parking rate are recorded. Complete most return charging in Monterey Bay on Sep 30, then follow the rental agreement's return-state rule after the Oct 1 drive to SFO.</div>
         <div class="nightly-cost-wrap"><table class="nightly-cost-table">
       <thead><tr><th>Component</th><th>Estimate</th><th>Basis</th><th>Status</th><th>Included</th></tr></thead>
       <tbody><tr>
       <th scope="row">Model Y SFO round trip</th>
       <td>$885</td>
-      <td>Sep 27-Oct 1</td>
+      <td>Sep 26-Oct 1</td>
       <td>Confirmed total rental price</td>
       <td><strong>$885</strong></td>
+    </tr><tr>
+      <th scope="row">Hyatt overnight self-parking</th>
+      <td>$54</td>
+      <td>Sep 26 night</td>
+      <td>Current official hotel rate</td>
+      <td><strong>$54</strong></td>
     </tr><tr>
       <th scope="row">Tesla Supercharging</th>
       <td>$70-$110</td>
@@ -2050,19 +2230,19 @@ details.panel .disclosure-body{padding:2px 16px 14px}
       <td>Allowance</td>
       <td><strong>$35-$65</strong></td>
     </tr></tbody>
-      <tfoot><tr><th colspan="4">Model Y mobility budget</th><td><strong>$990-$1,060</strong></td></tr></tfoot>
+      <tfoot><tr><th colspan="4">Model Y mobility budget</th><td><strong>$1,044-$1,114</strong></td></tr></tfoot>
     </table></div>
-        <details class="cost-basis-detail"><summary>Basis</summary><p>Confirmed Sep 27-Oct 1 SFO-to-SFO Tesla Model Y rental: $885. Add $70-$110 for Supercharging and $35-$65 for tolls, parking, and return-state buffer; these usage allowances are separate from the confirmed rental total.</p></details>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Confirmed Sep 26-Oct 1 SFO-to-SFO Tesla Model Y rental: $885, with pickup at 09:00 on Sep 26. Add the Hyatt's current $54 overnight self-parking rate, $70-$110 for Supercharging, and $35-$65 for tolls, other parking, and return-state buffer.</p></details>
       </div>
-      <div class="cost-line-value">$990-$1,060</div>
-    </div><div class="cost-line status-estimate">
+      <div class="cost-line-value">$1,044-$1,114</div>
+    </div><div class="cost-line status-included">
       <div class="cost-line-main">
-        <div class="cost-line-top"><span class="cost-badge estimate">Estimate</span><strong>San Diego -&gt; Los Angeles Pacific Surfliner</strong></div>
-        <div class="cost-line-note">Coach baseline for two; business class is optional.</div>
+        <div class="cost-line-top"><span class="cost-badge included">Booked</span><strong>San Diego -&gt; Los Angeles Pacific Surfliner</strong></div>
+        <div class="cost-line-note">Two travelers. User-confirmed ticket total for the trip party.</div>
 
-        <details class="cost-basis-detail"><summary>Basis</summary><p>Use coach as the cost baseline at about $35 per traveler. A business-class upgrade is a comfort option and is excluded from the baseline total unless selected.</p></details>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Booked Pacific Surfliner Train 573 for Oct 4, San Diego Santa Fe Depot 12:01 -&gt; Los Angeles Union Station 14:57.</p></details>
       </div>
-      <div class="cost-line-value">$70</div>
+      <div class="cost-line-value">$102</div>
     </div><div class="cost-line status-estimate">
       <div class="cost-line-main">
         <div class="cost-line-top"><span class="cost-badge estimate">Uber plan</span><strong>Local transfers, rideshare, and transit</strong></div>
@@ -2134,7 +2314,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         <div class="cost-line-top"><span class="cost-badge optional">Optional</span><strong>Optional Sep 25 all-Uber commute</strong></div>
         <div class="cost-line-note">Use only if the time savings justify replacing the cheaper rail or already-paid rental-car option.</div>
 
-        <details class="cost-basis-detail"><summary>Basis</summary><p>Optional Hyatt Regency SFO-to-central-San-Francisco round trip by Uber for two travelers. The baseline can instead use the rental car with planned parking or rail, so this is not included in the base total.</p></details>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Optional Hyatt Regency SFO-to-central-San-Francisco round trip by Uber for two travelers. The baseline uses the hotel shuttle, BART, and one local rideshare, so this is not included in the base total.</p></details>
       </div>
       <div class="cost-line-value">$110-$170</div>
     </div></div>
@@ -2142,9 +2322,9 @@ details.panel .disclosure-body{padding:2px 16px 14px}
       <div class="cost-group-head">
         <div>
           <h3>Activities + Parks</h3>
-          <small>2 lines</small>
+          <small>4 lines</small>
         </div>
-        <div class="cost-group-total">$235<span>Optional $0-$250</span></div>
+        <div class="cost-group-total">$415<span>Optional $0-$250</span></div>
       </div>
       <div class="cost-lines"><div class="cost-line status-estimate">
       <div class="cost-line-main">
@@ -2154,6 +2334,22 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         <details class="cost-basis-detail"><summary>Basis</summary><p>Current 2026 NPS fee structure for two non-US residents arriving in one private vehicle: $35 vehicle entry plus two $100 nonresident adult fees.</p></details>
       </div>
       <div class="cost-line-value">$235</div>
+    </div><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Planned</span><strong>Monterey Bay Aquarium admission</strong></div>
+        <div class="cost-line-note">Two adult tickets at $65 each. Tickets are nonrefundable but can be exchanged until 16:00 on the visit date.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Current official admission for two adults. Buy only after accepting the short Oct 1 opening visit and the 11:15 Seaside departure cutoff.</p></details>
+      </div>
+      <div class="cost-line-value">$130</div>
+    </div><div class="cost-line status-estimate">
+      <div class="cost-line-main">
+        <div class="cost-line-top"><span class="cost-badge estimate">Planned</span><strong>Academy Museum admission</strong></div>
+        <div class="cost-line-note">Two adult general-admission tickets at $25 each. Check the museum's closure list before purchase.</div>
+
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Current official adult admission for the Oct 5 Monday visit. Advance reservations are encouraged.</p></details>
+      </div>
+      <div class="cost-line-value">$50</div>
     </div><div class="cost-line status-optional">
       <div class="cost-line-main">
         <div class="cost-line-top"><span class="cost-badge optional">Optional</span><strong>Optional attractions and gratuities</strong></div>
@@ -2211,11 +2407,11 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     </article></div>
   <details class="disclosure panel">
     <summary>Assumptions &amp; risk notes</summary>
-    <div class="disclosure-body"><ul class="risk-list"><li>The three SFO-airport nights use points or certificates: $0 cash in the trip total, with an estimated $677.07 cash equivalent shown separately.</li><li>Do not compare a suburban room rate with a central-SF hotel without adding commute cost and time; this baseline does not include Hyatt parking.</li><li>Holiday Inn Express at Monterey Bay is booked at ¥2,963 CNY for Sep 29-Oct 1.</li><li>Southwest WN3787 is booked at ¥1,876 CNY for Oct 1, SFO 16:00 to SAN 17:35.</li><li>The three San Diego nights use points: $0 cash in the trip total, with a $659.78 cash equivalent shown separately.</li><li>The $215-$445 rideshare budget assumes friends cover San Diego local transport and the Oct 4 station drop-off; San Francisco all-Uber commuting remains optional.</li><li>The Yosemite self-drive entry estimate is $235 for two non-US adults under the current 2026 fee structure.</li><li>The Yosemite Airbnb and Los Angeles hotel remain the selected lodging anchors.</li><li>The Yosemite small-group tour is an emergency layer only.</li></ul></div>
+    <div class="disclosure-body"><ul class="risk-list"><li>The three SFO-airport nights use points or certificates: $0 cash in the trip total, with an estimated $677.07 cash equivalent shown separately.</li><li>Do not compare a suburban room rate with a central-SF hotel without adding commute cost and time; this baseline does not include Hyatt parking.</li><li>Holiday Inn Express at Monterey Bay is booked at ¥2,963 CNY for Sep 29-Oct 1.</li><li>Southwest WN3787 is booked at ¥1,876 CNY for Oct 1, SFO 16:00 to SAN 17:35.</li><li>Southwest uses assigned seating for 2026 travel. Record the exact seats and fare type; allow up to $90 total if each traveler pays $45 for one checked bag.</li><li>Pacific Surfliner Train 573 is booked at $102 total for two travelers for Oct 4, 12:01 -&gt; 14:57. Checked baggage is currently suspended, so measure and weigh both large suitcases against the carry-on limit.</li><li>The three San Diego nights use points: $0 cash in the trip total, with a $659.78 cash equivalent shown separately.</li><li>The $215-$445 rideshare budget assumes friends cover San Diego local transport and the Oct 4 station drop-off; San Francisco all-Uber commuting remains optional.</li><li>The Yosemite self-drive entry estimate is $235 for two non-US adults under the current 2026 fee structure.</li><li>The Yosemite Airbnb and Los Angeles hotel remain the selected lodging anchors.</li><li>The Yosemite small-group tour is an emergency layer only.</li></ul></div>
   </details>
   <details class="disclosure panel">
     <summary>Sources</summary>
-    <div class="disclosure-body"><div class="source-links"><a href="https://wise.com/us/currency-converter/usd-to-cny-rate/history" target="_blank" rel="noreferrer">wise.com</a><a href="https://www.airbnb.com/rooms/19059191?unique_share_id=98e401ee-2c77-436c-ba84-9b795231ca87&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noreferrer">airbnb.com</a><a href="https://finance.yahoo.com/quote/CNY%3DX/history/" target="_blank" rel="noreferrer">finance.yahoo.com</a><a href="https://sftreasurer.org/business/taxes-fees/transient-occupancy-tax-tot" target="_blank" rel="noreferrer">sftreasurer.org</a><a href="https://finance.lacity.gov/transient-occupancy-tax-requirements" target="_blank" rel="noreferrer">finance.lacity.gov</a><a href="https://www.sandiego.gov/treasurer/taxesfees/tot" target="_blank" rel="noreferrer">sandiego.gov</a><a href="https://www.southwest.com/en/flights/flights-from-san-francisco-to-san-diego" target="_blank" rel="noreferrer">southwest.com</a><a href="https://www.southwest.com/html/customer-service/travel-fees.html" target="_blank" rel="noreferrer">southwest.com</a><a href="https://www.fns.usda.gov/research/cnpp/usda-food-plans/cost-food-monthly-reports" target="_blank" rel="noreferrer">fns.usda.gov</a><a href="https://www.expedia.com/lp/flights/sfo/san/san-francisco-to-san-diego" target="_blank" rel="noreferrer">expedia.com</a><a href="https://www.nps.gov/yose/planyourvisit/fees.htm" target="_blank" rel="noreferrer">nps.gov</a><a href="https://www.tesla.com/findus/location/supercharger/26792" target="_blank" rel="noreferrer">tesla.com</a><a href="https://www.tesla.com/support/charging/supercharging" target="_blank" rel="noreferrer">tesla.com</a><a href="https://www.wanderu.com/en-us/train/us-ca/san-diego/us-ca/los-angeles/" target="_blank" rel="noreferrer">wanderu.com</a><a href="https://www.pacificsurfliner.com/onboard/business-class/" target="_blank" rel="noreferrer">pacificsurfliner.com</a><a href="https://gasprices.aaa.com/?state=CA" target="_blank" rel="noreferrer">gasprices.aaa.com</a><a href="https://www.kayak.com/San-Francisco-Airport-Car-Rentals.SFO.cap.ksp" target="_blank" rel="noreferrer">kayak.com</a><a href="https://www.hertz.com/us/en/location/unitedstates/california/sanfrancisco/sfot15" target="_blank" rel="noreferrer">hertz.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/oakxe-hyatt-house-emeryville-san-francisco-bay-area" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/sfoxs-hyatt-house-belmont-redwood-shores" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/laxxl-hyatt-house-lax-century-blvd" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/grand-hyatt/en-US/sanrs-manchester-grand-hyatt-san-diego/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-centric/en-US/laxcm-hyatt-centric-delfina-santa-monica/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/policies" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://world.hyatt.com/content/gp/en/my-account/badges/waived-resort-fees.html" target="_blank" rel="noreferrer">world.hyatt.com</a><a href="https://www.uber.com/global/en/r/routes/sfo-to-union-square-san-francisco-ca-us/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/san-to-sorrento-valley-san-diego-ca-us/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/santa-monica-ca-to-los-angeles-ca/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/pico-santa-monica-ca-us-to-lax/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/seaside/mryca/hoteldetail" target="_blank" rel="noreferrer">ihg.com</a><a href="https://www.flysfo.com/passengers/parking/rental-cars" target="_blank" rel="noreferrer">flysfo.com</a><a href="https://www.flysfo.com/passengers/flight-info/check-in-security" target="_blank" rel="noreferrer">flysfo.com</a></div></div>
+    <div class="disclosure-body"><div class="source-links"><a href="https://wise.com/us/currency-converter/usd-to-cny-rate/history" target="_blank" rel="noreferrer">wise.com</a><a href="https://www.airbnb.com/rooms/19059191?unique_share_id=98e401ee-2c77-436c-ba84-9b795231ca87&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noreferrer">airbnb.com</a><a href="https://finance.yahoo.com/quote/CNY%3DX/history/" target="_blank" rel="noreferrer">finance.yahoo.com</a><a href="https://sftreasurer.org/business/taxes-fees/transient-occupancy-tax-tot" target="_blank" rel="noreferrer">sftreasurer.org</a><a href="https://finance.lacity.gov/transient-occupancy-tax-requirements" target="_blank" rel="noreferrer">finance.lacity.gov</a><a href="https://www.sandiego.gov/treasurer/taxesfees/tot" target="_blank" rel="noreferrer">sandiego.gov</a><a href="https://www.southwest.com/en/flights/flights-from-san-francisco-to-san-diego" target="_blank" rel="noreferrer">southwest.com</a><a href="https://www.southwest.com/html/customer-service/travel-fees.html" target="_blank" rel="noreferrer">southwest.com</a><a href="https://www.southwest.com/customer-enhancements/assigned-seating" target="_blank" rel="noreferrer">southwest.com</a><a href="https://support.southwest.com/helpcenter/s/article/assigned-seat-selection" target="_blank" rel="noreferrer">support.southwest.com</a><a href="https://www.fns.usda.gov/research/cnpp/usda-food-plans/cost-food-monthly-reports" target="_blank" rel="noreferrer">fns.usda.gov</a><a href="https://www.expedia.com/lp/flights/sfo/san/san-francisco-to-san-diego" target="_blank" rel="noreferrer">expedia.com</a><a href="https://www.nps.gov/yose/planyourvisit/fees.htm" target="_blank" rel="noreferrer">nps.gov</a><a href="https://www.tesla.com/findus/location/supercharger/26792" target="_blank" rel="noreferrer">tesla.com</a><a href="https://www.tesla.com/support/charging/supercharging" target="_blank" rel="noreferrer">tesla.com</a><a href="https://www.wanderu.com/en-us/train/us-ca/san-diego/us-ca/los-angeles/" target="_blank" rel="noreferrer">wanderu.com</a><a href="https://www.pacificsurfliner.com/onboard/business-class/" target="_blank" rel="noreferrer">pacificsurfliner.com</a><a href="https://www.pacificsurfliner.com/onboard/baggage/" target="_blank" rel="noreferrer">pacificsurfliner.com</a><a href="https://www.pacificsurfliner.com/onboard/baggage/carryon/" target="_blank" rel="noreferrer">pacificsurfliner.com</a><a href="https://www.pacificsurfliner.com/onboard/baggage/baggageservices/" target="_blank" rel="noreferrer">pacificsurfliner.com</a><a href="https://gasprices.aaa.com/?state=CA" target="_blank" rel="noreferrer">gasprices.aaa.com</a><a href="https://www.kayak.com/San-Francisco-Airport-Car-Rentals.SFO.cap.ksp" target="_blank" rel="noreferrer">kayak.com</a><a href="https://www.hertz.com/us/en/location/unitedstates/california/sanfrancisco/sfot15" target="_blank" rel="noreferrer">hertz.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/oakxe-hyatt-house-emeryville-san-francisco-bay-area" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/sfoxs-hyatt-house-belmont-redwood-shores" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-house/en-US/laxxl-hyatt-house-lax-century-blvd" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/grand-hyatt/en-US/sanrs-manchester-grand-hyatt-san-diego/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-centric/en-US/laxcm-hyatt-centric-delfina-santa-monica/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/policies" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://world.hyatt.com/content/gp/en/my-account/badges/waived-resort-fees.html" target="_blank" rel="noreferrer">world.hyatt.com</a><a href="https://www.uber.com/global/en/r/routes/sfo-to-union-square-san-francisco-ca-us/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/san-to-sorrento-valley-san-diego-ca-us/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/santa-monica-ca-to-los-angeles-ca/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.uber.com/global/en/r/routes/pico-santa-monica-ca-us-to-lax/" target="_blank" rel="noreferrer">uber.com</a><a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/seaside/mryca/hoteldetail" target="_blank" rel="noreferrer">ihg.com</a><a href="https://www.flysfo.com/passengers/parking/rental-cars" target="_blank" rel="noreferrer">flysfo.com</a><a href="https://www.flysfo.com/passengers/flight-info/check-in-security" target="_blank" rel="noreferrer">flysfo.com</a><a href="https://www.academymuseum.org/en/visit" target="_blank" rel="noreferrer">academymuseum.org</a><a href="https://www.getty.edu/visit/center/" target="_blank" rel="noreferrer">getty.edu</a><a href="https://www.hyatt.com/hyatt-centric/en-US/laxcm-hyatt-centric-delfina-santa-monica/faqs" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.koreanair.com/contents/plan-your-travel/check-in/self-check-in/online-check-in" target="_blank" rel="noreferrer">koreanair.com</a><a href="https://www.flylax.com/crisis-faq" target="_blank" rel="noreferrer">flylax.com</a></div></div>
   </details>
 </section>
 
@@ -2230,39 +2426,83 @@ details.panel .disclosure-body{padding:2px 16px 14px}
       </div>
       <div class="task-side">
         <span class="badge badge-open">Open</span>
-        <span class="task-due">Due Jul 27</span>
+        <span class="task-due">Due Sep 17</span>
       </div>
     </li><li class="task-item" id="action-3">
       <span class="task-num">3</span>
       <div>
         <div class="task-title">Confirm the Sep 27-29 Yosemite self-drive block</div>
-        <div class="task-detail">Airbnb parking and a very slow onsite charger are confirmed. Verify park entry, road conditions, the Sep 27 SFO Model Y pickup, and the Midpines arrival buffer. Use the definite drive-up Mariposa Supercharger stop; no parking reservation is required.</div>
-        <div class="day-pills"><a href="#day-2026-09-27">Sep 27</a></div>
+        <div class="task-detail">Airbnb parking and a very slow onsite charger are confirmed. Verify park entry, road conditions, the Sep 27 Redwood City departure, the Midpines arrival buffer, and the host luggage hold for Sep 29. Use the definite drive-up Mariposa Supercharger stop; no parking reservation is required.</div>
+        <div class="day-pills"><a href="#day-2026-09-27">Sep 27</a><a href="#day-2026-09-29">Sep 29</a></div>
       </div>
       <div class="task-side">
         <span class="badge badge-open">Open</span>
-        <span class="task-due">Due Jul 27</span>
+        <span class="task-due">Due Sep 17</span>
       </div>
-    </li><li class="task-item" id="action-8">
-      <span class="task-num">8</span>
+    </li><li class="task-item" id="action-7">
+      <span class="task-num">7</span>
       <div>
-        <div class="task-title">Choose the Sep 30 Monterey Peninsula focus</div>
-        <div class="task-detail">Choose Monterey and the aquarium, Carmel and Point Lobos, or 17-Mile Drive based on weather and reservations. Complete most Model Y return charging before sleep.</div>
-        <div class="day-pills"><a href="#day-2026-09-30">Sep 30</a></div>
+        <div class="task-title">Buy Oct 1 aquarium tickets only after accepting the short visit</div>
+        <div class="task-detail">Current official adult admission is $65 each, or $130 for two. Keep all four bags locked in the room, enter at 10:00, leave by 10:45, return for checkout and loading, and leave Seaside by 11:15. Tickets are nonrefundable but can be exchanged until 16:00 on the visit date.</div>
+        <div class="day-pills"><a href="#day-2026-10-01">Oct 1</a></div>
       </div>
       <div class="task-side">
-        <span class="badge badge-tracked">Tracked</span>
+        <span class="badge badge-open">Open</span>
 
+      </div>
+    </li><li class="task-item" id="action-9">
+      <span class="task-num">9</span>
+      <div>
+        <div class="task-title">Record WN3787 seats, fare type, and bag cost</div>
+        <div class="task-detail">Southwest uses assigned seating for 2026 travel. Record both seat numbers and confirm whether one checked bag per traveler is included or costs $45 each, for a possible $90 total.</div>
+
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+        <span class="task-due">Due Sep 30</span>
+      </div>
+    </li><li class="task-item" id="action-10">
+      <span class="task-num">10</span>
+      <div>
+        <div class="task-title">Measure both large suitcases for Train 573</div>
+        <div class="task-detail">Checked baggage is currently suspended. Measure and weigh both large suitcases against the current 28 x 22 x 11 inch and 50 pound carry-on limit, and recheck baggage service and Del Mar advisories 48 hours before travel.</div>
+
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+        <span class="task-due">Due Sep 20</span>
+      </div>
+    </li><li class="task-item" id="action-11">
+      <span class="task-num">11</span>
+      <div>
+        <div class="task-title">Book two Academy Museum tickets for Oct 5</div>
+        <div class="task-detail">Current adult admission is $25 each. Reserve a Monday visit around 14:00 after checking the museum's Oct 5 closure list.</div>
+        <div class="day-pills"><a href="#day-2026-10-05">Oct 5</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+        <span class="task-due">Due Sep 28</span>
+      </div>
+    </li><li class="task-item" id="action-12">
+      <span class="task-num">12</span>
+      <div>
+        <div class="task-title">Reserve the Getty for 10:00 on Oct 6</div>
+        <div class="task-detail">Admission is free and the current booking page releases dates about six weeks ahead. Reserve 10:00, then keep the 14:00 departure, 18:30 bag collection, and 19:00 LAX ride fixed.</div>
+        <div class="day-pills"><a href="#day-2026-10-06">Oct 6</a></div>
+      </div>
+      <div class="task-side">
+        <span class="badge badge-open">Open</span>
+        <span class="task-due">Due Aug 25</span>
       </div>
     </li></ul>
   <details class="disclosure panel">
     <summary>Decision gates</summary>
     <div class="disclosure-body"><ul class="gate-list"><li>
     <span class="gate-priority">Jul 27</span>
-    <div><strong>Compare the full airport-Hyatt baseline against the former central-SF fallback.</strong><p class="gate-default">The comparison must include city-commute time and cost, the Sep 27 SFO Model Y pickup, and the Thursday flight—not a non-existent Hyatt-parking or seven-day-rental cost.</p></div>
+    <div><strong>Compare the full airport-Hyatt baseline against the former central-SF fallback.</strong><p class="gate-default">The comparison must include city-commute time and cost, the Sep 26 SFO Model Y pickup, Hyatt overnight parking, and the Thursday flight.</p></div>
   </li><li>
     <span class="gate-priority">Sep 26</span>
-    <div><strong>Confirm the Sep 27 direct Hyatt Regency SFO-to-Midpines departure and Yosemite check-in.</strong><p class="gate-default">The morning needs a Model Y pickup at SFO, a charge-level check, and a direct Midpines drive while still protecting the after-15:00 Airbnb check-in.</p></div>
+    <div><strong>Confirm the Sep 27 Redwood City lunch time and hard Yosemite departure.</strong><p class="gate-default">The Model Y is already at the Hyatt. Leave Redwood City by about 13:15 so the Mariposa charge stop and after-15:00 Airbnb check-in remain comfortable.</p></div>
   </li><li>
     <span class="gate-priority">Aug 23</span>
     <div><strong>Holiday Inn Express at Monterey Bay confirmed for Sep 29-Oct 1.</strong><p class="gate-default">This fixes Monterey Bay as the final Northern California base at ¥2,963 CNY.</p></div>
@@ -2275,7 +2515,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
 
 </main>
 <footer class="source-footer">
-  Last updated 2026-08-23
+  Last updated 2026-08-24
 </footer>
 <script>
 (function() {
@@ -2397,7 +2637,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     group.querySelectorAll("[data-route-index]").forEach(function(btn) {
       btn.addEventListener("click", function() {
         var idx = Number(btn.dataset.routeIndex);
-        var routes = [{"title":"SFO arrival to Hyatt Regency","kind":"Hotel transfer","subtitle":"Arrival handoff from SFO to Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, by hotel shuttle or short rideshare.","embedUrl":"https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport\u0026daddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Francisco%20International%20Airport\u0026destination=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026travelmode=driving"},{"title":"Hyatt Regency to central San Francisco","kind":"Day commute","subtitle":"Reference commute from the Burlingame hotel to the Ferry Building. Compare rail and rideshare before each city day.","embedUrl":"https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026daddr=Ferry%20Building%2C%20San%20Francisco%2C%20CA\u0026dirflg=r\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026destination=Ferry%20Building%2C%20San%20Francisco%2C%20CA\u0026travelmode=transit"},{"title":"SFO Model Y pickup to Yosemite","kind":"Driving + charge","subtitle":"Sep 27 self-drive reference after the SFO Model Y pickup, ending at the selected Midpines-area Yosemite Airbnb. Route through the definite Mariposa Supercharger stop at Pioneer Market.","embedUrl":"https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport\u0026daddr=Midpines%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/San+Francisco+International+Airport/Midpines,+CA/"},{"title":"Yosemite to Monterey Bay","kind":"Driving","subtitle":"Sep 29 self-drive transfer from the Midpines-area Yosemite Airbnb to the booked Seaside hotel.","embedUrl":"https://maps.google.com/maps?saddr=Midpines%2C%20CA\u0026daddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/Midpines,+CA/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/"},{"title":"Monterey Bay driving loop","kind":"Driving","subtitle":"Sep 30 loop from the booked Seaside hotel toward Monterey, Carmel-by-the-Sea, and Point Lobos.","embedUrl":"https://maps.google.com/maps?saddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955\u0026daddr=Carmel-by-the-Sea%2C%20CA+to:Point%20Lobos%20State%20Natural%20Reserve%2C%20CA+to:Monterey%2C%20CA+to:Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/Carmel-by-the-Sea,+CA/Point+Lobos+State+Natural+Reserve,+CA/Monterey,+CA/Holiday+Inn+Express+At+Monterey+Bay,+Seaside,+CA/"},{"title":"Monterey Bay hotel to SFO","kind":"Airport transfer","subtitle":"Protected Oct 1 drive and rental return for booked WN3787 at 16:00.","embedUrl":"https://maps.google.com/maps?saddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955\u0026daddr=San%20Francisco%20International%20Airport%2C%20San%20Francisco%2C%20CA%2094128\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955\u0026destination=San%20Francisco%20International%20Airport%2C%20San%20Francisco%2C%20CA%2094128\u0026travelmode=driving"},{"title":"SAN to Sorrento Mesa hotel","kind":"Rideshare","subtitle":"Airport arrival transfer to Hyatt House San Diego Sorrento Mesa.","embedUrl":"https://maps.google.com/maps?saddr=San%20Diego%20International%20Airport%2C%203225%20N%20Harbor%20Dr%2C%20San%20Diego%2C%20CA%2092101\u0026daddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Diego%20International%20Airport%2C%203225%20N%20Harbor%20Dr%2C%20San%20Diego%2C%20CA%2092101\u0026destination=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026travelmode=driving"},{"title":"Sorrento Mesa hotel to Santa Fe Depot","kind":"Friend drop-off","subtitle":"Sunday friend-provided train handoff from Sorrento Mesa to Santa Fe Depot; keep rideshare only as an emergency fallback.","embedUrl":"https://maps.google.com/maps?saddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026daddr=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026destination=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026travelmode=driving"},{"title":"Santa Fe Depot to Union Station","kind":"Train","subtitle":"Pacific Surfliner route reference from San Diego to Los Angeles.","embedUrl":"https://maps.google.com/maps?saddr=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026daddr=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026destination=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026travelmode=transit"},{"title":"Union Station to Hyatt Centric Delfina Santa Monica","kind":"LA transfer","subtitle":"Transfer reference after arriving at Los Angeles Union Station.","embedUrl":"https://maps.google.com/maps?saddr=800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026daddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026destination=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026travelmode=driving"},{"title":"Hyatt Centric Delfina to Santa Monica Pier","kind":"LA local","subtitle":"Walkable coast reference from the confirmed Santa Monica hotel base.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA\u0026dirflg=w\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA\u0026travelmode=walking"},{"title":"Hyatt Centric Delfina to LACMA","kind":"LA local","subtitle":"Monday-compatible Museum Row reference from the confirmed Santa Monica hotel base.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=5905%20Wilshire%20Blvd%2C%20Los%20Angeles%2C%20CA%2090036\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=Los%20Angeles%20County%20Museum%20of%20Art%2C%205905%20Wilshire%20Blvd%2C%20Los%20Angeles%2C%20CA%2090036\u0026travelmode=transit"},{"title":"Hyatt Centric Delfina to LAX Terminal B","kind":"Departure","subtitle":"Final rideshare and hotel-area transfer to the international terminal.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=1%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=LAX%20Terminal%20B%2C%201%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045\u0026travelmode=driving"}];
+        var routes = [{"title":"SFO arrival to Hyatt Regency","kind":"Hotel transfer","subtitle":"Arrival handoff from SFO to Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, by hotel shuttle or short rideshare.","embedUrl":"https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport\u0026daddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Francisco%20International%20Airport\u0026destination=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026travelmode=driving"},{"title":"Hyatt Regency to central San Francisco","kind":"Day commute","subtitle":"Reference commute from the Burlingame hotel to the Ferry Building. Compare rail and rideshare before each city day.","embedUrl":"https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026daddr=Ferry%20Building%2C%20San%20Francisco%2C%20CA\u0026dirflg=r\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Regency%20San%20Francisco%20Airport%2C%201333%20Bayshore%20Highway%2C%20Burlingame%2C%20CA%2094010\u0026destination=Ferry%20Building%2C%20San%20Francisco%2C%20CA\u0026travelmode=transit"},{"title":"Hyatt Regency to San Jose loop","kind":"Driving day","subtitle":"Sep 26 loop after the confirmed 09:00 SFO Model Y pickup, covering the Municipal Rose Garden, Santana Row, and San Pedro Square.","embedUrl":"https://maps.google.com/maps?saddr=Hyatt%20Regency%20San%20Francisco%20Airport%2C%20Burlingame%2C%20CA\u0026daddr=Municipal%20Rose%20Garden%2C%20San%20Jose%2C%20CA+to:Santana%20Row%2C%20San%20Jose%2C%20CA+to:San%20Pedro%20Square%2C%20San%20Jose%2C%20CA+to:Hyatt%20Regency%20San%20Francisco%20Airport%2C%20Burlingame%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/Hyatt+Regency+San+Francisco+Airport,+1333+Bayshore+Highway,+Burlingame,+CA+94010/Municipal+Rose+Garden,+Naglee+Avenue,+San+Jose,+CA/Santana+Row,+San+Jose,+CA/San+Pedro+Square,+North+San+Pedro+Street,+San+Jose,+CA/Hyatt+Regency+San+Francisco+Airport,+1333+Bayshore+Highway,+Burlingame,+CA+94010/"},{"title":"Redwood City lunch to Yosemite","kind":"Driving + charge","subtitle":"Sep 27 route from the Hyatt: lunch with friends in Redwood City, then the Midpines Airbnb via the definite Mariposa Supercharger stop.","embedUrl":"https://maps.google.com/maps?saddr=San%20Francisco%20International%20Airport\u0026daddr=Redwood%20City%2C%20CA+to:Tesla%20Supercharger%2C%205034%20Coakley%20Circle%2C%20Mariposa%2C%20CA+to:Midpines%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/San+Francisco+International+Airport/Redwood+City,+CA/Tesla+Supercharger,+5034+Coakley+Circle,+Mariposa,+CA/Midpines,+CA/"},{"title":"Yosemite Valley from Midpines","kind":"Park approach","subtitle":"Early Highway 140 approach from Midpines to Yosemite Valley for the Sep 28 full day and Sep 29 short revisit. Allow more than the map's park-boundary time to reach Valley parking.","embedUrl":"https://maps.google.com/maps?saddr=Midpines%2C%20CA\u0026daddr=Yosemite%20Village%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Midpines%2C%20CA\u0026destination=Yosemite%20Village%2C%20CA\u0026travelmode=driving"},{"title":"Yosemite to Monterey Bay","kind":"Driving","subtitle":"Sep 29 transfer after the short early Valley revisit and collection of the host-held luggage. The 11:00 room checkout is not the bag-pickup deadline.","embedUrl":"https://maps.google.com/maps?saddr=Midpines%2C%20CA\u0026daddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%201400%20Del%20Monte%20Blvd%2C%20Seaside%2C%20CA%2093955\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/Midpines,+CA/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/"},{"title":"Monterey Bay driving loop","kind":"Driving","subtitle":"Sep 30 loop from the booked Seaside hotel to Point Lobos, Carmel-by-the-Sea, Carmel Beach, and back to the hotel.","embedUrl":"https://maps.google.com/maps?saddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA\u0026daddr=Point%20Lobos%20State%20Natural%20Reserve%2C%20CA+to:Carmel-by-the-Sea%2C%20CA+to:Carmel%20Beach%2C%20CA+to:Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/Point+Lobos+State+Natural+Reserve,+CA/Carmel-by-the-Sea,+CA/Carmel+Beach,+Carmel-By-The-Sea,+CA/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/"},{"title":"Monterey Bay hotel to SFO","kind":"Airport transfer","subtitle":"Oct 1 short aquarium visit, hotel bag pickup, and protected drive to the SFO Rental Car Center for WN3787 at 16:00.","embedUrl":"https://maps.google.com/maps?saddr=Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA\u0026daddr=Monterey%20Bay%20Aquarium%2C%20Monterey%2C%20CA+to:Holiday%20Inn%20Express%20At%20Monterey%20Bay%2C%20Seaside%2C%20CA+to:SFO%20Rental%20Car%20Center%2C%20San%20Francisco%2C%20CA\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/Monterey+Bay+Aquarium,+Cannery+Row,+Monterey,+CA/Holiday+Inn+Express+At+Monterey+Bay,+1400+Del+Monte+Blvd,+Seaside,+CA+93955/SFO+Rental+Car+Center,+North+McDonnell+Road,+San+Francisco,+CA/"},{"title":"SAN to Sorrento Mesa hotel","kind":"Rideshare","subtitle":"Airport arrival transfer to Hyatt House San Diego Sorrento Mesa.","embedUrl":"https://maps.google.com/maps?saddr=San%20Diego%20International%20Airport%2C%203225%20N%20Harbor%20Dr%2C%20San%20Diego%2C%20CA%2092101\u0026daddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Diego%20International%20Airport%2C%203225%20N%20Harbor%20Dr%2C%20San%20Diego%2C%20CA%2092101\u0026destination=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026travelmode=driving"},{"title":"Sorrento Mesa hotel to Santa Fe Depot","kind":"Friend drop-off","subtitle":"Sunday friend-provided train handoff from Sorrento Mesa to Santa Fe Depot; keep rideshare only as an emergency fallback.","embedUrl":"https://maps.google.com/maps?saddr=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026daddr=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20House%20San%20Diego%20%2F%20Sorrento%20Mesa%2C%2010044%20Pacific%20Mesa%20Blvd%2C%20San%20Diego%2C%20CA%2092121\u0026destination=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026travelmode=driving"},{"title":"Santa Fe Depot to Union Station","kind":"Train","subtitle":"Pacific Surfliner route reference from San Diego to Los Angeles.","embedUrl":"https://maps.google.com/maps?saddr=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026daddr=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=San%20Diego%20Santa%20Fe%20Depot%2C%201050%20Kettner%20Blvd%2C%20San%20Diego%2C%20CA%2092101\u0026destination=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026travelmode=transit"},{"title":"Union Station to Hyatt Centric Delfina Santa Monica","kind":"LA transfer","subtitle":"Transfer reference after arriving at Los Angeles Union Station.","embedUrl":"https://maps.google.com/maps?saddr=800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026daddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Los%20Angeles%20Union%20Station%2C%20800%20N%20Alameda%20St%2C%20Los%20Angeles%2C%20CA%2090012\u0026destination=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026travelmode=driving"},{"title":"Hyatt Centric Delfina to Santa Monica Pier","kind":"LA local","subtitle":"Walkable coast reference from the confirmed Santa Monica hotel base.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA\u0026dirflg=w\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=Santa%20Monica%20Pier%2C%20Santa%20Monica%2C%20CA\u0026travelmode=walking"},{"title":"Hyatt Centric Delfina to Academy Museum","kind":"LA local","subtitle":"Monday transfer from the Santa Monica hotel base to the Academy Museum of Motion Pictures.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=6067%20Wilshire%20Blvd%2C%20Los%20Angeles%2C%20CA%2090036\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=Academy%20Museum%20of%20Motion%20Pictures%2C%206067%20Wilshire%20Blvd%2C%20Los%20Angeles%2C%20CA%2090036\u0026travelmode=driving"},{"title":"Hyatt Centric Delfina to Getty Center","kind":"LA departure-day visit","subtitle":"Tuesday rideshare from the Santa Monica hotel to the Getty Center after all four bags are stored at the hotel.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=1200%20Getty%20Center%20Dr%2C%20Los%20Angeles%2C%20CA%2090049\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=Getty%20Center%2C%201200%20Getty%20Center%20Dr%2C%20Los%20Angeles%2C%20CA%2090049\u0026travelmode=driving"},{"title":"Hyatt Centric Delfina to LAX Terminal B","kind":"Departure","subtitle":"Final rideshare and hotel-area transfer to the international terminal.","embedUrl":"https://maps.google.com/maps?saddr=530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026daddr=1%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045\u0026dirflg=d\u0026output=embed","url":"https://www.google.com/maps/dir/?api=1\u0026origin=Hyatt%20Centric%20Delfina%20Santa%20Monica%2C%20530%20Pico%20Blvd%2C%20Santa%20Monica%2C%20CA%2090405\u0026destination=LAX%20Terminal%20B%2C%201%20World%20Way%2C%20Los%20Angeles%2C%20CA%2090045\u0026travelmode=driving"}];
         var route = routes[idx];
         if (!route) return;
         var iframe = group.querySelector("[data-day-map-iframe]");
