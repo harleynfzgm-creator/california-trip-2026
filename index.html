@@ -77,6 +77,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .brand{display:flex;align-items:baseline;gap:12px;align-self:center;flex-shrink:0}
 .brand strong{font:italic 600 19px/1 var(--serif);color:var(--ink);white-space:nowrap}
 .brand-sub{color:var(--muted);white-space:nowrap}
+.app-actions{display:flex;align-items:stretch;justify-content:flex-end;gap:12px;min-width:0}
+.currency-switch{display:inline-flex;align-self:center;padding:2px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);flex:none}
+.currency-switch button{min-width:45px;height:26px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:700 10.5px/1 var(--sans);letter-spacing:.05em;cursor:pointer}
+.currency-switch button:hover{color:var(--ink)}
+.currency-switch button.active{background:var(--ink);color:var(--paper)}
 .app-nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
 .app-nav::-webkit-scrollbar{display:none}
 .app-nav a{position:relative;display:inline-flex;align-items:center;gap:7px;padding:0 13px;border-bottom:2px solid transparent;margin-bottom:-1px;font:500 13px/1 var(--sans);color:var(--ink2);white-space:nowrap;transition:color .2s ease,border-color .2s ease}
@@ -237,7 +242,7 @@ details.disclosure>summary:hover{color:var(--ink)}
 .nightly-cost-table tfoot th,.nightly-cost-table tfoot td{border-bottom:0;border-top:1px solid var(--line-strong);font-weight:600;color:var(--ink)}
 .detail-line .cost-line-top strong,.detail-line .cost-line-value{color:var(--ink2);font-weight:500}
 .cost-badge{display:inline-flex;align-items:center;min-height:17px;padding:1px 7px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));font:600 9.5px/1.2 var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);white-space:nowrap;flex:none}
-.cost-badge.paid,.cost-badge.booked,.cost-badge.selected,.cost-badge.included{color:var(--green);border-color:color-mix(in srgb,var(--green) 45%,var(--line))}
+.cost-badge.paid,.cost-badge.booked,.cost-badge.selected,.cost-badge.included,.cost-badge.points{color:var(--green);border-color:color-mix(in srgb,var(--green) 45%,var(--line))}
 .cost-badge.estimate{color:var(--muted);border-color:var(--line-strong)}
 .cost-badge.optional{color:var(--orange);border-color:color-mix(in srgb,var(--orange) 45%,var(--line))}
 .cost-badge.detail,.cost-badge.note{color:var(--muted);border-color:var(--line-strong);border-style:dashed}
@@ -353,6 +358,8 @@ details.panel .disclosure-body{padding:2px 16px 14px}
 @media(max-width:768px){
   .app-bar-inner{padding:0 16px;height:52px}
   .brand-sub{display:none}
+  .app-actions{gap:6px}
+  .currency-switch button{min-width:42px;padding:0 8px}
   main{padding:0 16px 48px}
   .masthead{padding:26px 0 20px}
   .mast-stats{gap:14px 28px;margin-top:20px}
@@ -409,13 +416,19 @@ details.panel .disclosure-body{padding:2px 16px 14px}
       <strong>California 2026</strong>
       <span class="brand-sub">Sep 24 – Oct 6 · 13 days</span>
     </div>
-    <nav class="app-nav" aria-label="Primary">
-      <a href="#overview" data-screen="overview"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-map" /></svg></span><span>Overview</span></a>
-      <a href="#itinerary" data-screen="itinerary"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-calendar-days" /></svg></span><span>Itinerary</span></a>
-      <a href="#lodging" data-screen="lodging"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-bed" /></svg></span><span>Lodging</span></a>
-      <a href="#costs" data-screen="costs"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-wallet-cards" /></svg></span><span>Costs</span></a>
-      <a href="#tasks" data-screen="tasks"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-circle-alert" /></svg></span><span>Tasks</span><span class="nav-count">8</span></a>
-    </nav>
+    <div class="app-actions">
+      <div class="currency-switch" role="group" aria-label="Display currency">
+        <button type="button" data-currency="CNY" aria-pressed="false">CNY</button>
+        <button type="button" data-currency="USD" aria-pressed="false">USD</button>
+      </div>
+      <nav class="app-nav" aria-label="Primary">
+        <a href="#overview" data-screen="overview"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-map" /></svg></span><span>Overview</span></a>
+        <a href="#itinerary" data-screen="itinerary"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-calendar-days" /></svg></span><span>Itinerary</span></a>
+        <a href="#lodging" data-screen="lodging"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-bed" /></svg></span><span>Lodging</span></a>
+        <a href="#costs" data-screen="costs"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-wallet-cards" /></svg></span><span>Costs</span></a>
+        <a href="#tasks" data-screen="tasks"><span class="icon nav-icon" aria-hidden="true"><svg><use href="#i-circle-alert" /></svg></span><span>Tasks</span><span class="nav-count">8</span></a>
+      </nav>
+    </div>
   </div>
 </header>
 <main>
@@ -427,7 +440,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     <p class="mast-dates">September 24 – October 6 · thirteen days, north to south</p>
     <div class="mast-stats">
       <a class="mast-stat" href="#itinerary"><span class="stat-val">13</span><span class="stat-lbl">Days</span></a>
-      <a class="mast-stat" href="#costs"><span class="stat-val">$7,697–$8,252</span><span class="stat-lbl">Estimated total</span></a>
+      <a class="mast-stat" href="#costs"><span class="stat-val">$6,586.57–$7,141.57</span><span class="stat-lbl">Estimated total</span></a>
       <a class="mast-stat" href="#tasks"><span class="stat-val">8</span><span class="stat-lbl">Open tasks</span></a>
     </div>
   </div>
@@ -1518,13 +1531,13 @@ details.panel .disclosure-body{padding:2px 16px 14px}
 <!-- ── Lodging ── -->
 <section class="screen" id="screen-lodging" aria-label="Lodging">
   <p class="section-label">Stay Timeline</p>
-  <div class="lodging-rail"><a class="lodging-stop open" data-loc="sf" href="#hotel-burlingame-2026-09-24-27">
+  <div class="lodging-rail"><a class="lodging-stop selected" data-loc="sf" href="#hotel-burlingame-2026-09-24-27">
       <div class="lodging-stop-head">
         <span class="lodging-stop-label">Sep 24-27</span>
-        <span class="badge badge-open">Open</span>
+        <span class="badge badge-selected">Selected</span>
       </div>
       <strong>Burlingame / SFO</strong>
-      <small>3 nights · Baseline candidate: Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, CA 94010.</small>
+      <small>3 nights · Selected redemption: Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, CA 94010, at $0 cash lodging cost.</small>
       <span class="lodging-stop-more">Details <span class="icon lodging-stop-chevron" aria-hidden="true"><svg><use href="#i-chevron-right" /></svg></span></span>
     </a><a class="lodging-stop open" data-loc="yosemite" href="#hotel-yosemite-2026-09-27-29">
       <div class="lodging-stop-head">
@@ -1548,7 +1561,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         <span class="badge badge-selected">Selected</span>
       </div>
       <strong>San Diego</strong>
-      <small>3 nights · Selected property: Hyatt House San Diego Sorrento Mesa, expected $659.78 for Oct 1-4 across two back-to-back reservations.</small>
+      <small>3 nights · Selected points stay: Hyatt House San Diego Sorrento Mesa, $0 cash for Oct 1-4; cash equivalent $659.78.</small>
       <span class="lodging-stop-more">Details <span class="icon lodging-stop-chevron" aria-hidden="true"><svg><use href="#i-chevron-right" /></svg></span></span>
     </a><a class="lodging-stop selected" data-loc="la" href="#hotel-la-2026-10-04-06">
       <div class="lodging-stop-head">
@@ -1564,25 +1577,25 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         <div>
           <h3>Burlingame / SFO</h3>
           <div class="stay-info">2026-09-24 to 2026-09-27 · 3 nights</div>
-          <div class="stay-info">Three-night airport-Hyatt baseline before the Yosemite drive.</div>
+          <div class="stay-info">Three points or certificate nights near SFO before the Yosemite drive.</div>
           <div class="day-pills"><a href="#day-2026-09-24">Sep 24</a><a href="#day-2026-09-25">Sep 25</a><a href="#day-2026-09-26">Sep 26</a></div>
         </div>
         <div class="hotel-winner-wrap">
-          <span class="hotel-winner">Baseline candidate: Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, CA 94010.</span>
-          <span class="hotel-winner-price">$451.38</span>
+          <span class="hotel-winner">Selected redemption: Hyatt Regency San Francisco Airport, 1333 Bayshore Highway, Burlingame, CA 94010, at $0 cash lodging cost.</span>
+
           <a class="hotel-official-link" href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">Official hotel page</a>
         </div>
       </div>
       <div class="candidate-row is-winner">
         <div class="cand-main">
           <div class="cand-name"><span class="winner-dot">★</span> Hyatt Regency San Francisco Airport</div>
-          <div class="cand-role">Baseline opening stay</div>
+          <div class="cand-role">Selected points or certificate opening stay</div>
           <div class="cand-fit">Strong for SFO arrival, rental pickup, and Sep 27 Yosemite departure; weaker for central San Francisco sightseeing.</div>
 
           <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Breakfast</dt><dd>Do not assume included; verify the selected rate.</dd></div></dl></details>
         </div>
         <div class="cand-right">
-          <div class="cand-price">$451.38</div>
+          <div class="cand-price">$0 cash; estimated $677.07 cash equivalent</div>
 
           <span class="badge badge-selected">Selected</span>
           <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">source</a></div>
@@ -1605,7 +1618,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
       <details class="disclosure">
         <summary>Decision rule &amp; sources</summary>
         <div class="disclosure-body">
-          <p class="decision-rule">Keep the airport-Hyatt baseline only if its after-tax room total plus city commutes and the Sep 27-Oct 1 Model Y plan remains competitive with the central-SF fallback.</p>
+          <p class="decision-rule">Exclude the points-funded stay from the trip total. Keep its estimated $677.07 cash equivalent visible when comparing redemption value and city-commute cost.</p>
           <div class="source-links"><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/parking-and-transportation" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/sfobu-hyatt-regency-san-francisco-airport/policies" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://world.hyatt.com/content/gp/en/my-account/badges/waived-resort-fees.html" target="_blank" rel="noreferrer">world.hyatt.com</a><a href="https://www.caltrain.com/" target="_blank" rel="noreferrer">caltrain.com</a></div>
         </div>
       </details>
@@ -1632,7 +1645,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
           <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Times</dt><dd>Check-in 15:00 · checkout 11:00</dd></div><div><dt>Breakfast</dt><dd>Not assumed; use groceries or simple meals only if listing amenities support it.</dd></div></dl></details>
         </div>
         <div class="cand-right">
-          <div class="cand-price">$595.88</div>
+          <div class="cand-price">¥4,052 selected total</div>
 
           <span class="badge badge-selected">Selected</span>
           <div class="cand-meta"><a href="https://www.airbnb.com/rooms/19059191?unique_share_id=98e401ee-2c77-436c-ba84-9b795231ca87&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noreferrer">source</a></div>
@@ -1683,7 +1696,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
         </div>
         <div class="hotel-winner-wrap">
           <span class="hotel-winner">Booked: Holiday Inn Express at Monterey Bay.</span>
-          <span class="hotel-winner-price">$436.38</span>
+
           <a class="hotel-official-link" href="https://www.ihg.com/holidayinnexpress/hotels/us/en/seaside/mryca/hoteldetail" target="_blank" rel="noreferrer">Official hotel page</a>
         </div>
       </div>
@@ -1696,7 +1709,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
           <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Times</dt><dd>Check-in 15:00 · checkout 12:00</dd></div><div><dt>Breakfast</dt><dd>Complimentary hot breakfast listed by the hotel; verify current service.</dd></div></dl></details>
         </div>
         <div class="cand-right">
-          <div class="cand-price">$436.38</div>
+          <div class="cand-price">¥2,963 booked total</div>
 
           <span class="badge badge-selected">Selected</span>
           <div class="cand-meta"><a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/seaside/mryca/hoteldetail" target="_blank" rel="noreferrer">source</a></div>
@@ -1718,21 +1731,21 @@ details.panel .disclosure-body{padding:2px 16px 14px}
           <div class="day-pills"><a href="#day-2026-10-01">Oct 1</a><a href="#day-2026-10-02">Oct 2</a><a href="#day-2026-10-03">Oct 3</a></div>
         </div>
         <div class="hotel-winner-wrap">
-          <span class="hotel-winner">Selected property: Hyatt House San Diego Sorrento Mesa, expected $659.78 for Oct 1-4 across two back-to-back reservations.</span>
-          <span class="hotel-winner-price">$659.78</span>
+          <span class="hotel-winner">Selected points stay: Hyatt House San Diego Sorrento Mesa, $0 cash for Oct 1-4; cash equivalent $659.78.</span>
+
           <a class="hotel-official-link" href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">Official hotel page</a>
         </div>
       </div>
       <div class="candidate-row is-winner">
         <div class="cand-main">
           <div class="cand-name"><span class="winner-dot">★</span> Hyatt House San Diego Sorrento Mesa</div>
-          <div class="cand-role">Selected three-night local-plan base. Oct 1 is separately priced; Oct 2-4 is confirmed.</div>
+          <div class="cand-role">Selected three-night points-funded local-plan base.</div>
           <div class="cand-fit">Strong for the fixed local-plan block; the extra Thursday arrival night creates more buffer.</div>
 
-          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Confirmation</dt><dd>Private confirmation on file</dd></div><div><dt>Confirmed stay</dt><dd>Oct 2, 2026 at 15:00 to Oct 4, 2026 at 12:00</dd></div><div><dt>Guest</dt><dd>Two adults</dd></div><div><dt>Times</dt><dd>Check-in 15:00 · checkout 12:00</dd></div><div><dt>Room</dt><dd>Acc King Shwr Ns — ADA King room with ADA shower, no sofa bed, Hyatt Grand Bed, Cozy Corner</dd></div><div><dt>Rate</dt><dd>World of Hyatt Member Rate</dd></div><div><dt>Nightly rates</dt><dd>Oct 1: $267.82 all-in; confirmation and room type pending · Oct 2: $171.00 before tax · Oct 3: $170.00 before tax</dd></div><div><dt>Taxes</dt><dd>12.750% occupancy tax + 2.000% city tax + 0.195% California tourism fee</dd></div><div><dt>Breakfast</dt><dd>Hot breakfast is included in the confirmed Oct 2-4 room description; verify that the separate Oct 1 rate matches.</dd></div><div><dt>Preferences</dt><dd>High floor and quiet room requested; non-smoking room confirmed. Preferences remain subject to availability.</dd></div></dl></details>
+          <details class="cand-booking"><summary>Reservation details</summary><dl><div><dt>Confirmation</dt><dd>Private confirmation on file</dd></div><div><dt>Confirmed stay</dt><dd>Oct 2, 2026 at 15:00 to Oct 4, 2026 at 12:00</dd></div><div><dt>Guest</dt><dd>Two adults</dd></div><div><dt>Times</dt><dd>Check-in 15:00 · checkout 12:00</dd></div><div><dt>Room</dt><dd>Acc King Shwr Ns — ADA King room with ADA shower, no sofa bed, Hyatt Grand Bed, Cozy Corner</dd></div><div><dt>Rate</dt><dd>World of Hyatt Member Rate</dd></div><div><dt>Nightly rates</dt><dd>Oct 1: $0 cash; $267.82 cash equivalent · Oct 2-4: $0 cash; $391.96 cash equivalent</dd></div><div><dt>Taxes</dt><dd>12.750% occupancy tax + 2.000% city tax + 0.195% California tourism fee</dd></div><div><dt>Breakfast</dt><dd>Hot breakfast is included in the confirmed Oct 2-4 room description; verify that the separate Oct 1 rate matches.</dd></div><div><dt>Preferences</dt><dd>High floor and quiet room requested; non-smoking room confirmed. Preferences remain subject to availability.</dd></div></dl></details>
         </div>
         <div class="cand-right">
-          <div class="cand-price">$659.78</div>
+          <div class="cand-price">$0 cash; $659.78 cash equivalent for Oct 1-4.</div>
 
           <span class="badge badge-selected">Selected</span>
           <div class="cand-meta"><a href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">source</a></div>
@@ -1783,7 +1796,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
       <details class="disclosure">
         <summary>Decision rule &amp; sources</summary>
         <div class="disclosure-body">
-          <p class="decision-rule">Keep the selected Hyatt House stay. Record the Oct 1 confirmation, link it to the confirmed Oct 2-4 reservation, and ask the hotel to retain the same room so the fixed Oct 2 plan is not disrupted.</p>
+          <p class="decision-rule">Exclude all three points nights from the trip total. Keep the $659.78 cash equivalent visible, link the award reservations, and request the same room.</p>
           <div class="source-links"><a href="https://www.hyatt.com/hyatt-house/en-US/sanxs-hyatt-house-san-diego-sorrento-mesa" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.hyatt.com/hyatt-regency/en-US/jolla-hyatt-regency-la-jolla-at-aventine" target="_blank" rel="noreferrer">hyatt.com</a><a href="https://www.san.org/before-you-go-travel-tips/public-transportation/" target="_blank" rel="noreferrer">san.org</a><a href="https://www.pacificsurfliner.com/destinations/san-diego-santa-fe-depot/" target="_blank" rel="noreferrer">pacificsurfliner.com</a></div>
         </div>
       </details>
@@ -1871,14 +1884,14 @@ details.panel .disclosure-body{padding:2px 16px 14px}
 <!-- ── Costs ── -->
 <section class="screen" id="screen-costs" aria-label="Costs">
   <div class="cost-total-banner">
-      <div><span class="cot-label">Trip total</span><span class="cot-val">$7,696.85-$8,251.85</span></div>
-      <span class="cot-note">baseline for two travelers, including estimated lodging, Uber, food, and Yosemite nonresident fees; excludes optional add-ons</span>
+      <div><span class="cot-label">Trip total</span><span class="cot-val">$6,586.57-$7,141.57</span></div>
+    <span class="cot-note">cash baseline for two travelers; excludes the points-funded SFO-airport and San Diego stays, their cash equivalents, and optional add-ons</span>
     </div>
     <div class="cost-summary-grid">
       <div class="cost-summary-tile">
-      <span>Committed so far</span>
-      <strong>$4,255.69</strong>
-      <small>Booked flights + selected lodging, exact amounts</small>
+      <span>Cash committed</span>
+      <strong>$4,256.57</strong>
+      <small>Booked cash items; points stays are excluded</small>
     </div>
       <div class="cost-summary-tile">
       <span>Optional add-ons</span>
@@ -1888,6 +1901,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     </div>
     <p class="cost-legend">
       <span class="legend-pair"><span class="cost-badge paid">Committed</span>booked or selected</span>
+      <span class="legend-pair"><span class="cost-badge points">Points</span>$0 cash; equivalent shown</span>
       <span class="legend-pair"><span class="cost-badge">Quoted</span>priced, not booked</span>
       <span class="legend-pair"><span class="cost-badge estimate">Estimate</span>planning range</span>
     </p>
@@ -1910,7 +1924,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     </div><div class="cost-line status-included">
       <div class="cost-line-main">
         <div class="cost-line-top"><span class="cost-badge included">Booked</span><strong>SFO -&gt; SAN flight</strong></div>
-        <div class="cost-line-note">About $276.29 at planning FX 1 USD ≈ ¥6.79. Leave the Monterey Bay hotel around 10:30-11:00, target SFO by 13:30-14:00, return the Model Y, and protect the 16:00 departure.</div>
+        <div class="cost-line-note">Booked price for the trip party. Leave the Monterey Bay hotel around 10:30-11:00, target SFO by 13:30-14:00, return the Model Y, and protect the 16:00 departure.</div>
 
         <details class="cost-basis-detail"><summary>Basis</summary><p>Booked Southwest WN3787 for Thu Oct 1, SFO 16:00 -&gt; SAN 17:35. User-confirmed itinerary time controls this record; recheck the Southwest app before departure.</p></details>
       </div>
@@ -1922,78 +1936,78 @@ details.panel .disclosure-body{padding:2px 16px 14px}
           <h3>Lodging</h3>
           <small>5 lines</small>
         </div>
-        <div class="cost-group-total">$2,730.56</div>
+        <div class="cost-group-total">$1,620.28</div>
       </div>
-      <div class="cost-lines"><div class="cost-line status-estimate">
+      <div class="cost-lines"><div class="cost-line status-points">
       <div class="cost-line-main">
-        <div class="cost-line-top"><span class="cost-badge estimate">Estimated</span><strong>Opening Hyatt Regency SFO Sep 24-27</strong></div>
-        <div class="cost-line-note">Three nights: one Free Night Award plus two paid nights; parking excluded.</div>
+        <div class="cost-line-top"><span class="cost-badge points">Points</span><strong>Opening Hyatt Regency SFO Sep 24-27</strong></div>
+        <div class="cost-line-note">Points or certificate redemption. Estimated three-night cash equivalent: $677.07; excluded from the trip total.</div>
         <div class="nightly-cost-wrap"><table class="nightly-cost-table">
-      <thead><tr><th>Date</th><th>Room</th><th>Room tax</th><th>Destination fee + tax</th><th>Total</th></tr></thead>
+      <thead><tr><th>Night</th><th>Cash due</th><th>Cash equivalent</th><th>Redemption</th><th>Included in total</th></tr></thead>
       <tbody><tr>
       <th scope="row">Sep 24</th>
       <td>$0</td>
-      <td>$0</td>
-      <td>$0 expected</td>
+      <td>$225.69 estimated</td>
+      <td>Points or certificate</td>
       <td><strong>$0</strong></td>
     </tr><tr>
       <th scope="row">Sep 25</th>
-      <td>$174.00</td>
-      <td>$23.83</td>
-      <td>$28.43</td>
-      <td><strong>$226.26</strong></td>
+      <td>$0</td>
+      <td>$226.26</td>
+      <td>Points or certificate</td>
+      <td><strong>$0</strong></td>
     </tr><tr>
       <th scope="row">Sep 26</th>
-      <td>$173.00</td>
-      <td>$23.69</td>
-      <td>$28.43</td>
-      <td><strong>$225.12</strong></td>
+      <td>$0</td>
+      <td>$225.12</td>
+      <td>Points or certificate</td>
+      <td><strong>$0</strong></td>
     </tr></tbody>
-      <tfoot><tr><th colspan="4">Three-night estimate</th><td><strong>$451.38</strong></td></tr></tfoot>
+      <tfoot><tr><th colspan="4">Cash due for three-night redemption</th><td><strong>$0</strong></td></tr></tfoot>
     </table></div>
-        <details class="cost-basis-detail"><summary>Basis</summary><p>User-provided estimate: Sep 24 Free Night Award $0; Sep 25 room $174.00 + room tax $23.83 + destination fee and tax $28.43 = $226.26; Sep 26 room $173.00 + room tax $23.69 + destination fee and tax $28.43 = $225.12. Hyatt publishes a $25 daily destination fee for this hotel and waives resort fees on Free Night Awards for World of Hyatt members. Because the property labels the charge a destination fee, verify the award-night waiver on the reservation and final folio.</p></details>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Treat all three Sep 24-27 nights as points or certificate redemptions with $0 cash lodging cost in the trip total. The estimated cash equivalent is $677.07: $225.69 estimated for Sep 24 from the adjacent-night average, $226.26 for Sep 25, and $225.12 for Sep 26. Confirm that destination fees are waived on every award night.</p></details>
       </div>
-      <div class="cost-line-value">$451.38</div>
+      <div class="cost-line-value">$0</div>
     </div><div class="cost-line status-selected">
       <div class="cost-line-main">
         <div class="cost-line-top"><span class="cost-badge selected">Selected</span><strong>Yosemite Airbnb Sep 27-29</strong></div>
-        <div class="cost-line-note">Two travelers, converted from ¥4,052 CNY.</div>
+        <div class="cost-line-note">Two travelers and two selected nights.</div>
 
         <details class="cost-basis-detail"><summary>Basis</summary><p>User-provided Yosemite Airbnb quote for Sep 27-29. Keep parking, cancellation, exact location fit, and card-settlement FX under review until booking is final.</p></details>
       </div>
-      <div class="cost-line-value">$595.88</div>
+      <div class="cost-line-value">¥4,052</div>
     </div><div class="cost-line status-included">
       <div class="cost-line-main">
         <div class="cost-line-top"><span class="cost-badge included">Booked</span><strong>Holiday Inn Express at Monterey Bay Sep 29-Oct 1</strong></div>
-        <div class="cost-line-note">Two booked nights; about $436.38 at planning FX 1 USD ≈ ¥6.79. Confirmed final Northern California hotel base.</div>
+        <div class="cost-line-note">Two booked nights for the trip party. Confirmed final Northern California hotel base.</div>
 
         <details class="cost-basis-detail"><summary>Basis</summary><p>Booked Holiday Inn Express at Monterey Bay, 1400 Del Monte Boulevard, Seaside, CA 93955, for Sep 29-Oct 1.</p></details>
       </div>
       <div class="cost-line-value">¥2,963</div>
-    </div><div class="cost-line status-estimate">
+    </div><div class="cost-line status-points">
       <div class="cost-line-main">
-        <div class="cost-line-top"><span class="cost-badge estimate">Partial</span><strong>San Diego lodging Oct 1-4</strong></div>
-        <div class="cost-line-note">Oct 1 separately priced at $267.82; Oct 2-4 confirmed at $391.96.</div>
+        <div class="cost-line-top"><span class="cost-badge points">Points</span><strong>San Diego lodging Oct 1-4</strong></div>
+        <div class="cost-line-note">Three nights redeemed with points. Cash equivalent: $659.78; excluded from the trip total.</div>
         <div class="nightly-cost-wrap"><table class="nightly-cost-table">
-      <thead><tr><th>Stay segment</th><th>Room rate</th><th>Taxes and fees</th><th>Status</th><th>Total</th></tr></thead>
+      <thead><tr><th>Stay segment</th><th>Cash due</th><th>Cash equivalent</th><th>Redemption</th><th>Included in total</th></tr></thead>
       <tbody><tr>
       <th scope="row">Oct 1</th>
-      <td>Not itemized</td>
-      <td>Included</td>
-      <td>Confirmation pending</td>
-      <td><strong>$267.82</strong></td>
+      <td>$0</td>
+      <td>$267.82</td>
+      <td>Points</td>
+      <td><strong>$0</strong></td>
     </tr><tr>
       <th scope="row">Oct 2-4</th>
-      <td>$341.00</td>
-      <td>$50.96</td>
-      <td>Confirmed · private reference on file</td>
-      <td><strong>$391.96</strong></td>
+      <td>$0</td>
+      <td>$391.96</td>
+      <td>Points</td>
+      <td><strong>$0</strong></td>
     </tr></tbody>
-      <tfoot><tr><th colspan="4">Three-night estimate</th><td><strong>$659.78</strong></td></tr></tfoot>
+      <tfoot><tr><th colspan="4">Cash due for three-night redemption</th><td><strong>$0</strong></td></tr></tfoot>
     </table></div>
-        <details class="cost-basis-detail"><summary>Basis</summary><p>User-provided Hyatt House San Diego Sorrento Mesa details. Oct 1 is an all-in $267.82 price with confirmation and room type still to be recorded. Oct 2-4 is confirmed under a private confirmation on file: $171 on Oct 2 plus $170 on Oct 3, with 12.750% occupancy tax, 2.000% city tax, and 0.195% California tourism fee. The two-night room subtotal is $341.00, calculated tax and fees are $50.96, and the expected two-night total is $391.96.</p></details>
+        <details class="cost-basis-detail"><summary>Basis</summary><p>Treat all three Oct 1-4 nights as points redemptions with $0 cash lodging cost in the trip total. The cash equivalent remains $659.78: $267.82 for Oct 1 and $391.96 for Oct 2-4. Confirm the redemption, link the reservations, and request room continuity.</p></details>
       </div>
-      <div class="cost-line-value">$659.78</div>
+      <div class="cost-line-value">$0</div>
     </div><div class="cost-line status-selected">
       <div class="cost-line-main">
         <div class="cost-line-top"><span class="cost-badge selected">Selected</span><strong>Los Angeles lodging Oct 4-6</strong></div>
@@ -2217,7 +2231,7 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     </article></div>
   <details class="disclosure panel">
     <summary>Assumptions &amp; risk notes</summary>
-    <div class="disclosure-body"><ul class="risk-list"><li>Treat the airport-Hyatt baseline as provisional until its final folio and city-commute costs are confirmed.</li><li>Do not compare a suburban room rate with a central-SF hotel without adding commute cost and time; this baseline does not include Hyatt parking.</li><li>Holiday Inn Express at Monterey Bay is booked at ¥2,963 CNY for Sep 29-Oct 1.</li><li>Southwest WN3787 is booked at ¥1,876 CNY for Oct 1, SFO 16:00 to SAN 17:35.</li><li>Treat the $659.78 San Diego total as expected until the Oct 1 reservation details and room continuity are confirmed.</li><li>The $320-$605 rideshare budget assumes friends cover San Diego local transport and the Oct 4 station drop-off.</li><li>The Yosemite self-drive entry estimate is $235 for two non-US adults under the current 2026 fee structure.</li><li>The Yosemite Airbnb and Los Angeles hotel remain the selected lodging anchors.</li><li>The Yosemite small-group tour is an emergency layer only.</li></ul></div>
+    <div class="disclosure-body"><ul class="risk-list"><li>The three SFO-airport nights use points or certificates: $0 cash in the trip total, with an estimated $677.07 cash equivalent shown separately.</li><li>Do not compare a suburban room rate with a central-SF hotel without adding commute cost and time; this baseline does not include Hyatt parking.</li><li>Holiday Inn Express at Monterey Bay is booked at ¥2,963 CNY for Sep 29-Oct 1.</li><li>Southwest WN3787 is booked at ¥1,876 CNY for Oct 1, SFO 16:00 to SAN 17:35.</li><li>The three San Diego nights use points: $0 cash in the trip total, with a $659.78 cash equivalent shown separately.</li><li>The $320-$605 rideshare budget assumes friends cover San Diego local transport and the Oct 4 station drop-off.</li><li>The Yosemite self-drive entry estimate is $235 for two non-US adults under the current 2026 fee structure.</li><li>The Yosemite Airbnb and Los Angeles hotel remain the selected lodging anchors.</li><li>The Yosemite small-group tour is an emergency layer only.</li></ul></div>
   </details>
   <details class="disclosure panel">
     <summary>Sources</summary>
@@ -2230,9 +2244,9 @@ details.panel .disclosure-body{padding:2px 16px 14px}
   <ul class="task-list"><li class="task-item" id="action-1">
       <span class="task-num">1</span>
       <div>
-        <div class="task-title">Confirm Hyatt Regency SFO estimate</div>
-        <div class="task-detail">Use $451.38 as the Sep 24-27 lodging estimate: Sep 24 Free Night Award at $0 expected, then $226.26 and $225.12 for the paid nights. Confirm the award-night fee waiver and cancellation terms, add city commutes and the Sep 27 Model Y handoff, then compare that combined cost and time with the central-SF fallback.</div>
-        <div class="day-pills"><a href="#day-2026-09-24">Sep 24</a><a href="#day-2026-09-27">Sep 27</a></div>
+        <div class="task-title">Confirm all three Hyatt Regency SFO award nights</div>
+        <div class="task-detail">Treat Sep 24-27 lodging as $0 cash using points or certificates. Estimated cash equivalent is $677.07. Confirm every award reservation, cancellation term, and destination-fee waiver.</div>
+        <div class="day-pills"><a href="#day-2026-09-24">Sep 24</a></div>
       </div>
       <div class="task-side">
         <span class="badge badge-open">Open</span>
@@ -2285,9 +2299,9 @@ details.panel .disclosure-body{padding:2px 16px 14px}
     </li><li class="task-item" id="action-6">
       <span class="task-num">6</span>
       <div>
-        <div class="task-title">Link the San Diego back-to-back reservations</div>
-        <div class="task-detail">Record the Oct 1 confirmation and room type for the $267.82 stay, then ask Hyatt House to link it with the private Oct 2-4 confirmation on file. Request the same ADA King room, verify breakfast on Oct 2, and confirm whether a key refresh is required.</div>
-        <div class="day-pills"><a href="#day-2026-10-01">Oct 1</a><a href="#day-2026-10-02">Oct 2</a></div>
+        <div class="task-title">Confirm and link the three San Diego award nights</div>
+        <div class="task-detail">Treat Oct 1-4 lodging as $0 cash using points. Cash equivalent is $659.78. Confirm all award reservations, link the stays, request the same ADA King room, verify breakfast, and check whether a key refresh is required.</div>
+        <div class="day-pills"><a href="#day-2026-10-01">Oct 1</a></div>
       </div>
       <div class="task-side">
         <span class="badge badge-open">Open</span>
@@ -2342,6 +2356,69 @@ details.panel .disclosure-body{padding:2px 16px 14px}
 (function() {
   var SCREENS = ["overview","itinerary","lodging","costs","tasks"];
   var navLinks = document.querySelectorAll(".app-nav a[data-screen]");
+  var currencyButtons = document.querySelectorAll("[data-currency]");
+  var FX_USD_CNY = 6.79;
+  var currencyTextNodes = [];
+
+  function formatCurrency(value, currency, converted) {
+    var rounded = Math.round(value * 100) / 100;
+    var hasFraction = Math.abs(rounded - Math.round(rounded)) > 0.0001;
+    var digits = converted || hasFraction ? 2 : 0;
+    var symbol = currency === "CNY" ? "¥" : "$";
+    return symbol + rounded.toLocaleString("en-US", {
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits
+    });
+  }
+
+  function convertCurrencyText(source, target) {
+    return String(source).replace(/((?:US)?\$|¥)\s*([\d,]+(?:\.\d+)?)(?:\s*CNY)?/gi, function(match, symbol, numberText) {
+      var amount = Number(numberText.replace(/,/g, ""));
+      if (!Number.isFinite(amount)) return match;
+      var sourceCurrency = symbol.indexOf("¥") >= 0 ? "CNY" : "USD";
+      if (sourceCurrency === target) return formatCurrency(amount, target, false);
+      var converted = target === "CNY" ? amount * FX_USD_CNY : amount / FX_USD_CNY;
+      return formatCurrency(converted, target, true);
+    });
+  }
+
+  var currencyWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode: function(node) {
+      var parent = node.parentElement;
+      if (!parent || parent.closest("script,style,noscript")) return NodeFilter.FILTER_REJECT;
+      if (!/[\$¥]/.test(node.nodeValue || "")) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  while (currencyWalker.nextNode()) {
+    var currencyNode = currencyWalker.currentNode;
+    currencyTextNodes.push({ node: currencyNode, source: currencyNode.nodeValue });
+  }
+
+  function applyCurrency(target, persist) {
+    var selected = target === "USD" ? "USD" : "CNY";
+    currencyTextNodes.forEach(function(entry) {
+      entry.node.nodeValue = convertCurrencyText(entry.source, selected);
+    });
+    document.documentElement.dataset.currency = selected;
+    currencyButtons.forEach(function(button) {
+      var active = button.dataset.currency === selected;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    if (persist) {
+      try { localStorage.setItem("ca26-currency", selected); } catch (error) {}
+    }
+  }
+
+  var storedCurrency = "";
+  try { storedCurrency = localStorage.getItem("ca26-currency") || ""; } catch (error) {}
+  var queryCurrency = new URLSearchParams(location.search).get("currency");
+  var initialCurrency = queryCurrency === "USD" || queryCurrency === "CNY" ? queryCurrency : storedCurrency;
+  applyCurrency(initialCurrency === "USD" ? "USD" : "CNY", false);
+  currencyButtons.forEach(function(button) {
+    button.addEventListener("click", function() { applyCurrency(button.dataset.currency, true); });
+  });
 
   function showScreen(id) {
     SCREENS.forEach(function(s) {
